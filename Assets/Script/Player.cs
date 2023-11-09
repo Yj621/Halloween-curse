@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header ("카메라")]
+    public float smoothTime = 0.3F;
+    private Vector3 velocity = Vector3.zero;
+    public Camera mainCamera; 
+
+    [Header ("플레이어")]
     public float speed;
     Rigidbody2D rigid;
     float h; //Horizontal
@@ -59,6 +65,22 @@ public class Player : MonoBehaviour
         rigid.velocity = moveVec * speed;
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Stairs")
+        {
+            StartCoroutine(SmoothMove(new Vector3(4, 2.5f, mainCamera.transform.position.z)));
+            Debug.Log("1");
+        }
+    }
 
+    IEnumerator SmoothMove(Vector3 target)
+    {
+        while (Vector3.Distance(mainCamera.transform.position, target) > 0.05f)
+        {
+            mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, target, ref velocity, smoothTime);
+            yield return null;
+        }
+    }
 
 }
