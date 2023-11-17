@@ -15,6 +15,7 @@ public class CameraController : MonoBehaviour
         FirstFloor.SetActive(false);
         
     }
+    //2층 올라가는 함수
     public void SecondStair()
     {
         StartCoroutine(SmoothMove(new Vector3(4, 2.5f, mainCamera.transform.position.z)));
@@ -23,6 +24,7 @@ public class CameraController : MonoBehaviour
         Debug.Log("2");
         FirstFloor.SetActive(true);
     }
+    //1층 내려가는 함수
     public void FirstStair()
     {
         StartCoroutine(SmoothMove(new Vector3(-3.5f, -2, mainCamera.transform.position.z)));
@@ -34,7 +36,7 @@ public class CameraController : MonoBehaviour
 
     void Delay2()
     {
-
+        //2초 딜레이 함수
     }
 
     IEnumerator SmoothMove(Vector3 target)
