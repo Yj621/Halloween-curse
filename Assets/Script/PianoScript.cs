@@ -7,10 +7,10 @@ public class PianoScript : MonoBehaviour
 {
     //변수 선언
     public GameObject imgpiano;
-    public bool havesheet;
-    public bool havepiece;
+    //public bool havesheet;
+    //public bool havepiece;
     public List<int> pianoarr;
-    bool imgstatus = true;
+    bool imgstatus = false;
     
 
     public AudioSource audioplayer;
@@ -20,8 +20,6 @@ public class PianoScript : MonoBehaviour
     //게임 시작 시 기본 설정.
     void Start()
     {
-        havesheet = false;
-        havepiece = false;
         pianoarr = new List<int>();
         imgpiano.SetActive(false);
         
@@ -110,7 +108,7 @@ public class PianoScript : MonoBehaviour
             }
             if (pianoanswercount == 7)
             {
-                havepiece = true;
+                Item.piece = true;
             }
             pianoarr.Clear();
             Debug.Log("good");
@@ -121,6 +119,5 @@ public class PianoScript : MonoBehaviour
     void Update()
     {
         piano();
-        
     }
 }
