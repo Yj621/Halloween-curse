@@ -7,21 +7,21 @@ public class PianoScript : MonoBehaviour
 {
     //변수 선언
     public GameObject imgpiano;
-    //public bool havesheet;
-    //public bool havepiece;
-    public List<int> pianoarr;
-    bool imgstatus = false;
+    public GameObject imgpiano2;
+    public List<int> pianoarr;    
+    public bool play = false;
     
-
+    //오디오 관련 변수 선언
     public AudioSource audioplayer;
     public AudioClip[] pianoclip;
     
 
-    //게임 시작 시 기본 설정.
+    //이미지 변수 및 오디오 포맷
     void Start()
     {
         pianoarr = new List<int>();
         imgpiano.SetActive(false);
+        imgpiano2.SetActive(false);
         
 
         audioplayer = GetComponent<AudioSource>();
@@ -30,8 +30,9 @@ public class PianoScript : MonoBehaviour
     //피아노 상호작용시 작동하는 스크립트
     void piano()
     {
-        imgpiano.SetActive(imgstatus);
-
+        imgpiano.SetActive(true);
+        imgpiano2.SetActive(true);
+        
         int[] pianoanswer = {3,2,1,2,3,3,3};
         int pianoanswercount = 0;
         if (pianoarr.Count < 7)
@@ -86,7 +87,9 @@ public class PianoScript : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                imgstatus = false;
+                imgpiano.SetActive(false);
+                imgpiano2.SetActive(false);
+                play = false;
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -109,6 +112,7 @@ public class PianoScript : MonoBehaviour
             if (pianoanswercount == 7)
             {
                 Item.piece = true;
+                imgpiano.SetActive(false);
             }
             pianoarr.Clear();
             Debug.Log("good");
@@ -118,6 +122,14 @@ public class PianoScript : MonoBehaviour
     
     void Update()
     {
-        piano();
+        if (Input.GetKeyDown(KeyCode.F2) && Item.sheet)
+        {
+            play = true;
+        }
+        if (play)
+        {
+            piano();
+        }
+
     }
 }

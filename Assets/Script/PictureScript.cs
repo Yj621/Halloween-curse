@@ -6,6 +6,7 @@ public class PictureScript : MonoBehaviour
 {
     public GameObject before;
     public GameObject after;
+    public bool play = false;
 
     bool imgstatus = false;
     
@@ -20,15 +21,13 @@ public class PictureScript : MonoBehaviour
 
     void picture()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            imgstatus = true;
-        }
+        imgstatus = true;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             imgstatus = false;
             before.SetActive(false);
             after.SetActive(false);
+            play = false;
         }
 
 
@@ -50,6 +49,14 @@ public class PictureScript : MonoBehaviour
     
     void Update()
     {
-        picture();
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            play = true;
+        }
+        if (play)
+        {
+            picture();
+        }
+        
     }
 }
