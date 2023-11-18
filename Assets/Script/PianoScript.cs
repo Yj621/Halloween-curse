@@ -117,12 +117,6 @@ public class PianoScript : MonoBehaviour
         }
     }
 
-    //그림조각을 얻고 액자와 상호작용 했을 때 실행되는 스크립트
-    void frame()
-    {
-
-    }
-
     
     void Update()
     {
