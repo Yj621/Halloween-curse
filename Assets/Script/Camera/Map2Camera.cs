@@ -7,10 +7,10 @@ public class Map2Camera : MonoBehaviour
     public float cameraSpeed = 5.0f;
     public GameObject player;
 
-    public float minX = -2.13f;
-    public float maxX = 2.13f;
-    public float minY = -1.5f;
-    public float maxY = 1.5f;
+    public float minX = -3.8f;
+    public float maxX = 4.3f;
+    public float minY = -4.3f;
+    public float maxY = 3.0f;
 
     private void Update()
     {
@@ -18,10 +18,10 @@ public class Map2Camera : MonoBehaviour
         Vector3 moveVector = new Vector3(dir.x * cameraSpeed * Time.deltaTime, dir.y * cameraSpeed * Time.deltaTime, 0.0f);
         Vector3 newPosition = this.transform.position + moveVector;
 
-        // XÃà Á¦ÇÑ
+        // Xì¶• ì œí•œ
         newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
 
-        // YÃà Á¦ÇÑ
+        // Yì¶• ì œí•œ
         newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
 
         this.transform.position = newPosition;
