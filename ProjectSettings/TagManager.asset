@@ -6,6 +6,8 @@ TagManager:
   tags:
   - SecondStairs
   - FirstStairs
+  - Map1
+  - Map2
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - UI
   - Player
   - Furniture
-  - 
+  - Object
   - 
   - 
   - 

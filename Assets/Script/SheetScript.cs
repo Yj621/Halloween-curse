@@ -14,7 +14,7 @@ public class SheetScript : MonoBehaviour
     }
 
 
-    void sheet()
+    public void sheet()
     {
         Item.sheet = true;
         imgsheet.SetActive(true);
