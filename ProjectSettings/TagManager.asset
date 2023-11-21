@@ -8,6 +8,7 @@ TagManager:
   - FirstStairs
   - Map1
   - Map2
+  - Store
   layers:
   - Default
   - TransparentFX

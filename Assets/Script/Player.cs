@@ -83,19 +83,34 @@ public class Player : MonoBehaviour
 
         //스페이스바 눌렀을때 오브젝트 이름 가져와서 
 
-        //스캔 오브젝트
-        if (Input.GetButtonDown("Jump") && scanObj != null)
+    // 스캔 오브젝트
+    if (Input.GetButtonDown("Jump") && scanObj != null)
+    {
+        switch (scanObj.name)
         {
-            if (scanObj.name == "Sheet")
-            {
+            case "Sheet":
                 sheetScript.sheet();
-            }
-            else if (scanObj.name == "Frame")
-            {
-                Debug.Log("2");
-            }
-            
+                break;
+            case "Frame":
+                // 액자에 스페이스바 눌렀을 때
+                Debug.Log(scanObj.name);
+                break;
+            case "piano":
+                // 피아노에 스페이스바 눌렀을 때
+                Debug.Log(scanObj.name);
+                break;
+            case "TV":
+                // TV에 스페이스바 눌렀을 때
+                Debug.Log(scanObj.name);
+                break;
+            case "Chest":
+                Debug.Log(scanObj.name);
+                break;
+            default:
+                // 처리할 이름이 없을 때의 기본 동작
+                break;
         }
+    }
         
     }
 
@@ -141,6 +156,10 @@ public class Player : MonoBehaviour
             Debug.Log("2");
             sceneManage.Map2();
             isKey = false;
+        }
+        if(other.gameObject.tag == "Store")
+        {
+            
         }
     }
 

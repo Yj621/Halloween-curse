@@ -337,7 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 62807508}
   - component: {fileID: 62807509}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roguelikeIndoor_transparent_236
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2341,8 +2341,9 @@ GameObject:
   m_Component:
   - component: {fileID: 585938436}
   - component: {fileID: 585938437}
-  m_Layer: 0
-  m_Name: roguelikeIndoor_transparent_327
+  - component: {fileID: 585938438}
+  m_Layer: 8
+  m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2415,6 +2416,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &585938438
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585938435}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.019594997}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.64, y: 0.60081}
+  m_EdgeRadius: 0
 --- !u!1 &586554536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3324,7 +3370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 737515890}
   - component: {fileID: 737515891}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: piano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3595,8 +3641,9 @@ GameObject:
   m_Component:
   - component: {fileID: 779438595}
   - component: {fileID: 779438596}
-  m_Layer: 0
-  m_Name: Furniture_props_20
+  - component: {fileID: 779438597}
+  m_Layer: 8
+  m_Name: TV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3610,13 +3657,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 779438594}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24907078, y: -0.2427494, z: -0.6543866, w: 0.67142737}
-  m_LocalPosition: {x: -1.8061981, y: -5.4700236, z: -2.3158796}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -1.929, y: -5.53, z: -2.3158796}
+  m_LocalScale: {x: 1.2072, y: 1.2072, z: 1.2072}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1610546618}
-  m_LocalEulerAnglesHint: {x: 0.96, y: -40.696, z: -88.883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &779438596
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3657,7 +3704,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: ef06301e84634d3439c40dd4c809b5cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3669,6 +3716,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &779438597
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779438594}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0076346993, y: 0.11581808}
+  m_SpriteTilingProperty:
+    border: {x: 0.0625, y: 0.25, z: 0.28125, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9847306, y: 0.76836383}
+  m_EdgeRadius: 0
 --- !u!1 &797411034
 GameObject:
   m_ObjectHideFlags: 0
@@ -5647,7 +5739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1174974229
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7618,7 +7710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1529420593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9742,7 +9834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1670598770}
   - component: {fileID: 1670598771}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: roguelikeIndoor_transparent_263
   m_TagString: Untagged
   m_Icon: {fileID: 0}
