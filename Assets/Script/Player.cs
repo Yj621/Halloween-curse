@@ -10,7 +10,17 @@ public class Player : MonoBehaviour
     float h; //Horizontal
     float v; //Vertical
     bool isHorizonMove;
+    public bool cameraMove = false;
+
+    //테스트를 위해 public으로 선언
     public bool isKey = false;
+    public bool isCarKey = false;
+    public bool isRod = false;    
+    public bool isCandy1 = false;
+
+    public bool isCandy2 = false;
+    bool statueInteraction= false;
+
     Vector3 dirVec;
     GameObject scanObj;
     Animator anim;
@@ -88,30 +98,93 @@ public class Player : MonoBehaviour
     {
         switch (scanObj.name)
         {
+            //악보
             case "Sheet":
                 sheetScript.sheet();
                 break;
+
             case "Frame":
                 // 액자에 스페이스바 눌렀을 때
                 Debug.Log(scanObj.name);
                 break;
+
             case "piano":
                 // 피아노에 스페이스바 눌렀을 때
                 Debug.Log(scanObj.name);
                 break;
+
             case "TV":
                 // TV에 스페이스바 눌렀을 때
                 Debug.Log(scanObj.name);
                 break;
+
+            //선반
             case "Chest":
                 Debug.Log(scanObj.name);
                 break;
+
+            // 쪽지 발견했을때
+            case "Note":
+                Debug.Log(scanObj.name);
+
+                //쪽지 없애기
+                Destroy(scanObj);
+                break;
+
+            //차
+            case "RedCar":
+                Debug.Log(scanObj.name);
+                break;
+            //차키 있을때만 실행
+            case "WhiteCar" when isCarKey == true:
+                Debug.Log("사탕 하나 겟또다제");
+                break;
+            //차키 없이 그냥 열었을때는 (차 모두 동일) 차키가 있어야할거같다 or 하얀차다.
+            case "WhiteCar":
+                Debug.Log(scanObj.name);
+                isCandy1 = true;
+                break;     
+
+            case "GreenCar":
+                Debug.Log(scanObj.name);
+                break;
+
+             //낚시대 있을때만 실행
+            case "Lake" when isRod == true:
+                Debug.Log("낚시를 해서 ~~%로 사탕얻게도 해야되네");
+                isCandy2 = true;
+                break;           
+
+            //호수이다. 무언가 필요하다 대화창
+            case "Lake":
+                Debug.Log(scanObj.name);
+                break;
+
             default:
                 // 처리할 이름이 없을 때의 기본 동작
                 break;
         }
     }
-        
+
+    //스페이스바 X 그냥 들어갈때        
+        if(scanObj != null && scanObj.name == "Statue" && !statueInteraction)
+        {
+            //사탕을 두개 들고 갔을때
+                if(isCandy1 && isCandy2)
+                {
+                    Debug.Log("사탕 줬으니까 안에 들어가도 된다");
+                }
+                else
+                {
+                    Debug.Log("동상:못들어간다! 무언갈 주면 들어보내줄거같다. 근데 한번은 보내주지 않을까?(사탕 얻으러 낚시해야됨)");
+                }
+                statueInteraction = true;
+        }
+        else if (scanObj != null && scanObj.name != "Statue" && statueInteraction)
+        {
+            // Player moved away from the Statue, reset the interaction
+            statueInteraction = false;
+        }
     }
 
     void FixedUpdate()
@@ -146,21 +219,40 @@ public class Player : MonoBehaviour
         //맵 1 입장 조건
         if (other.gameObject.tag == "Map1" && isKey)
         {
-            Debug.Log("1");
+            Debug.Log("Map1");
             sceneManage.Map1();
             isKey = false;
         }
+        else if(other.gameObject.tag == "Map1" && isKey == false)
+        {
+            //열쇠 안 갖고 탈출하려 했을때 대화창 뜨도록
+        }
+
         //맵 2 입장 조건(나중에 수정)
         if (other.gameObject.tag == "Map2" && isKey)
         {
-            Debug.Log("2");
+            Debug.Log("Map2");
             sceneManage.Map2();
             isKey = false;
         }
+        else if (other.gameObject.tag == "Map2" && isKey == false)
+        {
+            //열쇠 안 갖고 탈출하려 했을때 대화창 뜨도록            
+        }
+
+        //상점 들어가기
         if(other.gameObject.tag == "Store")
         {
-            
+            transform.position = new Vector2(-8, 1.3f);
+            cameraMove = true;
         }
+        //상점 나가기
+        if(other.gameObject.tag == "StoreExit")
+        {
+            transform.position = new Vector2(-4.44f, 1.25f);
+            cameraMove = false;
+        }
+        
     }
 
 }
