@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public bool cameraMove = false;
     public GameMangaer gameManager;
 
-    /* -> 게임메니저로 이동
+    // -> 게임메니저로 이동
     //테스트를 위해 public으로 선언
     public bool isKey = false;
     public bool isCarKey = false;
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     public bool isCandy2 = false;
 
     bool statueInteraction= false;
-    */
+    
 
     Vector3 dirVec;
     GameObject scanObj;
