@@ -1091,6 +1091,7 @@ GameObject:
   - component: {fileID: 183192467}
   - component: {fileID: 183192466}
   - component: {fileID: 183192468}
+  - component: {fileID: 183192469}
   m_Layer: 8
   m_Name: Sheet
   m_TagString: Untagged
@@ -1210,6 +1211,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &183192469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183192465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2107ed0b6f0ceb42a650eb37c948462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 5
+  condition: 0
 --- !u!1 &189570363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,7 +1236,8 @@ GameObject:
   - component: {fileID: 189570364}
   - component: {fileID: 189570365}
   - component: {fileID: 189570366}
-  m_Layer: 0
+  - component: {fileID: 189570367}
+  m_Layer: 8
   m_Name: Furniture_props_18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1330,6 +1346,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.10729778, y: 0.08047333}
   m_Size: {x: 0.28678536, y: 0.54871815}
   m_Direction: 0
+--- !u!114 &189570367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189570363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2107ed0b6f0ceb42a650eb37c948462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
+  condition: 0
 --- !u!1 &208466823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,11 +2144,6 @@ MonoBehaviour:
   talkPanel: {fileID: 0}
   isAction: 0
   dialogueIndex: 0
-  isKey: 0
-  isCarKey: 0
-  isRod: 0
-  isCandy1: 0
-  isCandy2: 0
 --- !u!4 &488195895
 Transform:
   m_ObjectHideFlags: 0
@@ -3008,8 +3033,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC548\uB155\uD558\uC138\uC694! \uB2E4\uC774\uC544\uB85C\uADF8 \uD14C\uC2A4\uD2B8
-    \uC785\uB2C8\uB2E4.  "
+  m_Text: 
 --- !u!222 &619793903
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3562,6 +3586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 737515890}
   - component: {fileID: 737515891}
+  - component: {fileID: 737515892}
   m_Layer: 8
   m_Name: piano
   m_TagString: Untagged
@@ -3631,6 +3656,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.54157066, y: 1.0447295}
   m_EdgeRadius: 0
+--- !u!114 &737515892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737515889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2107ed0b6f0ceb42a650eb37c948462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 7
+  condition: 0
 --- !u!1 &749348974
 GameObject:
   m_ObjectHideFlags: 0
@@ -3727,6 +3766,7 @@ GameObject:
   - component: {fileID: 757542502}
   - component: {fileID: 757542501}
   - component: {fileID: 757542500}
+  - component: {fileID: 757542504}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3823,6 +3863,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &757542504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757542499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2107ed0b6f0ceb42a650eb37c948462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  condition: 0
 --- !u!1 &779438594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3967,6 +4021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
+  condition: 0
 --- !u!1 &797411034
 GameObject:
   m_ObjectHideFlags: 0
@@ -3978,7 +4033,8 @@ GameObject:
   - component: {fileID: 797411035}
   - component: {fileID: 797411036}
   - component: {fileID: 797411038}
-  m_Layer: 0
+  - component: {fileID: 797411039}
+  m_Layer: 8
   m_Name: roguelikeIndoor_transparent_364
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4071,8 +4127,22 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.64, y: 0.64, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.64, y: 0.8686502, z: 0.2}
+  m_Center: {x: 0, y: -0.114325106, z: 0}
+--- !u!114 &797411039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797411034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2107ed0b6f0ceb42a650eb37c948462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 6
+  condition: 0
 --- !u!1 &818404012
 GameObject:
   m_ObjectHideFlags: 0
@@ -4312,11 +4382,6 @@ MonoBehaviour:
   talkPanel: {fileID: 1778733903}
   isAction: 0
   dialogueIndex: 0
-  isKey: 0
-  isCarKey: 0
-  isRod: 0
-  isCandy1: 0
-  isCandy2: 0
 --- !u!4 &829764732
 Transform:
   m_ObjectHideFlags: 0
@@ -10606,7 +10671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1778733904
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12104,6 +12169,10 @@ PrefabInstance:
     - target: {fileID: 4064892185705922733, guid: 230832c89d824e64794c79caa69a7334, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315512376630832607, guid: 230832c89d824e64794c79caa69a7334, type: 3}
+      propertyPath: isCarKey
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7315512376630832607, guid: 230832c89d824e64794c79caa69a7334, type: 3}
       propertyPath: gameManager
