@@ -16,6 +16,8 @@ public class DialogueManager : MonoBehaviour
     void GenerateData()
     {
         dialogueData.Add(1, new string[] { "테스트", "다이어로그", "입니다." }); // id, 대화 내용
+        dialogueData.Add(2, new string[] { "이것은", "액자", "입니다." }); //액자
+        dialogueData.Add(3, new string[] { "이것은", "TV", "입니다." }); //TV
     }
     public string GetDialogue(int id, int dialogueIndex)
     {

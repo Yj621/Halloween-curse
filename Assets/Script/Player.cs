@@ -11,15 +11,18 @@ public class Player : MonoBehaviour
     float v; //Vertical
     bool isHorizonMove;
     public bool cameraMove = false;
+    public GameMangaer gameManager;
 
+    /* -> 게임메니저로 이동
     //테스트를 위해 public으로 선언
     public bool isKey = false;
     public bool isCarKey = false;
     public bool isRod = false;    
     public bool isCandy1 = false;
-
     public bool isCandy2 = false;
+
     bool statueInteraction= false;
+    */
 
     Vector3 dirVec;
     GameObject scanObj;
@@ -96,78 +99,81 @@ public class Player : MonoBehaviour
     // 스캔 오브젝트
     if (Input.GetButtonDown("Jump") && scanObj != null)
     {
-        switch (scanObj.name)
-        {
-            //악보
-            case "Sheet":
-                sheetScript.sheet();
-                break;
+            gameManager.Action(scanObj);
+            Debug.Log(scanObj.name);
+            /* 
+            switch (scanObj.name)
+            {
+                //악보
+                case "Sheet":
+                    sheetScript.sheet();
+                    break;
 
-            case "Frame":
-                // 액자에 스페이스바 눌렀을 때
-                Debug.Log(scanObj.name);
-                break;
+                case "Frame":
+                    // 액자에 스페이스바 눌렀을 때
+                    Debug.Log(scanObj.name);
+                    break;
 
-            case "piano":
-                // 피아노에 스페이스바 눌렀을 때
-                Debug.Log(scanObj.name);
-                break;
+                case "piano":
+                    // 피아노에 스페이스바 눌렀을 때
+                    Debug.Log(scanObj.name);
+                    break;
 
-            case "TV":
-                // TV에 스페이스바 눌렀을 때
-                Debug.Log(scanObj.name);
-                break;
+                case "TV":
+                    // TV에 스페이스바 눌렀을 때
+                    Debug.Log(scanObj.name);
+                    break;
 
-            //선반
-            case "Chest":
-                Debug.Log(scanObj.name);
-                break;
+                //선반
+                case "Chest":
+                    Debug.Log(scanObj.name);
+                    break;
 
-            // 쪽지 발견했을때
-            case "Note":
-                Debug.Log(scanObj.name);
+                // 쪽지 발견했을때
+                case "Note":
+                    Debug.Log(scanObj.name);
 
-                //쪽지 없애기
-                Destroy(scanObj);
-                break;
+                    //쪽지 없애기
+                    Destroy(scanObj);
+                    break;
 
-            //차
-            case "RedCar":
-                Debug.Log(scanObj.name);
-                break;
-            //차키 있을때만 실행
-            case "WhiteCar" when isCarKey == true:
-                Debug.Log("사탕 하나 겟또다제");
-                break;
-            //차키 없이 그냥 열었을때는 (차 모두 동일) 차키가 있어야할거같다 or 하얀차다.
-            case "WhiteCar":
-                Debug.Log(scanObj.name);
-                isCandy1 = true;
-                break;     
+                //차
+                case "RedCar":
+                    Debug.Log(scanObj.name);
+                    break;
+                //차키 있을때만 실행
+                case "WhiteCar" when isCarKey == true:
+                    Debug.Log("사탕 하나 겟또다제");
+                    break;
+                //차키 없이 그냥 열었을때는 (차 모두 동일) 차키가 있어야할거같다 or 하얀차다.
+                case "WhiteCar":
+                    Debug.Log(scanObj.name);
+                    isCandy1 = true;
+                    break;     
 
-            case "GreenCar":
-                Debug.Log(scanObj.name);
-                break;
+                case "GreenCar":
+                    Debug.Log(scanObj.name);
+                    break;
 
-             //낚시대 있을때만 실행
-            case "Lake" when isRod == true:
-                Debug.Log("낚시를 해서 ~~%로 사탕얻게도 해야되네");
-                isCandy2 = true;
-                break;           
+                 //낚시대 있을때만 실행
+                case "Lake" when isRod == true:
+                    Debug.Log("낚시를 해서 ~~%로 사탕얻게도 해야되네");
+                    isCandy2 = true;
+                    break;           
 
-            //호수이다. 무언가 필요하다 대화창
-            case "Lake":
-                Debug.Log(scanObj.name);
-                break;
+                //호수이다. 무언가 필요하다 대화창
+                case "Lake":
+                    Debug.Log(scanObj.name);
+                    break;
 
-            default:
-                // 처리할 이름이 없을 때의 기본 동작
-                break;
+                default:
+                    // 처리할 이름이 없을 때의 기본 동작
+                    break;
+            }*/
         }
-    }
-
-    //스페이스바 X 그냥 들어갈때        
-        if(scanObj != null && scanObj.name == "Statue" && !statueInteraction)
+        /*
+        //스페이스바 X 그냥 들어갈때        
+        if (scanObj != null && scanObj.name == "Statue" && !statueInteraction)
         {
             //사탕을 두개 들고 갔을때
                 if(isCandy1 && isCandy2)
@@ -185,6 +191,7 @@ public class Player : MonoBehaviour
             // Player moved away from the Statue, reset the interaction
             statueInteraction = false;
         }
+        */
     }
 
     void FixedUpdate()

@@ -12,6 +12,13 @@ public class GameMangaer : MonoBehaviour
     public bool isAction; // 대화창이 보이고 안보이고를 컨트롤하기위한 값
     public int dialogueIndex;
 
+    public bool isKey = false;
+    public bool isCarKey = false;
+    public bool isRod = false;
+    public bool isCandy1 = false;
+    public bool isCandy2 = false;
+    bool statueInteraction = false; //일단 
+
     //상호작용한 오브젝트 정보를 받아온 뒤 대화 실행 -> 플레이어에 DialougeManger 받아서 스페이스바로 상호작용하면 Action(상호작용 오프젝트) 호출, 플레이어에서 isAction값 받아서 true일때 움직임 막기 
     public void Action(GameObject interactionObject)
     {
@@ -25,7 +32,7 @@ public class GameMangaer : MonoBehaviour
     void Interaction(int id)
     {
         string dialogue = dialogueManager.GetDialogue(id, dialogueIndex);
-        //댜화가 끝나면 isAction = false 
+        //대화가 끝나면 isAction = false 
         if (dialogue == null)
         {
             isAction = false;
