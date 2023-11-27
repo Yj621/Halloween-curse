@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public bool isCarKey = false;
     public bool isRod = false;    
     public bool isCandy1 = false;
-    public bool isCandy2 = false;
+    public static bool isCandy2 = false;
 
     bool statueInteraction= false;
 
@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     SceneManage sceneManage;
     PianoScript pianoScript;
     SheetScript sheetScript;
+    Lake theLake;
 
     void Awake()
     {
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
         sceneManage = FindObjectOfType<SceneManage>();
         pianoScript = FindObjectOfType<PianoScript>();
         sheetScript = FindObjectOfType<SheetScript>();
+        theLake = FindObjectOfType<Lake>();
     }
 
     //이동
@@ -99,6 +101,8 @@ public class Player : MonoBehaviour
     {
             Debug.Log(scanObj.name);
             
+            //오류나서 주석처리 했어요
+            /*
             ObjectData objectData = scanObj.GetComponent<ObjectData>();
             if (objectData.id == 10 && isCarKey == true) // 하얀차
             {
@@ -111,8 +115,9 @@ public class Player : MonoBehaviour
             }
             //Debug.Log("scanObj" + scanObj);
             gameManager.Action(scanObj);
+            */
             
-            /* 
+            
             switch (scanObj.name)
             {
                 //악보
@@ -143,7 +148,6 @@ public class Player : MonoBehaviour
                 // 쪽지 발견했을때
                 case "Note":
                     Debug.Log(scanObj.name);
-
                     //쪽지 없애기
                     Destroy(scanObj);
                     break;
@@ -169,7 +173,7 @@ public class Player : MonoBehaviour
                  //낚시대 있을때만 실행
                 case "Lake" when isRod == true:
                     Debug.Log("낚시를 해서 ~~%로 사탕얻게도 해야되네");
-                    isCandy2 = true;
+                    theLake.Fish();
                     break;           
 
                 //호수이다. 무언가 필요하다 대화창
@@ -180,7 +184,7 @@ public class Player : MonoBehaviour
                 default:
                     // 처리할 이름이 없을 때의 기본 동작
                     break;
-            }*/
+            }
         }
         /*
         //스페이스바 X 그냥 들어갈때        
@@ -261,7 +265,7 @@ public class Player : MonoBehaviour
         //상점 들어가기
         if(other.gameObject.tag == "Store")
         {
-            transform.position = new Vector2(-8, 1.3f);
+            transform.position = new Vector2(-12.228f, -0.319f);
             cameraMove = true;
         }
         //상점 나가기
