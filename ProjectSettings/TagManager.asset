@@ -10,6 +10,7 @@ TagManager:
   - Map2
   - Store
   - StoreExit
+  - GameStart
   layers:
   - Default
   - TransparentFX

@@ -10,11 +10,13 @@ public class Item : MonoBehaviour
     // 사용법: Item.갖고올변수      
     public static bool sheet;
     public static bool piece;
-    public static bool isKey = false;
+    public static bool isKey = true;
     public static bool isCarKey = false;
     public static bool isRod = false;    
     public static bool isCandy1 = false;
     public static bool isCandy2 = false;
+    public static bool scissors = false;
+    public static bool battery = false;
 
     void Start()
     {

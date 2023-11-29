@@ -13,15 +13,7 @@ public class Player : MonoBehaviour
     public bool cameraMove = false;
     public GameMangaer gameManager;
     public GameObject noteUI;
-
-    //테스트를 위해 public으로 선언
-    // public bool isKey = false;
-    // public bool isCarKey = false;
-    // public bool isRod = false;    
-    // public bool isCandy1 = false;
-    // public static bool isCandy2 = false;
-
-    bool statueInteraction= false;
+    public int gameStart = 0; //게임 시작시 출력할 대화 길이 
 
     Vector3 dirVec;
     GameObject scanObj;
@@ -43,110 +35,106 @@ public class Player : MonoBehaviour
         theLake = FindObjectOfType<Lake>();
         noteUI.SetActive(false);
     }
-
     //이동
     void Update()
     {
-        h = Input.GetAxisRaw("Horizontal");
-        v = Input.GetAxisRaw("Vertical");
 
-        bool hDown = Input.GetButtonDown("Horizontal");
-        bool vDown = Input.GetButtonDown("Vertical");
-        bool hUp = Input.GetButtonUp("Horizontal");
-        bool vUp = Input.GetButtonUp("Vertical");
+        if (!gameManager.isAction) {
+            h = Input.GetAxisRaw("Horizontal");
+            v = Input.GetAxisRaw("Vertical");
 
-    //키를 하나 꾹 누르다가 다른 키 누르면 멈추는거 방지하기 위해 || vUp / hUp 추가
-        if(hDown)
-            isHorizonMove = true;
-        else if(vDown)
-            isHorizonMove = false;
-        else if(hUp || vUp)
-            isHorizonMove = h != 0;
+            bool hDown = Input.GetButtonDown("Horizontal");
+            bool vDown = Input.GetButtonDown("Vertical");
+            bool hUp = Input.GetButtonUp("Horizontal");
+            bool vUp = Input.GetButtonUp("Vertical");
 
-    //h와 v 모두 float형이라 형변환해주고, 애니메이션에서 설정한 파라미터값 가져오기
-        if(anim.GetInteger("hAxisRaw") != h)
-        {
-            anim.SetBool("isChange", true);
-            anim.SetInteger("hAxisRaw", (int)h);
+            //키를 하나 꾹 누르다가 다른 키 누르면 멈추는거 방지하기 위해 || vUp / hUp 추가
+            if (hDown)
+                isHorizonMove = true;
+            else if (vDown)
+                isHorizonMove = false;
+            else if (hUp || vUp)
+                isHorizonMove = h != 0;
+
+            //h와 v 모두 float형이라 형변환해주고, 애니메이션에서 설정한 파라미터값 가져오기
+            if (anim.GetInteger("hAxisRaw") != h)
+            {
+                anim.SetBool("isChange", true);
+                anim.SetInteger("hAxisRaw", (int)h);
+            }
+            else if (anim.GetInteger("vAxisRaw") != v)
+            {
+                anim.SetBool("isChange", true);
+                anim.SetInteger("vAxisRaw", (int)v);
+            }
+            else
+            {
+                anim.SetBool("isChange", false);
+            }
+
+            if (vDown && v == 1)
+            {
+                dirVec = Vector3.up;
+            }
+            else if (vDown && v == -1)
+            {
+                dirVec = Vector3.down;
+            }
+            else if (hDown && h == -1)
+            {
+                dirVec = Vector3.left;
+            }
+            else if (hDown && h == 1)
+            {
+                dirVec = Vector3.right;
+            }
+
+            //스페이스바 눌렀을때 오브젝트 이름 가져와서 
         }
-        else if(anim.GetInteger("vAxisRaw") != v)
+        if (gameStart == 0 && scanObj != null)
         {
-            anim.SetBool("isChange", true);
-            anim.SetInteger("vAxisRaw", (int)v);
-        }
-        else
-        {
-            anim.SetBool("isChange", false);
-        }
-        
-        if(vDown && v == 1)
-        {
-            dirVec = Vector3.up;
-        }
-        else if(vDown && v == -1)
-        {
-            dirVec = Vector3.down;
-        }
-        else if(hDown && h == -1)
-        {
-            dirVec = Vector3.left;
-        }
-        else if(hDown && h == 1)
-        {
-            dirVec = Vector3.right;
+            if (scanObj.name == "StartDialogue")
+            {
+                gameManager.Action(scanObj);
+                gameStart += 1;
+            }
         }
 
-        //스페이스바 눌렀을때 오브젝트 이름 가져와서 
 
-    // 스캔 오브젝트
-    if (Input.GetButtonDown("Jump") && scanObj != null)
+        // 스캔 오브젝트
+        if (Input.GetButtonDown("Jump") && scanObj != null)
     {
             Debug.Log(scanObj.name);
             
-            //오류나서 주석처리 했어요
-            /*
             ObjectData objectData = scanObj.GetComponent<ObjectData>();
-            if (objectData.id == 10 && isCarKey == true) // 하얀차
+            if (objectData.id == 0 && gameStart > 3)
+            {
+                return;
+            }
+            if (objectData.id == 0)
+            {
+                gameStart += 1;
+            }
+            if (objectData.id == 7 && Item.sheet == true) // 피아노, 악보 O 
             {
                 objectData.condition = true;
             }
-            if (objectData.id == 3 && isCarKey == true) // 하얀차
+            else if (objectData.id == 10 && Item.scissors == true) // 서랍, 가위 O
             {
-                Debug.Log("con");
                 objectData.condition = true;
             }
-            //Debug.Log("scanObj" + scanObj);
+            else if (objectData.id == 11 && Item.isKey == true) // 문, 열쇠가 있을때 대화 생성 X
+            {
+                return;
+            }
+            else if (objectData.id == 3 && Item.battery == true) // TV, 건전지가 있을때 대화 생성 X
+            {
+                return;
+            }
+
             gameManager.Action(scanObj);
-            */
             
-            
-            switch (scanObj.name)
-            {
-                //악보
-                case "Sheet":
-                    sheetScript.sheet();
-                    break;
-
-                case "Frame":
-                    // 액자에 스페이스바 눌렀을 때
-                    Debug.Log(scanObj.name);
-                    break;
-
-                case "piano":
-                    // 피아노에 스페이스바 눌렀을 때
-                    Debug.Log(scanObj.name);
-                    break;
-
-                case "TV":
-                    // TV에 스페이스바 눌렀을 때
-                    Debug.Log(scanObj.name);
-                    break;
-
-                //선반
-                case "Chest":
-                    Debug.Log(scanObj.name);
-                    break;
-
+            /*
                 // 쪽지 발견했을때
                 case "Note":
                     noteUI.SetActive(true);
@@ -187,6 +175,8 @@ public class Player : MonoBehaviour
                     // 처리할 이름이 없을 때의 기본 동작
                     break;
             }
+            */
+            
         }
         /*
         //스페이스바 X 그냥 들어갈때        
@@ -223,6 +213,7 @@ public class Player : MonoBehaviour
         if(rayHit.collider != null)
         {
             scanObj = rayHit.collider.gameObject;
+            //Debug.Log(scanObj.name);
         }
         else
         {
@@ -278,10 +269,11 @@ public class Player : MonoBehaviour
         }
         
     }
-
+    
     public void BtnNoteClose()
     {
         Debug.Log("close");
         noteUI.SetActive(false);
     }
+    
 }

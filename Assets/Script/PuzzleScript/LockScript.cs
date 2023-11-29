@@ -16,7 +16,6 @@ public class LockScript : MonoBehaviour
         if(Item.isKey)
         {
             key.SetActive(true);
-            Debug.Log("Key");
         }
     }
 
