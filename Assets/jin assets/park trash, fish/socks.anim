@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: bottle
+  m_Name: socks
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -29,7 +29,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1
-        value: {x: 4.061, y: 2.319, z: 0}
+        value: {x: 4.061, y: 2.307, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -46,9 +46,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: d68863845c7ac5f4ab62096855320738, type: 3}
+      value: {fileID: 21300000, guid: 3b1cf7210fb9e9c40b37fb813747913b, type: 3}
     - time: 1
-      value: {fileID: 21300000, guid: 6c90462f05a8d45c19fb1ef2705206e9, type: 3}
+      value: {fileID: 21300000, guid: 76b22b8dc89fd471c8e0b3076cab5974, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -80,8 +80,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: d68863845c7ac5f4ab62096855320738, type: 3}
-    - {fileID: 21300000, guid: 6c90462f05a8d45c19fb1ef2705206e9, type: 3}
+    - {fileID: 21300000, guid: 3b1cf7210fb9e9c40b37fb813747913b, type: 3}
+    - {fileID: 21300000, guid: 76b22b8dc89fd471c8e0b3076cab5974, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -148,7 +148,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 2.319
+        value: 2.307
         inSlope: 0
         outSlope: 0
         tangentMode: 136

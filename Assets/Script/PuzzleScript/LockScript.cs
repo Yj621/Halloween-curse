@@ -5,17 +5,15 @@ using UnityEngine.UI;
 
 public class LockScript : MonoBehaviour
 {
-    Player thePlayer;
     public GameObject key;
     void Start()
     {
-        thePlayer = FindObjectOfType<Player>();
         key.SetActive(false);
     }
     
     void Update()
     {
-        if(thePlayer.isKey)
+        if(Item.isKey)
         {
             key.SetActive(true);
             Debug.Log("Key");

@@ -10,6 +10,11 @@ public class Item : MonoBehaviour
     // 사용법: Item.갖고올변수      
     public static bool sheet;
     public static bool piece;
+    public static bool isKey = false;
+    public static bool isCarKey = false;
+    public static bool isRod = false;    
+    public static bool isCandy1 = false;
+    public static bool isCandy2 = false;
 
     void Start()
     {
@@ -20,6 +25,17 @@ public class Item : MonoBehaviour
     
     void Update()
     {
-        
+        if(Input.GetButtonDown("1"))
+        {
+            isKey = true;
+        }
+        if(Input.GetButtonDown("2"))
+        {
+            isCarKey = true;
+        }
+        if(Input.GetButtonDown("3"))
+        {
+            isRod = true;
+        }
     }
 }

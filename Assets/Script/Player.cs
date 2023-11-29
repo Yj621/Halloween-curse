@@ -12,13 +12,14 @@ public class Player : MonoBehaviour
     bool isHorizonMove;
     public bool cameraMove = false;
     public GameMangaer gameManager;
+    public GameObject noteUI;
 
     //테스트를 위해 public으로 선언
-    public bool isKey = false;
-    public bool isCarKey = false;
-    public bool isRod = false;    
-    public bool isCandy1 = false;
-    public static bool isCandy2 = false;
+    // public bool isKey = false;
+    // public bool isCarKey = false;
+    // public bool isRod = false;    
+    // public bool isCandy1 = false;
+    // public static bool isCandy2 = false;
 
     bool statueInteraction= false;
 
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
         pianoScript = FindObjectOfType<PianoScript>();
         sheetScript = FindObjectOfType<SheetScript>();
         theLake = FindObjectOfType<Lake>();
+        noteUI.SetActive(false);
     }
 
     //이동
@@ -147,7 +149,7 @@ public class Player : MonoBehaviour
 
                 // 쪽지 발견했을때
                 case "Note":
-                    Debug.Log(scanObj.name);
+                    noteUI.SetActive(true);
                     //쪽지 없애기
                     Destroy(scanObj);
                     break;
@@ -157,13 +159,13 @@ public class Player : MonoBehaviour
                     Debug.Log(scanObj.name);
                     break;
                 //차키 있을때만 실행
-                case "WhiteCar" when isCarKey == true:
+                case "WhiteCar" when Item.isCandy1 == true:
                     Debug.Log("사탕 하나 겟또다제");
+                    Item.isCandy1 = true;
                     break;
                 //차키 없이 그냥 열었을때는 (차 모두 동일) 차키가 있어야할거같다 or 하얀차다.
                 case "WhiteCar":
                     Debug.Log(scanObj.name);
-                    isCandy1 = true;
                     break;     
 
                 case "GreenCar":
@@ -171,7 +173,7 @@ public class Player : MonoBehaviour
                     break;
 
                  //낚시대 있을때만 실행
-                case "Lake" when isRod == true:
+                case "Lake" when Item.isRod == true:
                     Debug.Log("낚시를 해서 ~~%로 사탕얻게도 해야되네");
                     theLake.Fish();
                     break;           
@@ -239,25 +241,25 @@ public class Player : MonoBehaviour
             theCamera.FirstStair();
         }
         //맵 1 입장 조건
-        if (other.gameObject.tag == "Map1" && isKey)
+        if (other.gameObject.tag == "Map1" && Item.isKey)
         {
             Debug.Log("Map1");
             sceneManage.Map1();
-            isKey = false;
+            Item.isKey = false;
         }
-        else if(other.gameObject.tag == "Map1" && isKey == false)
+        else if(other.gameObject.tag == "Map1" && Item.isKey == false)
         {
             //열쇠 안 갖고 탈출하려 했을때 대화창 뜨도록
         }
 
         //맵 2 입장 조건(나중에 수정)
-        if (other.gameObject.tag == "Map2" && isKey)
+        if (other.gameObject.tag == "Map2" && Item.isKey)
         {
             Debug.Log("Map2");
             sceneManage.Map2();
-            isKey = false;
+            Item.isKey = false;
         }
-        else if (other.gameObject.tag == "Map2" && isKey == false)
+        else if (other.gameObject.tag == "Map2" && Item.isKey == false)
         {
             //열쇠 안 갖고 탈출하려 했을때 대화창 뜨도록            
         }
@@ -277,4 +279,9 @@ public class Player : MonoBehaviour
         
     }
 
+    public void BtnNoteClose()
+    {
+        Debug.Log("close");
+        noteUI.SetActive(false);
+    }
 }
