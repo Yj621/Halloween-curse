@@ -18,17 +18,27 @@ public class Lake : MonoBehaviour
     {
         if (Random.Range(0f, 1f) <= 0.2f)
         {
-            Debug.Log("A");
             lakeState.Fish1();
         }        
         else if (Random.Range(0f, 1f) <= 0.2f)
         {
-            Debug.Log("B");
+            lakeState.Fish2();
+            Debug.Log("Fish2");
+        }        
+        else if (Random.Range(0f, 1f) <= 0.2f)
+        {
+            lakeState.Fish2();
+            Debug.Log("Bottle");
+        }
+        else if (Random.Range(0f, 1f) <= 0.2f)
+        {
+            lakeState.Sock();
+            Debug.Log("Sock");
         }
         else if (Random.Range(0f, 1f) <= 0.4f)
         {
-            Debug.Log("Candy");
             Item.isCandy2 = true;
+            Debug.Log("Candy");
         }
     }
 }
