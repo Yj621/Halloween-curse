@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PianoScript : MonoBehaviour
 {
+    public GameObject sheet;
     //변수 선언
     public GameObject imgpiano;
     public GameObject imgpiano2;
     public List<int> pianoarr;    
     public bool play = false;
+    public bool sheetOn = false;
     
     //오디오 관련 변수 선언
     public AudioSource audioplayer;
@@ -22,13 +25,13 @@ public class PianoScript : MonoBehaviour
         pianoarr = new List<int>();
         imgpiano.SetActive(false);
         imgpiano2.SetActive(false);
-        
+        sheet.SetActive(false);
 
         audioplayer = GetComponent<AudioSource>();
     }
 
     //피아노 상호작용시 작동하는 스크립트
-    void piano()
+    public void piano()
     {
         imgpiano.SetActive(true);
         imgpiano2.SetActive(true);
@@ -119,6 +122,11 @@ public class PianoScript : MonoBehaviour
         }
     }
 
+    public void SheetActive()
+    {
+        sheet.SetActive(true);
+        sheetOn = true;
+    }
     
     void Update()
     {
@@ -131,5 +139,10 @@ public class PianoScript : MonoBehaviour
             piano();
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape) && sheetOn)
+        {
+            sheet.SetActive(false);
+            sheetOn = false;
+        }
     }
 }

@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public bool cameraMove = false;
     public GameMangaer gameManager;
     public GameObject noteUI;
+    public GameObject sheetUI;
     public int gameStart = 0; //게임 시작시 출력할 대화 길이 
 
     Vector3 dirVec;
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
         sheetScript = FindObjectOfType<SheetScript>();
         theLake = FindObjectOfType<Lake>();
         noteUI.SetActive(false);
+        sheetUI.SetActive(false);
     }
     //이동
     void Update()
@@ -116,9 +118,19 @@ public class Player : MonoBehaviour
             {
                 gameStart += 1;
             }
+
             if (objectData.id == 7 && Item.sheet == true) // 피아노, 악보 O 
             {
                 objectData.condition = true;
+                pianoScript.piano();
+            }
+            else if (objectData.id == 5) //악보
+            {
+                objectData.condition = true; //이부분은 수정 부탁드려요 대사 나오게
+                Item.sheet = true;
+                sheetUI.SetActive(true);
+                Destroy(scanObj);
+                pianoScript.SheetActive();
             }
             else if (objectData.id == 10 && Item.scissors == true) // 서랍, 가위 O
             {
@@ -136,7 +148,7 @@ public class Player : MonoBehaviour
             {
                 noteUI.SetActive(true);
                 Destroy(scanObj);
-                return;
+                return; //이부분은 수정 부탁드려요 대사 나오게 (상점으로 유도하는) - 노션 참고
             }
             else if (objectData.id == 20 && Item.isRod == true) //호수에서 낚시대 들고 상호작용
             {
@@ -146,55 +158,35 @@ public class Player : MonoBehaviour
             }
             else if (objectData.id == 20) //호수에서 낚시대X 대화창 생성
             {
-                return;
+                return; //이부분은 수정 부탁드려요 대사 나오게
             }
-
-
+            else if (objectData.id == 21) //삽 상호작용
+            {
+                Item.isShovel = true;
+                Destroy(scanObj);
+                return; //이부분은 수정 부탁드려요  대사 나오게
+            }
+            else if (objectData.id == 22 && Item.isShovel) //삽이 있으면서 땅 팔때 
+            {
+                Item.isCarKey = true;
+                Destroy(scanObj);
+                return; //이부분은 수정 부탁드려요 대사 나오게
+            }
+            else if (objectData.id == 23) //빨간/초록차 상호작용
+            {
+                return; //이부분은 수정 부탁드려요 대사 나오게 (차키가 있어야할거같다) - 노션참고
+            }
+            else if (objectData.id == 24 && Item.isCarKey) //하얀차 + 차키 있을때
+            {
+                Item.isCandy1 = true;
+                return; //이부분은 수정 부탁드려요 대사 나오게 (사탕을 얻었다 그 대사)- 노션참고
+            }
+            else if (objectData.id == 24) //하얀차 + 차키 없을때
+            {
+                return; //이부분은 수정 부탁드려요 대사 나오게 (차키가 있어야할거같다)- 노션참고
+            }
 
             gameManager.Action(scanObj);
-
-            /*
-                // 쪽지 발견했을때
-                case "Note":
-                    noteUI.SetActive(true);
-                    //쪽지 없애기
-                    Destroy(scanObj);
-                    break;
-
-                //차
-                case "RedCar":
-                    Debug.Log(scanObj.name);
-                    break;
-                //차키 있을때만 실행
-                case "WhiteCar" when Item.isCandy1 == true:
-                    Debug.Log("사탕 하나 겟또다제");
-                    Item.isCandy1 = true;
-                    break;
-                //차키 없이 그냥 열었을때는 (차 모두 동일) 차키가 있어야할거같다 or 하얀차다.
-                case "WhiteCar":
-                    Debug.Log(scanObj.name);
-                    break;     
-
-                case "GreenCar":
-                    Debug.Log(scanObj.name);
-                    break;
-
-                 //낚시대 있을때만 실행
-                case "Lake" when Item.isRod == true:
-                    Debug.Log("낚시를 해서 ~~%로 사탕얻게도 해야되네");
-                    theLake.Fish();
-                    break;           
-
-                //호수이다. 무언가 필요하다 대화창
-                case "Lake":
-                    Debug.Log(scanObj.name);
-                    break;
-
-                default:
-                    // 처리할 이름이 없을 때의 기본 동작
-                    break;
-            }
-            */
 
         }
         /*
@@ -226,8 +218,8 @@ public class Player : MonoBehaviour
         rigid.velocity = moveVec * speed;
 
         //레이
-        Debug.DrawRay(rigid.position, dirVec * 0.3f, new Color(0, 1, 0));
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dirVec, 0.3f, LayerMask.GetMask("Object"));
+        Debug.DrawRay(rigid.position, dirVec * 0.5f, new Color(0, 1, 0));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dirVec, 0.5f, LayerMask.GetMask("Object"));
 
         if (rayHit.collider != null)
         {
