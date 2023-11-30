@@ -12,7 +12,7 @@ public class Item : MonoBehaviour
     public static bool piece = false;
     public static bool isKey = false;
     public static bool isCarKey = false;
-    public static bool isRod = false;    
+    public static bool isRod = true;    
     public static bool isCandy1 = false;
     public static bool isCandy2 = false;
     public static bool isShovel = false;

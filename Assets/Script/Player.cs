@@ -14,7 +14,9 @@ public class Player : MonoBehaviour
     public GameMangaer gameManager;
     public GameObject noteUI;
     public GameObject sheetUI;
+    public GameObject note;
     public int gameStart = 0; //게임 시작시 출력할 대화 길이 
+
 
     Vector3 dirVec;
     GameObject scanObj;
@@ -144,16 +146,24 @@ public class Player : MonoBehaviour
             {
                 return;
             }
-            else if (objectData.id == 19) //쪽지 상호작용
+            else if (objectData.id == 14) //쪽지 상호작용
             {
                 noteUI.SetActive(true);
-                Destroy(scanObj);
-                return; //이부분은 수정 부탁드려요 대사 나오게 (상점으로 유도하는) - 노션 참고
+                Destroy(note);
             }
-            else if (objectData.id == 20 && Item.isRod == true) //호수에서 낚시대 들고 상호작용
+            else if (objectData.id == 15 && Item.isCandy2) //호수에서 낚시대 들고 상호작용
             {
-                theLake.Fish();
-                Debug.Log("fish");
+                objectData.condition = true;
+            }
+            else if (objectData.id == 15 && Item.isRod == true) //호수에서 낚시대 들고 상호작용
+            {
+
+                int ret = theLake.Fish();
+                objectData.id += ret;
+                objectData.condition = true;
+                gameManager.Action(scanObj);
+                objectData.condition = false;
+                objectData.id -= ret;
                 return;
             }
             else if (objectData.id == 20) //호수에서 낚시대X 대화창 생성

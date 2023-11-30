@@ -14,31 +14,37 @@ public class Lake : MonoBehaviour
     {
         
     }
-    public void Fish()
+    public int Fish()
     {
         if (Random.Range(0f, 1f) <= 0.2f)
         {
             lakeState.Fish1();
+            return 1;
         }        
         else if (Random.Range(0f, 1f) <= 0.2f)
         {
             lakeState.Fish2();
             Debug.Log("Fish2");
+            return 2;
         }        
         else if (Random.Range(0f, 1f) <= 0.2f)
         {
             lakeState.Fish2();
             Debug.Log("Bottle");
+            return 3;
         }
         else if (Random.Range(0f, 1f) <= 0.2f)
         {
             lakeState.Sock();
             Debug.Log("Sock");
+            return 4;
         }
         else if (Random.Range(0f, 1f) <= 0.4f)
         {
             Item.isCandy2 = true;
             Debug.Log("Candy");
+            return 5;
         }
-    }
+        return 1;
+    }   
 }

@@ -17,32 +17,32 @@ public class Inven : MonoBehaviour
     {
         if(Item.isKey)
         {
-            Debug.Log("Keyyy");
+            //Debug.Log("Keyyy");
             objectsToDeactivate[0].SetActive(true);
         }
         if(Item.isCarKey)
         {
-            Debug.Log("CarKey");
+            //Debug.Log("CarKey");
             objectsToDeactivate[1].SetActive(true);
         }
         if(Item.isCandy1)
         {
-            Debug.Log("isCandy1");
+            //Debug.Log("isCandy1");
             objectsToDeactivate[2].SetActive(true);
         }     
         if(Item.isCandy2)
         {
-            Debug.Log("isCandy2");
+            //Debug.Log("isCandy2");
             objectsToDeactivate[3].SetActive(true);
         } 
         if(Item.isRod)
         {
-            Debug.Log("isRod");
+            //Debug.Log("isRod");
             objectsToDeactivate[4].SetActive(true);
         }
         if(Item.isShovel)
         {
-            Debug.Log("isShovel");
+            //Debug.Log("isShovel");
             objectsToDeactivate[5].SetActive(true);
         }           
     }

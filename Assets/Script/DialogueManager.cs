@@ -31,6 +31,15 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(11, new string[] { "열쇠가 있어야 탈출할 수 있을 것 같다." }); //문
         dialogueData.Add(12, new string[] { "작동하지 않는다." }); //시계
         dialogueData.Add(13, new string[] { "작동하지 않는다." }); //가르레인지
+        //맵2
+        dialogueData.Add(14, new string[] { "상점 전단지이다.", "상점으로 가면 무언갈 얻을 수 있을것 같다." }); //쪽지
+        dialogueData.Add(15, new string[] { "큰 호수이다.", "낚시대가 있으면 무언갈 낚을 수 있을 것같다." }); //호수
+        dialogueData.Add(1015, new string[] { "큰 호수이다.", "하지만 호수 안은 텅 비어있다." }); //호수
+        dialogueData.Add(1016, new string[] { "귀여운 물고기를 낚았다." }); //호수
+        dialogueData.Add(1017, new string[] { "무서운 물고기를 낚았다." }); //호수
+        dialogueData.Add(1018, new string[] { "병을 낚았다." }); //호수
+        dialogueData.Add(1019, new string[] { "양말을 낚았다." }); //호수
+        dialogueData.Add(1020, new string[] { "사탕을 얻었다!" }); //호수
     }
     public string GetDialogue(int id, int dialogueIndex)
     {
