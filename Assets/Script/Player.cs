@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     SceneManage sceneManage;
     PianoScript pianoScript;
     SheetScript sheetScript;
+    LockScript lockScript;
     Lake theLake;
 
     void Awake()
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
         sceneManage = FindObjectOfType<SceneManage>();
         pianoScript = FindObjectOfType<PianoScript>();
         sheetScript = FindObjectOfType<SheetScript>();
+        lockScript = FindObjectOfType<LockScript>();
         theLake = FindObjectOfType<Lake>();
         noteUI.SetActive(false);
         sheetUI.SetActive(false);
@@ -134,6 +136,10 @@ public class Player : MonoBehaviour
                 sheetUI.SetActive(true);
                 Destroy(sheet);
                 pianoScript.SheetActive();
+            }
+            else if (objectData.id == 6) //선반
+            {
+                lockScript.LockActive();
             }
             else if (objectData.id == 10 && Item.scissors == true) // 서랍, 가위 O
             {
