@@ -22,6 +22,7 @@ public class LockScript : MonoBehaviour
     void Start()
     {
         drawerUI.SetActive(false);
+        lockUI.SetActive(false);
         key.SetActive(false);
         pressedButtons = new List<int>();
 
@@ -57,7 +58,6 @@ public class LockScript : MonoBehaviour
         if (!pressedButtons.Contains(buttonIndex))
         {
             pressedButtons.Add(buttonIndex);
-            Debug.Log("Button " + (buttonIndex + 1) + " Pressed");
 
             // 버튼의 스프라이트 이미지 변경
             buttons[buttonIndex].image.sprite = pressedSprite;
@@ -70,7 +70,6 @@ public class LockScript : MonoBehaviour
         else
         {
             pressedButtons.Remove(buttonIndex);
-            Debug.Log("Button " + (buttonIndex + 1) + " Unpressed");
 
             // 버튼의 스프라이트 이미지 원래대로 변경
             buttons[buttonIndex].image.sprite = originalSprites[buttonIndex];
@@ -105,5 +104,16 @@ public class LockScript : MonoBehaviour
         {
             Debug.Log("틀렸습니다.");
         }
+    }
+    public void LockActive()
+    {
+        lockUI.SetActive(true);
+    }
+
+    public void Key()
+    {
+        key.SetActive(true);
+        drawerUI.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
