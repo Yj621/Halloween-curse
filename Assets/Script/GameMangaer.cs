@@ -34,7 +34,9 @@ public class GameMangaer : MonoBehaviour
             id += 1000;
         }
         Debug.Log(id);
-        string dialogue = dialogueManager.GetDialogue(id, dialogueIndex);
+        Debug.Log("다이아로그 인덱스" + dialogueIndex);
+        string dialogue = dialogueManager.GetDialogue(id, dialogueIndex); 
+        Debug.Log(dialogue);
         //대화가 끝나면 isAction = false 
         if (dialogue == null)
         {
@@ -46,6 +48,6 @@ public class GameMangaer : MonoBehaviour
         myText.text = dialogue;
         isAction = true;
         dialogueIndex++; //action 키를 누를때마다 늘어나면서 다음 대화 출력 
-        Debug.Log("다이아로그 인덱스" + dialogueIndex);
+        
     }
 }

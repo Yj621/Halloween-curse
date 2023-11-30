@@ -18,8 +18,8 @@ public class Player : MonoBehaviour
     public GameObject note;
     public GameObject shovel;
     public int gameStart = 0; //게임 시작시 출력할 대화 길이 
-
-
+    private bool fishing = false;
+    private int fish = 0;
     Vector3 dirVec;
     GameObject scanObj;
     Animator anim;
@@ -152,18 +152,36 @@ public class Player : MonoBehaviour
                 noteUI.SetActive(true);
                 Destroy(note);
             }
+            
             else if (objectData.id == 15 && Item.isCandy2) //호수에서 낚시대 들고 상호작용 사탕을 얻은 후
             {
                 objectData.condition = true;
             }
-            else if (objectData.id == 15 && Item.isRod == true) //호수에서 낚시대 들고 상호작용
+            
+            else if (objectData.id == 15 && Item.isRod == true && !Item.isCandy2) //호수에서 낚시대 들고 상호작용
             {
-                int ret = theLake.Fish();
-                objectData.id += ret;
-                objectData.condition = true;
-                gameManager.Action(scanObj);
-                objectData.condition = false;
-                objectData.id -= ret;
+                //null 리턴이 되고 id 값을 깎아야겠는데
+                if (!fishing)
+                {
+                    fish = theLake.Fish();
+                    objectData.id += fish;
+                    objectData.condition = true;
+                    gameManager.Action(scanObj);
+                    objectData.condition = false;
+                    objectData.id -= fish;
+                    Debug.Log("호수 " + objectData.id);
+                    fishing = true;
+                }
+                else
+                {
+                    objectData.id += fish;
+                    objectData.condition = true;
+                    gameManager.Action(scanObj);
+                    objectData.condition = false;
+                    objectData.id -= fish;
+                    Debug.Log("호수 " + objectData.id);
+                    fishing = false;
+                }
                 return;
             }
             else if (objectData.id == 24) //삽 상호작용
