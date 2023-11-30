@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(3, new string[] { "작동하지 않는다. 건전지가 없나?" }); //TV
         dialogueData.Add(4, new string[] { "나의 모습이 비친다" }); //거울
         dialogueData.Add(5, new string[] { "악보를 얻었다!" }); //악보
-        dialogueData.Add(6, new string[] { "이것은 액자입니다." }); //액자
+        dialogueData.Add(6, new string[] { "비밀번호를 입력해야할 것 같다." }); //자물쇠
         dialogueData.Add(7, new string[] { "악보가 있으면 연주 할 수 있을텐데..." }); //피아노
         dialogueData.Add(1007, new string[] { "아까 얻은 악보로 뭔가 할 수 있을 것 같다." }); //피아노, 악보 O
         dialogueData.Add(8, new string[] { "아무것도 없는 것 같다." }); //침대
