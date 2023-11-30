@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [Header ("플레이어")]
+    [Header("플레이어")]
     public float speed;
     Rigidbody2D rigid;
     float h; //Horizontal
@@ -39,7 +39,8 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        if (!gameManager.isAction) {
+        if (!gameManager.isAction)
+        {
             h = Input.GetAxisRaw("Horizontal");
             v = Input.GetAxisRaw("Vertical");
 
@@ -103,9 +104,9 @@ public class Player : MonoBehaviour
 
         // 스캔 오브젝트
         if (Input.GetButtonDown("Jump") && scanObj != null)
-    {
+        {
             Debug.Log(scanObj.name);
-            
+
             ObjectData objectData = scanObj.GetComponent<ObjectData>();
             if (objectData.id == 0 && gameStart > 3)
             {
@@ -131,9 +132,27 @@ public class Player : MonoBehaviour
             {
                 return;
             }
+            else if (objectData.id == 19) //쪽지 상호작용
+            {
+                noteUI.SetActive(true);
+                Destroy(scanObj);
+                return;
+            }
+            else if (objectData.id == 20 && Item.isRod == true) //호수에서 낚시대 들고 상호작용
+            {
+                theLake.Fish();
+                Debug.Log("fish");
+                return;
+            }
+            else if (objectData.id == 20) //호수에서 낚시대X 대화창 생성
+            {
+                return;
+            }
+
+
 
             gameManager.Action(scanObj);
-            
+
             /*
                 // 쪽지 발견했을때
                 case "Note":
@@ -176,7 +195,7 @@ public class Player : MonoBehaviour
                     break;
             }
             */
-            
+
         }
         /*
         //스페이스바 X 그냥 들어갈때        
@@ -207,10 +226,10 @@ public class Player : MonoBehaviour
         rigid.velocity = moveVec * speed;
 
         //레이
-        Debug.DrawRay(rigid.position, dirVec * 0.7f, new Color(0,1,0));
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dirVec, 0.7f, LayerMask.GetMask("Object"));
+        Debug.DrawRay(rigid.position, dirVec * 0.3f, new Color(0, 1, 0));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dirVec, 0.3f, LayerMask.GetMask("Object"));
 
-        if(rayHit.collider != null)
+        if (rayHit.collider != null)
         {
             scanObj = rayHit.collider.gameObject;
             //Debug.Log(scanObj.name);
@@ -238,7 +257,7 @@ public class Player : MonoBehaviour
             sceneManage.Map1();
             Item.isKey = false;
         }
-        else if(other.gameObject.tag == "Map1" && Item.isKey == false)
+        else if (other.gameObject.tag == "Map1" && Item.isKey == false)
         {
             //열쇠 안 갖고 탈출하려 했을때 대화창 뜨도록
         }
@@ -256,24 +275,24 @@ public class Player : MonoBehaviour
         }
 
         //상점 들어가기
-        if(other.gameObject.tag == "Store")
+        if (other.gameObject.tag == "Store")
         {
-            transform.position = new Vector2(-12.228f, -0.319f);
+            transform.position = new Vector2(-8.14f, 1.06f);
             cameraMove = true;
         }
         //상점 나가기
-        if(other.gameObject.tag == "StoreExit")
+        if (other.gameObject.tag == "StoreExit")
         {
             transform.position = new Vector2(-4.44f, 1.25f);
             cameraMove = false;
         }
-        
+
     }
-    
+
     public void BtnNoteClose()
     {
         Debug.Log("close");
         noteUI.SetActive(false);
     }
-    
+
 }

@@ -39,7 +39,12 @@ public class Inven : MonoBehaviour
         {
             Debug.Log("isRod");
             objectsToDeactivate[4].SetActive(true);
-        }        
+        }
+        if(Item.isShovel)
+        {
+            Debug.Log("isRod");
+            objectsToDeactivate[4].SetActive(true);
+        }           
     }
     
     void DeactivateObjects()
