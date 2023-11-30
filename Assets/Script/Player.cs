@@ -14,7 +14,9 @@ public class Player : MonoBehaviour
     public GameMangaer gameManager;
     public GameObject noteUI;
     public GameObject sheetUI;
+    public GameObject sheet;
     public GameObject note;
+    public GameObject shovel;
     public int gameStart = 0; //게임 시작시 출력할 대화 길이 
 
 
@@ -112,7 +114,7 @@ public class Player : MonoBehaviour
             Debug.Log(scanObj.name);
 
             ObjectData objectData = scanObj.GetComponent<ObjectData>();
-            if (objectData.id == 0 && gameStart > 3)
+            if (objectData.id == 0 && gameStart > 4)
             {
                 return;
             }
@@ -128,10 +130,9 @@ public class Player : MonoBehaviour
             }
             else if (objectData.id == 5) //악보
             {
-                objectData.condition = true; //이부분은 수정 부탁드려요 대사 나오게
                 Item.sheet = true;
                 sheetUI.SetActive(true);
-                Destroy(scanObj);
+                Destroy(sheet);
                 pianoScript.SheetActive();
             }
             else if (objectData.id == 10 && Item.scissors == true) // 서랍, 가위 O
@@ -151,13 +152,12 @@ public class Player : MonoBehaviour
                 noteUI.SetActive(true);
                 Destroy(note);
             }
-            else if (objectData.id == 15 && Item.isCandy2) //호수에서 낚시대 들고 상호작용
+            else if (objectData.id == 15 && Item.isCandy2) //호수에서 낚시대 들고 상호작용 사탕을 얻은 후
             {
                 objectData.condition = true;
             }
             else if (objectData.id == 15 && Item.isRod == true) //호수에서 낚시대 들고 상호작용
             {
-
                 int ret = theLake.Fish();
                 objectData.id += ret;
                 objectData.condition = true;
@@ -166,34 +166,31 @@ public class Player : MonoBehaviour
                 objectData.id -= ret;
                 return;
             }
-            else if (objectData.id == 20) //호수에서 낚시대X 대화창 생성
+            else if (objectData.id == 24) //삽 상호작용
             {
-                return; //이부분은 수정 부탁드려요 대사 나오게
+                Item.isShovel = true; //hierarchy에 삽 넣어주세요
+                Destroy(shovel);
             }
-            else if (objectData.id == 21) //삽 상호작용
-            {
-                Item.isShovel = true;
-                Destroy(scanObj);
-                return; //이부분은 수정 부탁드려요  대사 나오게
-            }
-            else if (objectData.id == 22 && Item.isShovel) //삽이 있으면서 땅 팔때 
+            /*
+            else if (objectData.id == 32 && Item.isShovel) //삽이 있으면서 땅 팔때 
             {
                 Item.isCarKey = true;
                 Destroy(scanObj);
                 return; //이부분은 수정 부탁드려요 대사 나오게
-            }
-            else if (objectData.id == 23) //빨간/초록차 상호작용
+            }맵 만들어지면
+            */
+            else if (objectData.id == 21 && Item.isCarKey) //빨간/초록차 상호작용
             {
-                return; //이부분은 수정 부탁드려요 대사 나오게 (차키가 있어야할거같다) - 노션참고
+                objectData.condition = true;
             }
-            else if (objectData.id == 24 && Item.isCarKey) //하얀차 + 차키 있을때
+            else if (objectData.id == 22 && Item.isCarKey) //빨간/초록차 상호작용
+            {
+                objectData.condition = true;
+            }
+            else if (objectData.id == 23 && Item.isCarKey) //하얀차 + 차키 있을때
             {
                 Item.isCandy1 = true;
-                return; //이부분은 수정 부탁드려요 대사 나오게 (사탕을 얻었다 그 대사)- 노션참고
-            }
-            else if (objectData.id == 24) //하얀차 + 차키 없을때
-            {
-                return; //이부분은 수정 부탁드려요 대사 나오게 (차키가 있어야할거같다)- 노션참고
+                objectData.condition = true;
             }
 
             gameManager.Action(scanObj);

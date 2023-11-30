@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour
     }
     void GenerateData()
     {
-        dialogueData.Add(0, new string[] { "테스트", "다이어로그", "입니다." }); // 게임 시작
+        dialogueData.Add(0, new string[] { "눈을 떠보니 처음 보는 장소이다.", "창밖에 소란스럽다.", "창밖을 보니 유령들이 돌아 다니고있다.", "빨리 이곳을 탈출해야할 것 같다." }); // 게임 시작
         //dialogueData.Add(1, new string[] { "테스트", "다이어로그", "입니다." }); // id, 대화 내용
         dialogueData.Add(2, new string[] { "쓰레기가 가득차있다." }); //쓰레기통
         dialogueData.Add(3, new string[] { "작동하지 않는다. 건전지가 없나?" }); //TV
@@ -40,6 +40,14 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(1018, new string[] { "병을 낚았다." }); //호수
         dialogueData.Add(1019, new string[] { "양말을 낚았다." }); //호수
         dialogueData.Add(1020, new string[] { "사탕을 얻었다!" }); //호수
+        dialogueData.Add(21, new string[] { "차문이 잠겨있다", "열쇠가 필요하다" }); //빨간 차 
+        dialogueData.Add(1021, new string[] { "이 차에 맞지 않은 열쇠다" }); //빨간 차 차키 O
+        dialogueData.Add(22, new string[] { "차문이 잠겨있다", "열쇠가 필요하다" }); //초록 차
+        dialogueData.Add(1022, new string[] { "이 차에 맞지 않은 열쇠다" }); //초록 차 차키 O
+        dialogueData.Add(23, new string[] { "차문이 잠겨있다", "열쇠가 필요하다" }); //흰색 차
+        dialogueData.Add(1023, new string[] { "사탕을 얻었다!" }); //흰색 차 차기 O
+        dialogueData.Add(24, new string[] { "삽 얻었다", "땅을 팔 수 있을 것 같다." }); //삽
+
     }
     public string GetDialogue(int id, int dialogueIndex)
     {
