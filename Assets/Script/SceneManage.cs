@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManage : MonoBehaviour
-{
-    Player player;
-    void Start()
+{   
+    public void Home()
     {
-        player = FindObjectOfType<Player>();
+        SceneManager.LoadScene("home");
     }
     public void Map1()
     {
