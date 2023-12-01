@@ -29,8 +29,9 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(10, new string[] { "무언가로 뜯어서 열어야 한다." }); //서랍
         dialogueData.Add(1010, new string[] { "가위로 테이프를 잘랐다." }); //서랍, 가위 O
         dialogueData.Add(11, new string[] { "열쇠가 있어야 탈출할 수 있을 것 같다." }); //문
-        dialogueData.Add(12, new string[] { "작동하지 않는다." }); //시계
+        dialogueData.Add(12, new string[] { "멈춰있다." }); //시계
         dialogueData.Add(13, new string[] { "작동하지 않는다." }); //가르레인지
+        dialogueData.Add(28, new string[] { "기괴한 그림이 그려져있다." }); //액자
         //맵2
         dialogueData.Add(14, new string[] { "상점 전단지이다.", "상점으로 가면 무언갈 얻을 수 있을것 같다." }); //쪽지
         dialogueData.Add(15, new string[] { "큰 호수이다.", "낚시대가 있으면 무언갈 낚을 수 있을 것같다." }); //호수
@@ -48,8 +49,11 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(1023, new string[] { "사탕을 얻었다!" }); //흰색 차 차기 O
         dialogueData.Add(24, new string[] { "삽 얻었다", "땅을 팔 수 있을 것 같다." }); //삽
         dialogueData.Add(25, new string[] { "Trick or Treat~ 사탕 주면 안잡아먹지" }); //석상
-        dialogueData.Add(26, new string[] { "우리는 둘인데 사탕은 하나야?!??!" }); //석상
-        dialogueData.Add(27, new string[] { "지나가게 해줄게 고마워~" }); //석상
+        dialogueData.Add(1025, new string[] { "우리는 둘인데 사탕은 하나야?!??!" }); //석상
+        dialogueData.Add(2025, new string[] { "지나가게 해줄게 고마워~" }); //석상
+        dialogueData.Add(26, new string[] { "아직도 사람이 남아있다니", "심심했는데 고마워", "이건 너에게 선물로 주지", "너에게 필요할 거야", "낚시대를 얻었다." }); //상점 주인
+        dialogueData.Add(1026, new string[] { "내가 준 낚시대로 낚시라도 하는게 어때" }); //낚시대 얻은 후
+        dialogueData.Add(27, new string[] { "자동차 키를 얻었다." }); //공사장 마크
 
     }
     public string GetDialogue(int id, int dialogueIndex)

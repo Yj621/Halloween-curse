@@ -15,6 +15,7 @@ public class GameMangaer : MonoBehaviour
     public GameObject note;
     public GameObject shovel;
     public GameObject sheet;
+    public GameObject xMark;
 
     //상호작용한 오브젝트 정보를 받아온 뒤 대화 실행 -> 플레이어에 DialougeManger 받아서 스페이스바로 상호작용하면 Action(상호작용 오프젝트) 호출, 플레이어에서 isAction값 받아서 true일때 움직임 막기 
     public void Action(GameObject interactionObject)
@@ -22,18 +23,21 @@ public class GameMangaer : MonoBehaviour
 
         this.interactionObject = interactionObject;
         ObjectData objectData = interactionObject.GetComponent<ObjectData>();
-        Debug.Log("oD" + objectData);
         Debug.Log("oD id" + objectData.id);
         Interaction(objectData.id, objectData.condition);
         talkPanel.SetActive(isAction);
     }
     //상호 작용 대화, 오브젝트 id 값으로 대화 내용 가져와서 출력
-    void Interaction(int id, bool condition)
+    void Interaction(int id, int condition)
     {
         Debug.Log("Dia");
-        if (condition)
+        if (condition == 1)
         {
             id += 1000;
+        }
+        else if (condition == 2)
+        {
+            id += 2000;
         }
         Debug.Log(id);
         Debug.Log("다이아로그 인덱스" + dialogueIndex);
@@ -48,6 +52,7 @@ public class GameMangaer : MonoBehaviour
             if (id == 14) { Destroy(note); }
             if (id == 24) { Destroy(shovel); }
             if (id == 5) { Destroy(sheet); }
+            if (id == 27) { Destroy(xMark); }
             return;
         }
         myText.text = dialogue;

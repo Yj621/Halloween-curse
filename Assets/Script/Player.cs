@@ -124,7 +124,7 @@ public class Player : MonoBehaviour
 
             if (objectData.id == 7 && Item.sheet == true) // 피아노, 악보 O 
             {
-                objectData.condition = true;
+                objectData.condition = 1;
                 pianoScript.piano();
             }
             else if (objectData.id == 5) //악보
@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
             }
             else if (objectData.id == 10 && Item.scissors == true) // 서랍, 가위 O
             {
-                objectData.condition = true;
+                objectData.condition = 1;
             }
             else if (objectData.id == 11 && Item.isKey == true) // 문, 열쇠가 있을때 대화 생성 X
             {
@@ -152,12 +152,11 @@ public class Player : MonoBehaviour
             else if (objectData.id == 14) //쪽지 상호작용
             {
                 noteUI.SetActive(true);
-                //Destroy(note);
             }
 
             else if (objectData.id == 15 && Item.isCandy2) //호수에서 낚시대 들고 상호작용 사탕을 얻은 후
             {
-                objectData.condition = true;
+                objectData.condition = 1;
             }
 
             else if (objectData.id == 15 && Item.isRod == true && !Item.isCandy2) //호수에서 낚시대 들고 상호작용
@@ -166,49 +165,61 @@ public class Player : MonoBehaviour
                 {
                     fish = theLake.Fish();
                     objectData.id += fish;
-                    objectData.condition = true;
+                    objectData.condition = 1;
                     gameManager.Action(scanObj);
-                    objectData.condition = false;
+                    objectData.condition = 1;
                     objectData.id -= fish;
-                    Debug.Log("호수 " + objectData.id);
                     fishing = true;
                 }
                 else
                 {
                     objectData.id += fish;
-                    objectData.condition = true;
+                    objectData.condition = 1;
                     gameManager.Action(scanObj);
-                    objectData.condition = false;
+                    objectData.condition = 1;
                     objectData.id -= fish;
-                    Debug.Log("호수 " + objectData.id);
                     fishing = false;
                 }
                 return;
             }
             else if (objectData.id == 24) //삽 상호작용
             {
-                Item.isShovel = true; //hierarchy에 삽 넣어주세요
+                Item.isShovel = true; 
             }
-            /*
-            else if (objectData.id == 32 && Item.isShovel) //삽이 있으면서 땅 팔때 
+            
+            else if (objectData.id == 27 && Item.isShovel) //삽이 있으면서 땅 팔때 
             {
                 Item.isCarKey = true;
-                Destroy(scanObj);
-                return; //이부분은 수정 부탁드려요 대사 나오게
-            }맵 만들어지면
-            */
+            }
+            
             else if (objectData.id == 21 && Item.isCarKey) //빨간/초록차 상호작용
             {
-                objectData.condition = true;
+                objectData.condition = 1;
             }
             else if (objectData.id == 22 && Item.isCarKey) //빨간/초록차 상호작용
             {
-                objectData.condition = true;
+                objectData.condition = 1;
             }
             else if (objectData.id == 23 && Item.isCarKey) //하얀차 + 차키 있을때
             {
                 Item.isCandy1 = true;
-                objectData.condition = true;
+                objectData.condition = 1;
+            }
+            else if (objectData.id == 25) //석상
+            {
+                int candys = 0;
+                if (Item.isCandy1) candys++;
+                if (Item.isCandy2) candys++;
+                objectData.condition = candys;
+                Debug.Log("candys" + candys);
+            }
+            else if(objectData.id == 26 && !Item.isRod) //상점 주인
+            {
+                Item.isRod = true;
+            }
+            else if (objectData.id == 26 && Item.isRod && gameManager.dialogueIndex == 0) //상점 주인 낚시대 O // gameManager.dialogueIndex == 0 -> 상점주인과 대화 끝날 때까지 기다리기
+            {
+                objectData.condition = 1;
             }
             gameManager.Action(scanObj);
 
