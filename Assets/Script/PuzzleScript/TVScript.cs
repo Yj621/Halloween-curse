@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class TVScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject imgTV;
+    public GameObject imgTV2;
     void Start()
     {
+        imgTV.SetActive(false);
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            imgTV.SetActive(false);
+        }
         
     }
 }

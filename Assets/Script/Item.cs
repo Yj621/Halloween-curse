@@ -30,6 +30,7 @@ public class Item : MonoBehaviour
         if(Input.GetButtonDown("1"))
         {
             isKey = true;
+            isBattery = true;
         }
         if(Input.GetButtonDown("2"))
         {
@@ -39,5 +40,6 @@ public class Item : MonoBehaviour
         {
             isRod = true;
         }
+        
     }
 }
