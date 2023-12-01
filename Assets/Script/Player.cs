@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
             }
             else if (objectData.id == 3 && Item.battery == true) // TV, 건전지가 있을때 대화 생성 X
             {
-                return;
+                objectData.condition = 1;
             }
             else if (objectData.id == 14) //쪽지 상호작용
             {
