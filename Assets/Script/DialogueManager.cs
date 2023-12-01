@@ -47,6 +47,9 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(23, new string[] { "차문이 잠겨있다", "열쇠가 필요하다" }); //흰색 차
         dialogueData.Add(1023, new string[] { "사탕을 얻었다!" }); //흰색 차 차기 O
         dialogueData.Add(24, new string[] { "삽 얻었다", "땅을 팔 수 있을 것 같다." }); //삽
+        dialogueData.Add(25, new string[] { "Trick or Treat~ 사탕 주면 안잡아먹지" }); //석상
+        dialogueData.Add(26, new string[] { "우리는 둘인데 사탕은 하나야?!??!" }); //석상
+        dialogueData.Add(27, new string[] { "지나가게 해줄게 고마워~" }); //석상
 
     }
     public string GetDialogue(int id, int dialogueIndex)
