@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     PianoScript pianoScript;
     SheetScript sheetScript;
     LockScript lockScript;
+    BedDrawerScript bedDrawerScript;
     Lake theLake;
 
     void Awake()
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
         pianoScript = FindObjectOfType<PianoScript>();
         sheetScript = FindObjectOfType<SheetScript>();
         lockScript = FindObjectOfType<LockScript>();
+        bedDrawerScript = FindObjectOfType<BedDrawerScript>();
         theLake = FindObjectOfType<Lake>();
         noteUI.SetActive(false);
         sheetUI.SetActive(false);
@@ -137,17 +139,23 @@ public class Player : MonoBehaviour
             {
                 lockScript.LockActive();
             }
-            else if (objectData.id == 10 && Item.scissors == true) // 서랍, 가위 O
+
+            else if (objectData.id == 10 && Item.isScissors == true) // 서랍, 가위 O
             {
                 objectData.condition = 1;
+                bedDrawerScript.BedDrawer();
+            }
+            else if (objectData.id == 10 ) // 서랍, 가위 O
+            {
+                return;
             }
             else if (objectData.id == 11 && Item.isKey == true) // 문, 열쇠가 있을때 대화 생성 X
             {
                 return;
             }
-            else if (objectData.id == 3 && Item.battery == true) // TV, 건전지가 있을때 대화 생성 X
+            else if (objectData.id == 3 && Item.isBattery == true) // TV, 건전지가 있을때 대화 생성 X
             {
-                objectData.condition = 1;
+                return;
             }
             else if (objectData.id == 14) //쪽지 상호작용
             {

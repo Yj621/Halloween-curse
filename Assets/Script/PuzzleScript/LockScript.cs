@@ -13,6 +13,8 @@ public class LockScript : MonoBehaviour
     public GameObject drawerUI;
     public GameObject lockUI;
 
+    public bool isPassWordCorrect = false;
+
     // 버튼의 원래 스프라이트 이미지 배열
     private Sprite[] originalSprites;
 
@@ -62,10 +64,9 @@ public class LockScript : MonoBehaviour
             // 버튼의 스프라이트 이미지 변경
             buttons[buttonIndex].image.sprite = pressedSprite;
 
-            if (pressedButtons.Count >= correctButtons.Length)
-            {
-                checkButton.interactable = true; // Check 버튼 활성화
-            }
+            Debug.Log("press button value" + pressedButtons[0]);
+
+            CheckPassWord(pressedButtons);
         }
         else
         {
@@ -73,6 +74,7 @@ public class LockScript : MonoBehaviour
 
             // 버튼의 스프라이트 이미지 원래대로 변경
             buttons[buttonIndex].image.sprite = originalSprites[buttonIndex];
+            CheckPassWord(pressedButtons);
 
             if (pressedButtons.Count < correctButtons.Length)
             {
@@ -115,5 +117,27 @@ public class LockScript : MonoBehaviour
         key.SetActive(true);
         drawerUI.SetActive(false);
         gameObject.SetActive(false);
+    }
+
+    public void CheckPassWord(List<int> pressedButtons)
+    {
+        if (pressedButtons.Count == correctButtons.Length)
+        {
+            pressedButtons.Sort();
+            for (int i = 0; i < 3; i++)
+            {
+                if (pressedButtons[i] == correctButtons[i])
+                {
+                    if (i == 2)
+                    {
+                        checkButton.interactable = true; // Check 버튼 활성화
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
     }
 }

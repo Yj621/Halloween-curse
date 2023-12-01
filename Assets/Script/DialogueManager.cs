@@ -19,7 +19,6 @@ public class DialogueManager : MonoBehaviour
         //dialogueData.Add(1, new string[] { "테스트", "다이어로그", "입니다." }); // id, 대화 내용
         dialogueData.Add(2, new string[] { "쓰레기가 가득차있다." }); //쓰레기통
         dialogueData.Add(3, new string[] { "작동하지 않는다. 건전지가 없나?" }); //TV
-        dialogueData.Add(1003, new string[] { "건전지를 넣었다" }); //TV
         dialogueData.Add(4, new string[] { "나의 모습이 비친다" }); //거울
         dialogueData.Add(5, new string[] { "악보를 얻었다!" }); //악보
         dialogueData.Add(6, new string[] { "비밀번호를 입력해야할 것 같다." }); //자물쇠
