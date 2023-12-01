@@ -14,9 +14,6 @@ public class Player : MonoBehaviour
     public GameMangaer gameManager;
     public GameObject noteUI;
     public GameObject sheetUI;
-    public GameObject sheet;
-    public GameObject note;
-    public GameObject shovel;
     public int gameStart = 0; //게임 시작시 출력할 대화 길이 
     private bool fishing = false;
     private int fish = 0;
@@ -134,7 +131,6 @@ public class Player : MonoBehaviour
             {
                 Item.sheet = true;
                 sheetUI.SetActive(true);
-                Destroy(sheet);
                 pianoScript.SheetActive();
             }
             else if (objectData.id == 6) //선반
@@ -156,17 +152,16 @@ public class Player : MonoBehaviour
             else if (objectData.id == 14) //쪽지 상호작용
             {
                 noteUI.SetActive(true);
-                Destroy(note);
+                //Destroy(note);
             }
-            
+
             else if (objectData.id == 15 && Item.isCandy2) //호수에서 낚시대 들고 상호작용 사탕을 얻은 후
             {
                 objectData.condition = true;
             }
-            
+
             else if (objectData.id == 15 && Item.isRod == true && !Item.isCandy2) //호수에서 낚시대 들고 상호작용
             {
-                //null 리턴이 되고 id 값을 깎아야겠는데
                 if (!fishing)
                 {
                     fish = theLake.Fish();
@@ -193,7 +188,6 @@ public class Player : MonoBehaviour
             else if (objectData.id == 24) //삽 상호작용
             {
                 Item.isShovel = true; //hierarchy에 삽 넣어주세요
-                Destroy(shovel);
             }
             /*
             else if (objectData.id == 32 && Item.isShovel) //삽이 있으면서 땅 팔때 
@@ -216,31 +210,10 @@ public class Player : MonoBehaviour
                 Item.isCandy1 = true;
                 objectData.condition = true;
             }
-
             gameManager.Action(scanObj);
 
         }
-        /*
-        //스페이스바 X 그냥 들어갈때        
-        if (scanObj != null && scanObj.name == "Statue" && !statueInteraction)
-        {
-            //사탕을 두개 들고 갔을때
-                if(isCandy1 && isCandy2)
-                {
-                    Debug.Log("사탕 줬으니까 안에 들어가도 된다");
-                }
-                else
-                {
-                    Debug.Log("동상:못들어간다! 무언갈 주면 들어보내줄거같다. 근데 한번은 보내주지 않을까?(사탕 얻으러 낚시해야됨)");
-                }
-                statueInteraction = true;
-        }
-        else if (scanObj != null && scanObj.name != "Statue" && statueInteraction)
-        {
-            // Player moved away from the Statue, reset the interaction
-            statueInteraction = false;
-        }
-        */
+
     }
 
     void FixedUpdate()

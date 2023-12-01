@@ -12,12 +12,14 @@ public class GameMangaer : MonoBehaviour
     public GameObject talkPanel; //대화창 패널
     public bool isAction; // 대화창이 보이고 안보이고를 컨트롤하기위한 값
     public int dialogueIndex;
-
+    public GameObject note;
+    public GameObject shovel;
+    public GameObject sheet;
 
     //상호작용한 오브젝트 정보를 받아온 뒤 대화 실행 -> 플레이어에 DialougeManger 받아서 스페이스바로 상호작용하면 Action(상호작용 오프젝트) 호출, 플레이어에서 isAction값 받아서 true일때 움직임 막기 
     public void Action(GameObject interactionObject)
     {
-        
+
         this.interactionObject = interactionObject;
         ObjectData objectData = interactionObject.GetComponent<ObjectData>();
         Debug.Log("oD" + objectData);
@@ -35,19 +37,23 @@ public class GameMangaer : MonoBehaviour
         }
         Debug.Log(id);
         Debug.Log("다이아로그 인덱스" + dialogueIndex);
-        string dialogue = dialogueManager.GetDialogue(id, dialogueIndex); 
-        Debug.Log(dialogue);
+        string dialogue = dialogueManager.GetDialogue(id, dialogueIndex);
         //대화가 끝나면 isAction = false 
         if (dialogue == null)
         {
+
             isAction = false;
             Debug.Log("액션 false");
             dialogueIndex = 0;
+            if (id == 14) { Destroy(note); }
+            if (id == 24) { Destroy(shovel); }
+            if (id == 5) { Destroy(sheet); }
             return;
         }
         myText.text = dialogue;
         isAction = true;
         dialogueIndex++; //action 키를 누를때마다 늘어나면서 다음 대화 출력 
-        
+
+
     }
 }
