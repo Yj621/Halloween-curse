@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    //¿ÀºêÁ§Æ® ¾ÆÀÌµğ¿¡ µû¶ó »ı¼ºµÉ ´ëÈ­ ³»¿ë ÀúÀå ¿ÀºêÁ§Æ® ¾ÆÀÌµğ´Â objectData ½ºÅ©¸³Æ®¿¡¼­ ÁöÁ¤ 
+    //ì˜¤ë¸Œì íŠ¸ ì•„ì´ë””ì— ë”°ë¼ ìƒì„±ë  ëŒ€í™” ë‚´ìš© ì €ì¥ ì˜¤ë¸Œì íŠ¸ ì•„ì´ë””ëŠ” objectData ìŠ¤í¬ë¦½íŠ¸ì—ì„œ ì§€ì • 
     Dictionary<int, string[]> dialogueData;
 
     private void Awake()
@@ -15,50 +15,50 @@ public class DialogueManager : MonoBehaviour
     }
     void GenerateData()
     {
-        dialogueData.Add(0, new string[] { "´«À» ¶°º¸´Ï Ã³À½ º¸´Â Àå¼ÒÀÌ´Ù.", "Ã¢¹Û¿¡ ¼Ò¶õ½º·´´Ù.", "Ã¢¹ÛÀ» º¸´Ï À¯·ÉµéÀÌ µ¹¾Æ ´Ù´Ï°íÀÖ´Ù.", "»¡¸® ÀÌ°÷À» Å»ÃâÇØ¾ßÇÒ °Í °°´Ù." }); // °ÔÀÓ ½ÃÀÛ
-        //dialogueData.Add(1, new string[] { "Å×½ºÆ®", "´ÙÀÌ¾î·Î±×", "ÀÔ´Ï´Ù." }); // id, ´ëÈ­ ³»¿ë
-        dialogueData.Add(2, new string[] { "¾²·¹±â°¡ °¡µæÂ÷ÀÖ´Ù." }); //¾²·¹±âÅë
-        dialogueData.Add(3, new string[] { "ÀÛµ¿ÇÏÁö ¾Ê´Â´Ù. °ÇÀüÁö°¡ ¾ø³ª?" }); //TV
-        dialogueData.Add(4, new string[] { "³ªÀÇ ¸ğ½ÀÀÌ ºñÄ£´Ù" }); //°Å¿ï
-        dialogueData.Add(5, new string[] { "¾Çº¸¸¦ ¾ò¾ú´Ù!" }); //¾Çº¸
-        dialogueData.Add(6, new string[] { "ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØ¾ßÇÒ °Í °°´Ù." }); //ÀÚ¹°¼è
-        dialogueData.Add(7, new string[] { "¾Çº¸°¡ ÀÖÀ¸¸é ¿¬ÁÖ ÇÒ ¼ö ÀÖÀ»ÅÙµ¥..." }); //ÇÇ¾Æ³ë
-        dialogueData.Add(1007, new string[] { "¾Æ±î ¾òÀº ¾Çº¸·Î ¹º°¡ ÇÒ ¼ö ÀÖÀ» °Í °°´Ù." }); //ÇÇ¾Æ³ë, ¾Çº¸ O
-        dialogueData.Add(8, new string[] { "¾Æ¹«°Íµµ ¾ø´Â °Í °°´Ù." }); //Ä§´ë
-        dialogueData.Add(9, new string[] { "¼îÆÄ ¹Ø¿¡´Â ¸ÕÁö¸¸ °¡µæÇÏ´Ù." }); //¼îÆÄ
-        dialogueData.Add(10, new string[] { "¹«¾ğ°¡·Î ¶â¾î¼­ ¿­¾î¾ß ÇÑ´Ù." }); //¼­¶ø
-        dialogueData.Add(1010, new string[] { "°¡À§·Î Å×ÀÌÇÁ¸¦ Àß¶ú´Ù." }); //¼­¶ø, °¡À§ O
-        dialogueData.Add(11, new string[] { "¿­¼è°¡ ÀÖ¾î¾ß Å»ÃâÇÒ ¼ö ÀÖÀ» °Í °°´Ù." }); //¹®
-        dialogueData.Add(12, new string[] { "¸ØÃçÀÖ´Ù." }); //½Ã°è
-        dialogueData.Add(13, new string[] { "ÀÛµ¿ÇÏÁö ¾Ê´Â´Ù." }); //°¡¸£·¹ÀÎÁö
-        dialogueData.Add(28, new string[] { "±â±«ÇÑ ±×¸²ÀÌ ±×·ÁÁ®ÀÖ´Ù." }); //¾×ÀÚ
-        //¸Ê2
-        dialogueData.Add(14, new string[] { "»óÁ¡ Àü´ÜÁöÀÌ´Ù.", "»óÁ¡À¸·Î °¡¸é ¹«¾ğ°¥ ¾òÀ» ¼ö ÀÖÀ»°Í °°´Ù." }); //ÂÊÁö
-        dialogueData.Add(15, new string[] { "Å« È£¼öÀÌ´Ù.", "³¬½Ã´ë°¡ ÀÖÀ¸¸é ¹«¾ğ°¥ ³¬À» ¼ö ÀÖÀ» °Í°°´Ù." }); //È£¼ö
-        dialogueData.Add(1015, new string[] { "Å« È£¼öÀÌ´Ù.", "ÇÏÁö¸¸ È£¼ö ¾ÈÀº ÅÖ ºñ¾îÀÖ´Ù." }); //È£¼ö
-        dialogueData.Add(1016, new string[] { "±Í¿©¿î ¹°°í±â¸¦ ³¬¾Ò´Ù." }); //È£¼ö
-        dialogueData.Add(1017, new string[] { "¹«¼­¿î ¹°°í±â¸¦ ³¬¾Ò´Ù." }); //È£¼ö
-        dialogueData.Add(1018, new string[] { "º´À» ³¬¾Ò´Ù." }); //È£¼ö
-        dialogueData.Add(1019, new string[] { "¾ç¸»À» ³¬¾Ò´Ù." }); //È£¼ö
-        dialogueData.Add(1020, new string[] { "»çÅÁÀ» ¾ò¾ú´Ù!" }); //È£¼ö
-        dialogueData.Add(21, new string[] { "Â÷¹®ÀÌ Àá°ÜÀÖ´Ù", "¿­¼è°¡ ÇÊ¿äÇÏ´Ù" }); //»¡°£ Â÷ 
-        dialogueData.Add(1021, new string[] { "ÀÌ Â÷¿¡ ¸ÂÁö ¾ÊÀº ¿­¼è´Ù" }); //»¡°£ Â÷ Â÷Å° O
-        dialogueData.Add(22, new string[] { "Â÷¹®ÀÌ Àá°ÜÀÖ´Ù", "¿­¼è°¡ ÇÊ¿äÇÏ´Ù" }); //ÃÊ·Ï Â÷
-        dialogueData.Add(1022, new string[] { "ÀÌ Â÷¿¡ ¸ÂÁö ¾ÊÀº ¿­¼è´Ù" }); //ÃÊ·Ï Â÷ Â÷Å° O
-        dialogueData.Add(23, new string[] { "Â÷¹®ÀÌ Àá°ÜÀÖ´Ù", "¿­¼è°¡ ÇÊ¿äÇÏ´Ù" }); //Èò»ö Â÷
-        dialogueData.Add(1023, new string[] { "»çÅÁÀ» ¾ò¾ú´Ù!" }); //Èò»ö Â÷ Â÷±â O
-        dialogueData.Add(24, new string[] { "»ğ ¾ò¾ú´Ù", "¶¥À» ÆÈ ¼ö ÀÖÀ» °Í °°´Ù." }); //»ğ
-        dialogueData.Add(25, new string[] { "Trick or Treat~ »çÅÁ ÁÖ¸é ¾ÈÀâ¾Æ¸ÔÁö" }); //¼®»ó
-        dialogueData.Add(1025, new string[] { "¿ì¸®´Â µÑÀÎµ¥ »çÅÁÀº ÇÏ³ª¾ß?!??!" }); //¼®»ó
-        dialogueData.Add(2025, new string[] { "Áö³ª°¡°Ô ÇØÁÙ°Ô °í¸¶¿ö~" }); //¼®»ó
-        dialogueData.Add(26, new string[] { "¾ÆÁ÷µµ »ç¶÷ÀÌ ³²¾ÆÀÖ´Ù´Ï", "½É½ÉÇß´Âµ¥ °í¸¶¿ö", "ÀÌ°Ç ³Ê¿¡°Ô ¼±¹°·Î ÁÖÁö", "³Ê¿¡°Ô ÇÊ¿äÇÒ °Å¾ß", "³¬½Ã´ë¸¦ ¾ò¾ú´Ù." }); //»óÁ¡ ÁÖÀÎ
-        dialogueData.Add(1026, new string[] { "³»°¡ ÁØ ³¬½Ã´ë·Î ³¬½Ã¶óµµ ÇÏ´Â°Ô ¾î¶§" }); //³¬½Ã´ë ¾òÀº ÈÄ
-        dialogueData.Add(27, new string[] { "ÀÚµ¿Â÷ Å°¸¦ ¾ò¾ú´Ù." }); //°ø»çÀå ¸¶Å©
+        dialogueData.Add(0, new string[] { "ëˆˆì„ ë– ë³´ë‹ˆ ì²˜ìŒ ë³´ëŠ” ì¥ì†Œì´ë‹¤.", "ì°½ë°–ì— ì†Œë€ìŠ¤ëŸ½ë‹¤.", "ì°½ë°–ì„ ë³´ë‹ˆ ìœ ë ¹ë“¤ì´ ëŒì•„ ë‹¤ë‹ˆê³ ìˆë‹¤.", "ë¹¨ë¦¬ ì´ê³³ì„ íƒˆì¶œí•´ì•¼í•  ê²ƒ ê°™ë‹¤." }); // ê²Œì„ ì‹œì‘
+        //dialogueData.Add(1, new string[] { "í…ŒìŠ¤íŠ¸", "ë‹¤ì´ì–´ë¡œê·¸", "ì…ë‹ˆë‹¤." }); // id, ëŒ€í™” ë‚´ìš©
+        dialogueData.Add(2, new string[] { "ì“°ë ˆê¸°ê°€ ê°€ë“ì°¨ìˆë‹¤." }); //ì“°ë ˆê¸°í†µ
+        dialogueData.Add(3, new string[] { "ì‘ë™í•˜ì§€ ì•ŠëŠ”ë‹¤. ê±´ì „ì§€ê°€ ì—†ë‚˜?" }); //TV
+        dialogueData.Add(4, new string[] { "ë‚˜ì˜ ëª¨ìŠµì´ ë¹„ì¹œë‹¤" }); //ê±°ìš¸
+        dialogueData.Add(5, new string[] { "ì•…ë³´ë¥¼ ì–»ì—ˆë‹¤!" }); //ì•…ë³´
+        dialogueData.Add(6, new string[] { "ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì•¼í•  ê²ƒ ê°™ë‹¤." }); //ìë¬¼ì‡ 
+        dialogueData.Add(7, new string[] { "ì•…ë³´ê°€ ìˆìœ¼ë©´ ì—°ì£¼ í•  ìˆ˜ ìˆì„í…ë°..." }); //í”¼ì•„ë…¸
+        dialogueData.Add(1007, new string[] { "ì•„ê¹Œ ì–»ì€ ì•…ë³´ë¡œ ë­”ê°€ í•  ìˆ˜ ìˆì„ ê²ƒ ê°™ë‹¤." }); //í”¼ì•„ë…¸, ì•…ë³´ O
+        dialogueData.Add(8, new string[] { "ì•„ë¬´ê²ƒë„ ì—†ëŠ” ê²ƒ ê°™ë‹¤." }); //ì¹¨ëŒ€
+        dialogueData.Add(9, new string[] { "ì‡¼íŒŒ ë°‘ì—ëŠ” ë¨¼ì§€ë§Œ ê°€ë“í•˜ë‹¤." }); //ì‡¼íŒŒ
+        dialogueData.Add(10, new string[] { "ë¬´ì–¸ê°€ë¡œ ëœ¯ì–´ì„œ ì—´ì–´ì•¼ í•œë‹¤." }); //ì„œë
+        dialogueData.Add(1010, new string[] { "ê°€ìœ„ë¡œ í…Œì´í”„ë¥¼ ì˜ëë‹¤." }); //ì„œë, ê°€ìœ„ O
+        dialogueData.Add(11, new string[] { "ì—´ì‡ ê°€ ìˆì–´ì•¼ íƒˆì¶œí•  ìˆ˜ ìˆì„ ê²ƒ ê°™ë‹¤." }); //ë¬¸
+        dialogueData.Add(12, new string[] { "ë©ˆì¶°ìˆë‹¤." }); //ì‹œê³„
+        dialogueData.Add(13, new string[] { "ì‘ë™í•˜ì§€ ì•ŠëŠ”ë‹¤." }); //ê°€ë¥´ë ˆì¸ì§€
+        dialogueData.Add(28, new string[] { "ê¸°ê´´í•œ ê·¸ë¦¼ì´ ê·¸ë ¤ì ¸ìˆë‹¤." }); //ì•¡ì
+        //ë§µ2
+        dialogueData.Add(14, new string[] { "ìƒì  ì „ë‹¨ì§€ì´ë‹¤.", "ìƒì ìœ¼ë¡œ ê°€ë©´ ë¬´ì–¸ê°ˆ ì–»ì„ ìˆ˜ ìˆì„ê²ƒ ê°™ë‹¤." }); //ìª½ì§€
+        dialogueData.Add(15, new string[] { "í° í˜¸ìˆ˜ì´ë‹¤.", "ë‚šì‹œëŒ€ê°€ ìˆìœ¼ë©´ ë¬´ì–¸ê°ˆ ë‚šì„ ìˆ˜ ìˆì„ ê²ƒê°™ë‹¤." }); //í˜¸ìˆ˜
+        dialogueData.Add(1015, new string[] { "í° í˜¸ìˆ˜ì´ë‹¤.", "í•˜ì§€ë§Œ í˜¸ìˆ˜ ì•ˆì€ í…… ë¹„ì–´ìˆë‹¤." }); //í˜¸ìˆ˜
+        dialogueData.Add(1016, new string[] { "ê·€ì—¬ìš´ ë¬¼ê³ ê¸°ë¥¼ ë‚šì•˜ë‹¤." }); //í˜¸ìˆ˜
+        dialogueData.Add(1017, new string[] { "ë¬´ì„œìš´ ë¬¼ê³ ê¸°ë¥¼ ë‚šì•˜ë‹¤." }); //í˜¸ìˆ˜
+        dialogueData.Add(1018, new string[] { "ë³‘ì„ ë‚šì•˜ë‹¤." }); //í˜¸ìˆ˜
+        dialogueData.Add(1019, new string[] { "ì–‘ë§ì„ ë‚šì•˜ë‹¤." }); //í˜¸ìˆ˜
+        dialogueData.Add(1020, new string[] { "ì‚¬íƒ•ì„ ì–»ì—ˆë‹¤!" }); //í˜¸ìˆ˜
+        dialogueData.Add(21, new string[] { "ì°¨ë¬¸ì´ ì ê²¨ìˆë‹¤", "ì—´ì‡ ê°€ í•„ìš”í•˜ë‹¤" }); //ë¹¨ê°„ ì°¨ 
+        dialogueData.Add(1021, new string[] { "ì´ ì°¨ì— ë§ì§€ ì•Šì€ ì—´ì‡ ë‹¤" }); //ë¹¨ê°„ ì°¨ ì°¨í‚¤ O
+        dialogueData.Add(22, new string[] { "ì°¨ë¬¸ì´ ì ê²¨ìˆë‹¤", "ì—´ì‡ ê°€ í•„ìš”í•˜ë‹¤" }); //ì´ˆë¡ ì°¨
+        dialogueData.Add(1022, new string[] { "ì´ ì°¨ì— ë§ì§€ ì•Šì€ ì—´ì‡ ë‹¤" }); //ì´ˆë¡ ì°¨ ì°¨í‚¤ O
+        dialogueData.Add(23, new string[] { "ì°¨ë¬¸ì´ ì ê²¨ìˆë‹¤", "ì—´ì‡ ê°€ í•„ìš”í•˜ë‹¤" }); //í°ìƒ‰ ì°¨
+        dialogueData.Add(1023, new string[] { "ì‚¬íƒ•ì„ ì–»ì—ˆë‹¤!" }); //í°ìƒ‰ ì°¨ ì°¨ê¸° O
+        dialogueData.Add(24, new string[] { "ì‚½ ì–»ì—ˆë‹¤", "ë•…ì„ íŒ” ìˆ˜ ìˆì„ ê²ƒ ê°™ë‹¤." }); //ì‚½
+        dialogueData.Add(25, new string[] { "Trick or Treat~ ì‚¬íƒ• ì£¼ë©´ ì•ˆì¡ì•„ë¨¹ì§€" }); //ì„ìƒ
+        dialogueData.Add(1025, new string[] { "ìš°ë¦¬ëŠ” ë‘˜ì¸ë° ì‚¬íƒ•ì€ í•˜ë‚˜ì•¼?!??!" }); //ì„ìƒ
+        dialogueData.Add(2025, new string[] { "ì§€ë‚˜ê°€ê²Œ í•´ì¤„ê²Œ ê³ ë§ˆì›Œ~" }); //ì„ìƒ
+        dialogueData.Add(26, new string[] { "ì•„ì§ë„ ì‚¬ëŒì´ ë‚¨ì•„ìˆë‹¤ë‹ˆ", "ì‹¬ì‹¬í–ˆëŠ”ë° ê³ ë§ˆì›Œ", "ì´ê±´ ë„ˆì—ê²Œ ì„ ë¬¼ë¡œ ì£¼ì§€", "ë„ˆì—ê²Œ í•„ìš”í•  ê±°ì•¼", "ë‚šì‹œëŒ€ë¥¼ ì–»ì—ˆë‹¤." }); //ìƒì  ì£¼ì¸
+        dialogueData.Add(1026, new string[] { "ë‚´ê°€ ì¤€ ë‚šì‹œëŒ€ë¡œ ë‚šì‹œë¼ë„ í•˜ëŠ”ê²Œ ì–´ë•Œ" }); //ë‚šì‹œëŒ€ ì–»ì€ í›„
+        dialogueData.Add(27, new string[] { "ìë™ì°¨ í‚¤ë¥¼ ì–»ì—ˆë‹¤." }); //ê³µì‚¬ì¥ ë§ˆí¬
 
     }
     public string GetDialogue(int id, int dialogueIndex)
     {
-        if (dialogueIndex == dialogueData[id].Length) return null; //¹®ÀÚÀÌ ³¡³ª¸é null return
+        if (dialogueIndex == dialogueData[id].Length) return null; //ë¬¸ìì´ ëë‚˜ë©´ null return
         else return dialogueData[id][dialogueIndex];
     }
 }

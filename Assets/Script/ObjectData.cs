@@ -1,9 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectData : MonoBehaviour
 {
     public int id;
-    public int condition = 0; // ±âº»ÀûÀÎ ´ëÈ­ ¶ç¿ì´Â °Í ÀÌ¿Ü¿¡ Æ¯¼öÇÑ ¿¹¿Ü»óÈ² ¸í·É
+    public int condition = 0; // ê¸°ë³¸ì ì¸ ëŒ€í™” ë„ìš°ëŠ” ê²ƒ ì´ì™¸ì— íŠ¹ìˆ˜í•œ ì˜ˆì™¸ìƒí™© ëª…ë ¹
 }

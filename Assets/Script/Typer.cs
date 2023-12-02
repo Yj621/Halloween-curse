@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +7,7 @@ using KoreanTyper;
 
 public class Typer : MonoBehaviour
 {
-    string originText; //Å¸ÀÔÇÎ È¿°ú Àü ÅØ½ºÆ®
+    string originText; //íƒ€ì…í•‘ íš¨ê³¼ ì „ í…ìŠ¤íŠ¸
     Text myText;
 
     private void Awake()
@@ -24,13 +24,13 @@ public class Typer : MonoBehaviour
 
     IEnumerator TypingRoutine()
     {                                 
-        int typingLength = originText.GetTypingLength(); // Å¸ÀÌÇÎ ±æÀÌ °¡Á®¿À±â
+        int typingLength = originText.GetTypingLength(); // íƒ€ì´í•‘ ê¸¸ì´ ê°€ì ¸ì˜¤ê¸°
 
-        //Å¸ÀÌÇÎ ±æÀÌ·Î ¹İº¹¹® ½ÇÇàÇÏ¸é¼­ Typing ÇÔ¼ö·Î text¿¡ ¹İÈ¯ ½ÃÅ´ 
+        //íƒ€ì´í•‘ ê¸¸ì´ë¡œ ë°˜ë³µë¬¸ ì‹¤í–‰í•˜ë©´ì„œ Typing í•¨ìˆ˜ë¡œ textì— ë°˜í™˜ ì‹œí‚´ 
         for (int index = 0; index <= typingLength; index++)
         {
             myText.text = originText.Typing(index); 
-            yield return new WaitForSeconds(0.05f); // µô·¹ÀÌ ÁÖ±â 
+            yield return new WaitForSeconds(0.05f); // ë”œë ˆì´ ì£¼ê¸° 
         }
     }
 }

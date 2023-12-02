@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,17 +7,17 @@ using UnityEngine.UI;
 public class GameMangaer : MonoBehaviour
 {
     public DialogueManager dialogueManager;
-    public Text myText; //ÅØ½ºÆ® ¿ÀºêÁ§Æ® 
-    public GameObject interactionObject; //ÇÃ·¹ÀÌ¾î°¡ »óÈ£ÀÛ¿ëÇÑ ¿ÀºêÁ§Æ® 
-    public GameObject talkPanel; //´ëÈ­Ã¢ ÆĞ³Î
-    public bool isAction; // ´ëÈ­Ã¢ÀÌ º¸ÀÌ°í ¾Èº¸ÀÌ°í¸¦ ÄÁÆ®·ÑÇÏ±âÀ§ÇÑ °ª
+    public Text myText; //í…ìŠ¤íŠ¸ ì˜¤ë¸Œì íŠ¸ 
+    public GameObject interactionObject; //í”Œë ˆì´ì–´ê°€ ìƒí˜¸ì‘ìš©í•œ ì˜¤ë¸Œì íŠ¸ 
+    public GameObject talkPanel; //ëŒ€í™”ì°½ íŒ¨ë„
+    public bool isAction; // ëŒ€í™”ì°½ì´ ë³´ì´ê³  ì•ˆë³´ì´ê³ ë¥¼ ì»¨íŠ¸ë¡¤í•˜ê¸°ìœ„í•œ ê°’
     public int dialogueIndex;
     public GameObject note;
     public GameObject shovel;
     public GameObject sheet;
     public GameObject xMark;
 
-    //»óÈ£ÀÛ¿ëÇÑ ¿ÀºêÁ§Æ® Á¤º¸¸¦ ¹Ş¾Æ¿Â µÚ ´ëÈ­ ½ÇÇà -> ÇÃ·¹ÀÌ¾î¿¡ DialougeManger ¹Ş¾Æ¼­ ½ºÆäÀÌ½º¹Ù·Î »óÈ£ÀÛ¿ëÇÏ¸é Action(»óÈ£ÀÛ¿ë ¿ÀÇÁÁ§Æ®) È£Ãâ, ÇÃ·¹ÀÌ¾î¿¡¼­ isAction°ª ¹Ş¾Æ¼­ trueÀÏ¶§ ¿òÁ÷ÀÓ ¸·±â 
+    //ìƒí˜¸ì‘ìš©í•œ ì˜¤ë¸Œì íŠ¸ ì •ë³´ë¥¼ ë°›ì•„ì˜¨ ë’¤ ëŒ€í™” ì‹¤í–‰ -> í”Œë ˆì´ì–´ì— DialougeManger ë°›ì•„ì„œ ìŠ¤í˜ì´ìŠ¤ë°”ë¡œ ìƒí˜¸ì‘ìš©í•˜ë©´ Action(ìƒí˜¸ì‘ìš© ì˜¤í”„ì íŠ¸) í˜¸ì¶œ, í”Œë ˆì´ì–´ì—ì„œ isActionê°’ ë°›ì•„ì„œ trueì¼ë•Œ ì›€ì§ì„ ë§‰ê¸° 
     public void Action(GameObject interactionObject)
     {
 
@@ -27,7 +27,7 @@ public class GameMangaer : MonoBehaviour
         Interaction(objectData.id, objectData.condition);
         talkPanel.SetActive(isAction);
     }
-    //»óÈ£ ÀÛ¿ë ´ëÈ­, ¿ÀºêÁ§Æ® id °ªÀ¸·Î ´ëÈ­ ³»¿ë °¡Á®¿Í¼­ Ãâ·Â
+    //ìƒí˜¸ ì‘ìš© ëŒ€í™”, ì˜¤ë¸Œì íŠ¸ id ê°’ìœ¼ë¡œ ëŒ€í™” ë‚´ìš© ê°€ì ¸ì™€ì„œ ì¶œë ¥
     void Interaction(int id, int condition)
     {
         Debug.Log("Dia");
@@ -40,14 +40,14 @@ public class GameMangaer : MonoBehaviour
             id += 2000;
         }
         Debug.Log(id);
-        Debug.Log("´ÙÀÌ¾Æ·Î±× ÀÎµ¦½º" + dialogueIndex);
+        Debug.Log("ë‹¤ì´ì•„ë¡œê·¸ ì¸ë±ìŠ¤" + dialogueIndex);
         string dialogue = dialogueManager.GetDialogue(id, dialogueIndex);
-        //´ëÈ­°¡ ³¡³ª¸é isAction = false 
+        //ëŒ€í™”ê°€ ëë‚˜ë©´ isAction = false 
         if (dialogue == null)
         {
 
             isAction = false;
-            Debug.Log("¾×¼Ç false");
+            Debug.Log("ì•¡ì…˜ false");
             dialogueIndex = 0;
             if (id == 14) { Destroy(note); }
             if (id == 24) { Destroy(shovel); }
@@ -57,7 +57,7 @@ public class GameMangaer : MonoBehaviour
         }
         myText.text = dialogue;
         isAction = true;
-        dialogueIndex++; //action Å°¸¦ ´©¸¦¶§¸¶´Ù ´Ã¾î³ª¸é¼­ ´ÙÀ½ ´ëÈ­ Ãâ·Â 
+        dialogueIndex++; //action í‚¤ë¥¼ ëˆ„ë¥¼ë•Œë§ˆë‹¤ ëŠ˜ì–´ë‚˜ë©´ì„œ ë‹¤ìŒ ëŒ€í™” ì¶œë ¥ 
 
 
     }
