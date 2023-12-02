@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
     public static bool isCandy1 = false;
     public static bool isCandy2 = false;
     public static bool isShovel = false;
-    public static bool isScissors = true;
+    public static bool isScissors = false;
     public static bool isBattery = false;
 
     void Start()
@@ -27,7 +27,7 @@ public class Item : MonoBehaviour
     
     void Update()
     {
-        if(Input.GetButtonDown("1"))
+        /*if(Input.GetButtonDown("1"))
         {
             isKey = true;
             isBattery = true;
@@ -40,6 +40,6 @@ public class Item : MonoBehaviour
         {
             isRod = true;
         }
-        
+        */
     }
 }

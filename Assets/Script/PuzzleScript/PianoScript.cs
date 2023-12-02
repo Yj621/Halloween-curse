@@ -17,7 +17,7 @@ public class PianoScript : MonoBehaviour
     //오디오 관련 변수 선언
     public AudioSource audioplayer;
     public AudioClip[] pianoclip;
-    
+    public int checkindex = 0;
 
     //이미지 변수 및 오디오 포맷
     void Start()
@@ -36,6 +36,7 @@ public class PianoScript : MonoBehaviour
         imgpiano.SetActive(true);
         imgpiano2.SetActive(true);
         
+
         int[] pianoanswer = {3,2,1,2,3,3,3};
         int pianoanswercount = 0;
         if (pianoarr.Count < 7)
@@ -119,6 +120,7 @@ public class PianoScript : MonoBehaviour
             }
             pianoarr.Clear();
             Debug.Log("good");
+            Item.isScissors = true;
         }
     }
 
@@ -130,19 +132,24 @@ public class PianoScript : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F2) && Item.sheet)
+        /*if (Input.GetKeyDown(KeyCode.F2) && Item.sheet)
         {
             play = true;
         }
         if (play)
         {
             piano();
+        }*/
+        if (checkindex == 1)
+        {
+            piano();
         }
-
-        if (Input.GetKeyDown(KeyCode.Escape) && sheetOn)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             sheet.SetActive(false);
             sheetOn = false;
+            play = false;
+            checkindex = 0;
         }
     }
 }

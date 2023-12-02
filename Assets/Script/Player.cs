@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
 
 
         // 스캔 오브젝트
-        if (Input.GetButtonDown("Jump") && scanObj != null)
+        if (Input.GetButtonUp("Jump") && scanObj != null)
         {
             Debug.Log(scanObj.name);
 
@@ -127,8 +127,10 @@ public class Player : MonoBehaviour
 
             if (objectData.id == 7 && Item.sheet == true) // 피아노, 악보 O 
             {
+                Debug.Log("teeeeeest@@@@@@@@");
                 objectData.condition = 1;
                 pianoScript.piano();
+                pianoScript.checkindex = 1;
             }
             else if (objectData.id == 5) //악보
             {
