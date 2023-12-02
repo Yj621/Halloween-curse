@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostAI2 : MonoBehaviour
+public class GhostAI3 : MonoBehaviour
 {
-    public float[] pointX = {3.27f,1.33f,1.33f,1.33f};
-    public float[] pointY = {2.17f,2.17f,-1.27f,4.79f};
+    public float[] pointX = {0.1f,8.81f,8.81f,5.85f,5.85f};
+    public float[] pointY = {-3.28f,-3.28f,-5.66f,-5.66f,-3.28f};
     public float moveSpeed = 3f;
     public float targetX;
     public float targetY;
@@ -21,22 +21,22 @@ public class GhostAI2 : MonoBehaviour
 
     void move(){
         
-        if (waypoint==1&& isMoving == true)
+        /*if (waypoint==1&& isMoving == true)
         {
             targetX = pointX[0];
             targetY = pointY[0];
-            if (transform.position.x == 3.27f&& waypoint == 1)
+            if (transform.position.x == pointX[1]&& waypoint == 1)
             {
                 waypoint++;
                 isMoving = false;
+                Debug.Log("test");
             }
-        }
+        }*/
         if (waypoint == 2 && isMoving == false)
         {
-            
             targetX = pointX[1];
             targetY = pointY[1];
-            if(transform.position.x -pointX[1]< 0.1f && waypoint == 2)
+            if(transform.position.x == pointX[1]&& waypoint == 2)
             {
                 waypoint++;
                 isMoving = true;
@@ -46,7 +46,7 @@ public class GhostAI2 : MonoBehaviour
         {
             targetX = pointX[2];
             targetY = pointY[2];
-            if (Mathf.Abs(transform.position.y) == 1.27f && waypoint == 3)
+            if (transform.position.y == pointY[2] && waypoint == 3)
             {
                 waypoint++;
                 isMoving = false;
@@ -56,7 +56,7 @@ public class GhostAI2 : MonoBehaviour
         {
             targetX = pointX[3];
             targetY = pointY[3];
-            if (Mathf.Abs(pointY[3]) - Mathf.Abs(transform.position.y)< 0.1f && waypoint == 4)
+            if (transform.position.x == pointX[3] && waypoint == 4)
             {
                 waypoint++;
                 isMoving = true;
@@ -64,12 +64,22 @@ public class GhostAI2 : MonoBehaviour
         }
         if (waypoint==5&& isMoving == true)
         {
-            
-            targetX = pointX[1];
-            targetY = pointY[1];
-            if (Mathf.Abs(transform.position.y) == 2.17f && waypoint == 5)
+            targetX = pointX[4];
+            targetY = pointY[4];
+            if (transform.position.y == pointY[4] && waypoint == 5)
             {
-                waypoint = 1;
+                waypoint++;
+            }
+        }
+        if (waypoint==6&& isMoving == true)
+        {
+            targetX = pointX[0];
+            targetY = pointY[0];
+            if (transform.position.x == pointX[0] && waypoint == 6)
+            {
+                Debug.Log(waypoint);
+                waypoint = 2;
+                isMoving = false;
             }
         }
     
