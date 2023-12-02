@@ -15,33 +15,68 @@ public class GhostAI2 : MonoBehaviour
     void Start()
     {
         isMoving = false;
-        waypoint = 0;
+        waypoint = 2;
         transform.position = new Vector3(pointX[0],pointY[0],0f);
     }
 
     void move(){
-        Debug.Log(transform.position);
-        if (waypoint == 0)
+        
+        if (waypoint==1&& isMoving == true)
         {
-            Debug.Log(transform.position);
+            targetX = pointX[0];
+            targetY = pointY[0];
+            if (transform.position.x == 3.27&& waypoint == 1)
+            {
+                Debug.Log(waypoint);
+                waypoint++;
+                isMoving = false;
+                Debug.Log("test");
+            }
+        }
+        if (waypoint == 2 && isMoving == false)
+        {
             
             targetX = pointX[1];
             targetY = pointY[1];
-            if(pointX[1]-transform.position.x < 0.1f)
+            if(transform.position.x -pointX[1]< 0.1f && waypoint == 2)
             {
+                Debug.Log(waypoint);
                 waypoint++;
                 isMoving = true;
             }
         }
-        if (waypoint == 1 && isMoving == true);
+        if (waypoint == 3 && isMoving == true)
         {
             targetX = pointX[2];
             targetY = pointY[2];
-            if (Mathf.Abs(pointY[2]) - Mathf.Abs(transform.position.y) < 0.1f)
+            if (Mathf.Abs(transform.position.y) == 1.27f && waypoint == 3)
             {
+                Debug.Log(waypoint);
                 waypoint++;
+                isMoving = false;
             }
-
+        }
+        if (waypoint==4&& isMoving == false)
+        {
+            targetX = pointX[3];
+            targetY = pointY[3];
+            if (Mathf.Abs(pointY[3]) - Mathf.Abs(transform.position.y)< 0.1f && waypoint == 4)
+            {
+                Debug.Log(waypoint);
+                waypoint++;
+                isMoving = true;
+            }
+        }
+        if (waypoint==5&& isMoving == true)
+        {
+            
+            targetX = pointX[1];
+            targetY = pointY[1];
+            if (Mathf.Abs(transform.position.y) == 2.17f && waypoint == 5)
+            {
+                Debug.Log(waypoint);
+                waypoint = 1;
+            }
         }
     
 
