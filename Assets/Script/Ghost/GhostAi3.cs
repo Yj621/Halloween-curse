@@ -77,7 +77,6 @@ public class GhostAI3 : MonoBehaviour
             targetY = pointY[0];
             if (transform.position.x == pointX[0] && waypoint == 6)
             {
-                Debug.Log(waypoint);
                 waypoint = 2;
                 isMoving = false;
             }
