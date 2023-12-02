@@ -10,6 +10,7 @@ public class PianoScript : MonoBehaviour
     //변수 선언
     public GameObject imgpiano;
     public GameObject imgpiano2;
+    public GameObject imgpiano3;
     public List<int> pianoarr;    
     public bool play = false;
     public bool sheetOn = false;
@@ -28,6 +29,7 @@ public class PianoScript : MonoBehaviour
         imgpiano2.SetActive(false);
         imgScissors.SetActive(false);
         sheet.SetActive(false);
+        imgpiano3.SetActive(false);
 
         audioplayer = GetComponent<AudioSource>();
     }
@@ -37,7 +39,7 @@ public class PianoScript : MonoBehaviour
     {
         imgpiano.SetActive(true);
         imgpiano2.SetActive(true);
-        
+        imgpiano3.SetActive(true);
 
         int[] pianoanswer = {3,2,1,2,3,3,3};
         int pianoanswercount = 0;
@@ -126,6 +128,7 @@ public class PianoScript : MonoBehaviour
             imgScissors.SetActive(true);
             imgpiano.SetActive(false);
             imgpiano2.SetActive(false);
+            imgpiano3.SetActive(false);
             checkindex = 0;
             
         }

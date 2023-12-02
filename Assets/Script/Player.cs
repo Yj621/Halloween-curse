@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public GameObject noteUI;
     public GameObject sheetUI;
     public GameObject tvUI;
+    public GameObject BatteryUI;
     public int gameStart = 0; //게임 시작시 출력할 대화 길이 
     private bool fishing = false;
     private int fish = 0;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
         theLake = FindObjectOfType<Lake>();
         noteUI.SetActive(false);
         sheetUI.SetActive(false);
+        BatteryUI.SetActive(false);
     }
     //이동
     void Update()

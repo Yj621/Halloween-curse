@@ -10,6 +10,7 @@ public class TVScript : MonoBehaviour
     {
         imgTV.SetActive(false);
         
+        
     }
 
 
