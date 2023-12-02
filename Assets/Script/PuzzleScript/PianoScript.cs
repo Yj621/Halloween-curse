@@ -13,7 +13,8 @@ public class PianoScript : MonoBehaviour
     public List<int> pianoarr;    
     public bool play = false;
     public bool sheetOn = false;
-    
+    public GameObject imgScissors;
+
     //오디오 관련 변수 선언
     public AudioSource audioplayer;
     public AudioClip[] pianoclip;
@@ -25,6 +26,7 @@ public class PianoScript : MonoBehaviour
         pianoarr = new List<int>();
         imgpiano.SetActive(false);
         imgpiano2.SetActive(false);
+        imgScissors.SetActive(false);
         sheet.SetActive(false);
 
         audioplayer = GetComponent<AudioSource>();
@@ -121,6 +123,11 @@ public class PianoScript : MonoBehaviour
             pianoarr.Clear();
             Debug.Log("good");
             Item.isScissors = true;
+            imgScissors.SetActive(true);
+            imgpiano.SetActive(false);
+            imgpiano2.SetActive(false);
+            checkindex = 0;
+            
         }
     }
 
@@ -140,7 +147,7 @@ public class PianoScript : MonoBehaviour
         {
             piano();
         }*/
-        if (checkindex == 1)
+        if (checkindex == 1&& Item.isScissors == false)
         {
             piano();
         }

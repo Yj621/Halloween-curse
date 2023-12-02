@@ -18,6 +18,8 @@ public class BedDrawerScript : MonoBehaviour
         {
             batteryUI.SetActive(true);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+            bedDrawerUI.SetActive(false);
     }
 
     public void BedDrawer()
