@@ -12140,6 +12140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imgTV: {fileID: 1529420592}
   imgTV2: {fileID: 0}
+  opentv: 0
 --- !u!1 &1737592545
 GameObject:
   m_ObjectHideFlags: 0

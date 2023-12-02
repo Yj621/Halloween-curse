@@ -115,6 +115,7 @@ public class LockScript : MonoBehaviour
     public void Key()
     {
         key.SetActive(true);
+        Item.isKey = true;
         drawerUI.SetActive(false);
         gameObject.SetActive(false);
     }

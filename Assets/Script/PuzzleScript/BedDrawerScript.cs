@@ -11,6 +11,10 @@ public class BedDrawerScript : MonoBehaviour
         bedDrawerUI.SetActive(false);
         batteryUI.SetActive(false);
     }
+    void Awake()
+    {
+        batteryUI.SetActive(false);
+    }
 
     void Update()
     {
