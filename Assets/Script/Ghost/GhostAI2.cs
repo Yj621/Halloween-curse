@@ -25,9 +25,8 @@ public class GhostAI2 : MonoBehaviour
         {
             targetX = pointX[0];
             targetY = pointY[0];
-            if (transform.position.x == 3.27&& waypoint == 1)
+            if (transform.position.x == 3.27f&& waypoint == 1)
             {
-                Debug.Log(waypoint);
                 waypoint++;
                 isMoving = false;
                 Debug.Log("test");
@@ -40,7 +39,6 @@ public class GhostAI2 : MonoBehaviour
             targetY = pointY[1];
             if(transform.position.x -pointX[1]< 0.1f && waypoint == 2)
             {
-                Debug.Log(waypoint);
                 waypoint++;
                 isMoving = true;
             }
@@ -51,7 +49,6 @@ public class GhostAI2 : MonoBehaviour
             targetY = pointY[2];
             if (Mathf.Abs(transform.position.y) == 1.27f && waypoint == 3)
             {
-                Debug.Log(waypoint);
                 waypoint++;
                 isMoving = false;
             }
@@ -62,7 +59,6 @@ public class GhostAI2 : MonoBehaviour
             targetY = pointY[3];
             if (Mathf.Abs(pointY[3]) - Mathf.Abs(transform.position.y)< 0.1f && waypoint == 4)
             {
-                Debug.Log(waypoint);
                 waypoint++;
                 isMoving = true;
             }
