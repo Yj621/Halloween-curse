@@ -160,6 +160,7 @@ public class PianoScript : MonoBehaviour
             sheetOn = false;
             play = false;
             checkindex = 0;
+            imgpiano3.SetActive(false);
         }
     }
 }
