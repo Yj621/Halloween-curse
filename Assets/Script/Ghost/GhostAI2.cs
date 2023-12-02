@@ -6,7 +6,7 @@ public class GhostAI2 : MonoBehaviour
 {
     public float[] pointX = {3.27f,1.33f,1.33f,1.33f};
     public float[] pointY = {2.17f,2.17f,-1.27f,4.79f};
-    public float moveSpeed = 3f;
+    public float moveSpeed = 2f;
     public float targetX;
     public float targetY;
     public bool isMoving;
