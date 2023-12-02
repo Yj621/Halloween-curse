@@ -8585,7 +8585,7 @@ GameObject:
   - component: {fileID: 590627522}
   - component: {fileID: 590627521}
   - component: {fileID: 590627520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8762,6 +8762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc34502fba143242ad8a3b214d516d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oil_UI: {fileID: 90951330}
+  wheel_UI: {fileID: 147835258}
+  carkey2_UI: {fileID: 167126587}
 --- !u!1 &658226151
 GameObject:
   m_ObjectHideFlags: 0
@@ -26134,7 +26137,7 @@ GameObject:
   - component: {fileID: 1014526732}
   - component: {fileID: 1014526731}
   - component: {fileID: 1014526730}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CarKey2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27142,6 +27145,10 @@ PrefabInstance:
     - target: {fileID: 6936135399377303784, guid: 230832c89d824e64794c79caa69a7334, type: 3}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315512376630832607, guid: 230832c89d824e64794c79caa69a7334, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7315512376630832607, guid: 230832c89d824e64794c79caa69a7334, type: 3}
       propertyPath: noteUI

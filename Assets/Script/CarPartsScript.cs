@@ -16,6 +16,18 @@ public class CarPartsScript : MonoBehaviour
 
     void Update()
     {
-        
+        if(Item.isOil)
+        {
+            oil_UI.SetActive(true);
+        }
+        if(Item.isWheel)
+        {
+            wheel_UI.SetActive(true);
+            Debug.Log("testWHEEL");
+        }
+        if(Item.isCarKey2)
+        {
+            carkey2_UI.SetActive(true);
+        }
     }
 }

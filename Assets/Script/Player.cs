@@ -238,23 +238,24 @@ public class Player : MonoBehaviour
             {
                 return;
             }
-            else if (objectData.id == 28 || Item.isOil==false||Item.isWheel==false||Item.isCarkey2) //Map2 아이템이 하나라도 부족할 때
+            else if (objectData.id == 28 || Item.isOil==false||Item.isWheel==false||Item.isCarKey2 == false) //Map2 아이템이 하나라도 부족할 때
             {
                 return;
             }
-            else if (objectData.id == 29 && Item.isOil)
+            else if (objectData.id == 29)
             {
+                Debug.Log("testOIL");
                 Item.isOil = true;
                 return;
             }
-            else if (objectData.id == 30 && Item.isWheel)
+            else if (objectData.id == 30)
             {
                 Item.isWheel = true;
-                return;
+                
             }
-            else if (objectData.id == 31 && Item.isCarkey2)
+            else if (objectData.id == 31)
             {
-                Item.isCarkey2 = true;
+                Item.isCarKey2 = true;
                 return;
             }
             gameManager.Action(scanObj);
