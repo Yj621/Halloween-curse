@@ -14,8 +14,6 @@ public class Player : MonoBehaviour
     public GameMangaer gameManager;
     public GameObject noteUI;
     public GameObject sheetUI;
-    public GameObject tvUI;
-    public GameObject BatteryUI;
     public int gameStart = 0; //게임 시작시 출력할 대화 길이 
     private bool fishing = false;
     private int fish = 0;
@@ -27,6 +25,7 @@ public class Player : MonoBehaviour
     PianoScript pianoScript;
     SheetScript sheetScript;
     LockScript lockScript;
+    TVScript tvScript;
     BedDrawerScript bedDrawerScript;
     Lake theLake;
 
@@ -40,10 +39,10 @@ public class Player : MonoBehaviour
         sheetScript = FindObjectOfType<SheetScript>();
         lockScript = FindObjectOfType<LockScript>();
         bedDrawerScript = FindObjectOfType<BedDrawerScript>();
+        tvScript = FindObjectOfType<TVScript>();
         theLake = FindObjectOfType<Lake>();
         noteUI.SetActive(false);
         sheetUI.SetActive(false);
-        BatteryUI.SetActive(false);
     }
     //이동
     void Update()
@@ -160,7 +159,7 @@ public class Player : MonoBehaviour
             }
             else if (objectData.id == 3 && Item.isBattery == true) // TV, 건전지가 있을때 대화 생성 X
             {
-                tvUI.SetActive(true);
+                tvScript.opentv = true;
                 return;
             }
             else if (objectData.id == 14) //쪽지 상호작용
