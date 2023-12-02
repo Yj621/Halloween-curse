@@ -234,6 +234,29 @@ public class Player : MonoBehaviour
             {
                 objectData.condition = 1;
             }
+            else if (objectData.id == 28 && Item.canEnding) //Map2 모든 아이템이 있을 때
+            {
+                return;
+            }
+            else if (objectData.id == 28 || Item.isOil==false||Item.isWheel==false||Item.isCarkey2) //Map2 아이템이 하나라도 부족할 때
+            {
+                return;
+            }
+            else if (objectData.id == 29 && Item.isOil)
+            {
+                Item.isOil = true;
+                return;
+            }
+            else if (objectData.id == 30 && Item.isWheel)
+            {
+                Item.isWheel = true;
+                return;
+            }
+            else if (objectData.id == 31 && Item.isCarkey2)
+            {
+                Item.isCarkey2 = true;
+                return;
+            }
             gameManager.Action(scanObj);
 
         }

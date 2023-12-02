@@ -18,6 +18,10 @@ public class Item : MonoBehaviour
     public static bool isShovel = false;
     public static bool isScissors = false;
     public static bool isBattery = false;
+    public static bool isOil = false;
+    public static bool isWheel = false;
+    public static bool isCarKey2 = false;
+    public static bool canEnding = false;
 
     void Start()
     {
