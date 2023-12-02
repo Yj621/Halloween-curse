@@ -27,7 +27,7 @@ public class GhostAI2 : MonoBehaviour
             
             targetX = pointX[1];
             targetY = pointY[1];
-            if(transform.position.x - pointX[1] < 0.1f)
+            if(pointX[1]-transform.position.x < 0.1f)
             {
                 waypoint++;
                 isMoving = true;
