@@ -20,7 +20,7 @@ public class CarPartsScript : MonoBehaviour
 
     void Update()
     {
-        if(Item.isOil)
+        if(Item.isOil)//oil
         {
             oil_UI.SetActive(true);
             //Oil.SetActive(false);
