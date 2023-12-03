@@ -53,6 +53,11 @@ public class LockScript : MonoBehaviour
         {
             key.SetActive(true);
         }
+
+        if (lockUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            LockActiveFalse();
+        }
     }
 
     void ButtonClicked(int buttonIndex)
@@ -98,18 +103,22 @@ public class LockScript : MonoBehaviour
 
         if (isCorrect)
         {
-            Debug.Log("굳");
             drawerUI.SetActive(true);
-            lockUI.SetActive(false);
+            LockActiveFalse();
+            Debug.Log("맞췄습니다.");
         }
         else
         {
             Debug.Log("틀렸습니다.");
         }
     }
-    public void LockActive()
+    public void LockActiveTrue()
     {
         lockUI.SetActive(true);
+    }
+    public void LockActiveFalse()
+    {
+        lockUI.SetActive(false);
     }
 
     public void Key()
@@ -119,26 +128,27 @@ public class LockScript : MonoBehaviour
         drawerUI.SetActive(false);
         gameObject.SetActive(false);
     }
-
-    public void CheckPassWord(List<int> pressedButtons)
+    void CheckPassWord(List<int> pressedButtons)
     {
         if (pressedButtons.Count == correctButtons.Length)
         {
             pressedButtons.Sort();
-            for (int i = 0; i < 3; i++)
+            bool isCorrect = true;
+
+            for (int i = 0; i < correctButtons.Length; i++)
             {
-                if (pressedButtons[i] == correctButtons[i])
+                if (pressedButtons[i] != correctButtons[i])
                 {
-                    if (i == 2)
-                    {
-                        checkButton.interactable = true; // Check 버튼 활성화
-                    }
+                    isCorrect = false;
+                    break;
                 }
-                else
-                {
-                    return;
-                }
+            }
+
+            if (isCorrect)
+            {
+                checkButton.interactable = true; // Check 버튼 활성화
             }
         }
     }
+
 }

@@ -29,7 +29,13 @@ public class Lake : MonoBehaviour
         }        
         else if (Random.Range(0f, 1f) <= 0.2f)
         {
-            lakeState.Fish2();
+            lakeState.Fish3();
+            Debug.Log("Fish3");
+            return 2;
+        }        
+        else if (Random.Range(0f, 1f) <= 0.2f)
+        {
+            lakeState.Bottle();
             Debug.Log("Bottle");
             return 3;
         }
@@ -39,7 +45,7 @@ public class Lake : MonoBehaviour
             Debug.Log("Sock");
             return 4;
         }
-        else if (Random.Range(0f, 1f) <= 0.4f)
+        else if (Random.Range(0f, 1f) <= 0.3f)
         {
             Item.isCandy2 = true;
             Debug.Log("Candy");

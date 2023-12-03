@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameMangaer gameManager;
     public GameObject noteUI;
     public GameObject sheetUI;
+    public GameObject map2;
     public int gameStart = 0; //게임 시작시 출력할 대화 길이 
     private bool fishing = false;
     private int fish = 0;
@@ -47,6 +48,11 @@ public class Player : MonoBehaviour
     //이동
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf)
+        {
+            NoteClose();
+
+        }
         if (!gameManager.isAction && rigid.constraints == RigidbodyConstraints2D.FreezeAll)
         {
             rigid.constraints = RigidbodyConstraints2D.None;
@@ -152,12 +158,13 @@ public class Player : MonoBehaviour
             }
             else if (objectData.id == 6) //선반
             {
-                lockScript.LockActive();
+                lockScript.LockActiveTrue();
             }
             else if (objectData.id == 10 && Item.isScissors && !Item.isBattery) // 서랍, 가위 O
             {
                 objectData.condition = 1;
                 bedDrawerScript.BedDrawer();
+                bedDrawerScript.ChangeSprite();
             }
             else if (objectData.id == 10 && Item.isBattery) // 서랍, 가위 O
             {
@@ -307,23 +314,15 @@ public class Player : MonoBehaviour
             sceneManage.Map1();
             Item.isKey = false;
         }
-        else if (other.gameObject.tag == "Map1" && Item.isKey == false)
-        {
-            //열쇠 안 갖고 탈출하려 했을때 대화창 뜨도록
-        }
 
         //맵 2 입장 조건(나중에 수정)
-        if (other.gameObject.tag == "Map2" && Item.isKey)
+        if (other.gameObject.tag == "Map2" && Item.isCandy1 && Item.isCandy2)
         {
             Debug.Log("Map2");
             sceneManage.Map2();
             Item.isKey = false;
         }
-        else if (other.gameObject.tag == "Map2" && Item.isKey == false)
-        {
-            //열쇠 안 갖고 탈출하려 했을때 대화창 뜨도록            
-        }
-
+        
         //상점 들어가기
         if (other.gameObject.tag == "Store")
         {
@@ -342,7 +341,10 @@ public class Player : MonoBehaviour
     public void BtnNoteClose()
     {
         Debug.Log("close");
+        NoteClose();
+    }
+    public void NoteClose()
+    {
         noteUI.SetActive(false);
     }
-
 }

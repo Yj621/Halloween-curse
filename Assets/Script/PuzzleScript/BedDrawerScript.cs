@@ -6,6 +6,8 @@ public class BedDrawerScript : MonoBehaviour
 {
     public GameObject bedDrawerUI;
     public GameObject batteryUI;
+    public SpriteRenderer orignalImg;
+
     void Start()
     {
         bedDrawerUI.SetActive(false);
@@ -32,9 +34,12 @@ public class BedDrawerScript : MonoBehaviour
     }
     public void Battery()
     {
-        Debug.Log("CLick");
         Item.isBattery = true;
         bedDrawerUI.SetActive(false);
     }
-
+    public void ChangeSprite()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = orignalImg.sprite;
+    }
 }
