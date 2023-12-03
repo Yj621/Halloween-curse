@@ -46,8 +46,16 @@ public class Player : MonoBehaviour
     }
     //이동
     void Update()
-    {
-
+    {   
+        
+        if (!gameManager.isAction && rigid.constraints == RigidbodyConstraints2D.FreezeAll)
+        {
+            Debug.Log("위");
+            rigid.constraints = RigidbodyConstraints2D.None;
+            rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
+            //rigid.constraints = ~RigidbodyConstraints2D.FreezePositionX | ~RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        }
+        
         if (!gameManager.isAction)
         {
             h = Input.GetAxisRaw("Horizontal");
@@ -110,11 +118,13 @@ public class Player : MonoBehaviour
             }
         }
 
-
         // 스캔 오브젝트
         if (Input.GetButtonUp("Jump") && scanObj != null)
         {
-            Debug.Log(scanObj.name) ;
+            Debug.Log("아래");
+            rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+            
+            Debug.Log("스캔 오브젝트" + scanObj.name) ;
 
             ObjectData objectData = scanObj.GetComponent<ObjectData>();
             if (objectData.id == 0 && gameStart > 4)
@@ -233,34 +243,25 @@ public class Player : MonoBehaviour
             {
                 objectData.condition = 1;
             }
-            else if (objectData.id == 28 &&Item.isOil&&Item.isWheel&&Item.isCarKey2) //Map2 모든 아이템이 있을 때
+            
+            else if (objectData.id == 28) //아이템 모두 모았을 때
             {
-                Debug.Log("엔딩");
-                return;
-            }
-            else if (objectData.id == 28) //Map2 아이템이 하나라도 부족할 때
-            {
-                Debug.Log("test1111");
-                if (Item.isOil==false||Item.isWheel==false||Item.isCarKey2 == false)
+                if (Item.isOil && Item.isWheel && Item.isCarKey2)
                 {
-                    Debug.Log("아이템 부족");
+                    objectData.condition = 1;
                 }
-                return;
             }
             if (objectData.id == 29)
             {
                 Item.isOil = true;
-                return;
             }
             else if (objectData.id == 30)
             {
                 Item.isWheel = true;
-                return;
             }
             else if (objectData.id == 31)
             {
                 Item.isCarKey2 = true;
-                return;
             }
             gameManager.Action(scanObj);
 

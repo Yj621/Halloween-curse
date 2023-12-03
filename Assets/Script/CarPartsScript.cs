@@ -23,17 +23,17 @@ public class CarPartsScript : MonoBehaviour
         if(Item.isOil)
         {
             oil_UI.SetActive(true);
-            Oil.SetActive(false);
+            //Oil.SetActive(false);
         }
         if(Item.isWheel)
         {
             wheel_UI.SetActive(true);
-            wheel.SetActive(false);
+            //wheel.SetActive(false);
         }
         if(Item.isCarKey2)
         {
             carkey2_UI.SetActive(true);
-            carkey2.SetActive(false);
+            //carkey2.SetActive(false);
         }
     }
 }

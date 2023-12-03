@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +16,9 @@ public class GameMangaer : MonoBehaviour
     public GameObject shovel;
     public GameObject sheet;
     public GameObject xMark;
+    public GameObject wheel;
+    public GameObject carKey2;
+    public GameObject oil;
 
     //상호작용한 오브젝트 정보를 받아온 뒤 대화 실행 -> 플레이어에 DialougeManger 받아서 스페이스바로 상호작용하면 Action(상호작용 오프젝트) 호출, 플레이어에서 isAction값 받아서 true일때 움직임 막기 
     public void Action(GameObject interactionObject)
@@ -53,6 +56,9 @@ public class GameMangaer : MonoBehaviour
             if (id == 24) { Destroy(shovel); }
             if (id == 5) { Destroy(sheet); }
             if (id == 27) { Destroy(xMark); }
+            if (id == 29) { Destroy(oil); }
+            if (id == 30) { Destroy(wheel); }
+            if (id == 31) { Destroy(carKey2); }
             return;
         }
         myText.text = dialogue;

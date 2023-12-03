@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +21,8 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(3, new string[] { "작동하지 않는다. 건전지가 없나?" }); //TV
         dialogueData.Add(4, new string[] { "나의 모습이 비친다" }); //거울
         dialogueData.Add(5, new string[] { "악보를 얻었다!" }); //악보
-        dialogueData.Add(6, new string[] { "비밀번호를 입력해야할 것 같다." }); //자물쇠
+        dialogueData.Add(6, new string[] { "비밀번호를 입력해야할 것 같다." }); //선반
+        dialogueData.Add(1006, new string[] { "비밀번호를 입력해야할 것 같다." }); //선반 비밀번호 누른 후
         dialogueData.Add(7, new string[] { "악보가 있으면 연주 할 수 있을텐데..." }); //피아노
         dialogueData.Add(1007, new string[] { "아까 얻은 악보로 뭔가 할 수 있을 것 같다." }); //피아노, 악보 O
         dialogueData.Add(8, new string[] { "아무것도 없는 것 같다." }); //침대
@@ -31,7 +32,7 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(11, new string[] { "열쇠가 있어야 탈출할 수 있을 것 같다." }); //문
         dialogueData.Add(12, new string[] { "멈춰있다." }); //시계
         dialogueData.Add(13, new string[] { "작동하지 않는다." }); //가르레인지
-        dialogueData.Add(28, new string[] { "기괴한 그림이 그려져있다." }); //액자
+        dialogueData.Add(32, new string[] { "기괴한 그림이 그려져있다." }); //액자
         //맵2
         dialogueData.Add(14, new string[] { "상점 전단지이다.", "상점으로 가면 무언갈 얻을 수 있을것 같다." }); //쪽지
         dialogueData.Add(15, new string[] { "큰 호수이다.", "낚시대가 있으면 무언갈 낚을 수 있을 것같다." }); //호수
@@ -54,7 +55,12 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(26, new string[] { "아직도 사람이 남아있다니", "심심했는데 고마워", "이건 너에게 선물로 주지", "너에게 필요할 거야", "낚시대를 얻었다." }); //상점 주인
         dialogueData.Add(1026, new string[] { "내가 준 낚시대로 낚시라도 하는게 어때" }); //낚시대 얻은 후
         dialogueData.Add(27, new string[] { "자동차 키를 얻었다." }); //공사장 마크
-
+        //map2
+        dialogueData.Add(28, new string[] { "자동차에 연료와 바퀴와 키가 없다." }); //차동차
+        dialogueData.Add(1028, new string[] { "탈출" }); //차동차
+        dialogueData.Add(29, new string[] { "자동차 연료를 얻었다." }); //연료통
+        dialogueData.Add(30, new string[] { "자동차 바퀴를 얻었다." }); //바퀴
+        dialogueData.Add(31, new string[] { "자동차 키를 얻었다." }); //차 키
     }
     public string GetDialogue(int id, int dialogueIndex)
     {
