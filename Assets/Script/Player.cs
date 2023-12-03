@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
         // 스캔 오브젝트
         if (Input.GetButtonUp("Jump") && scanObj != null)
         {
-            Debug.Log(scanObj.name);
+            Debug.Log(scanObj.name) ;
 
             ObjectData objectData = scanObj.GetComponent<ObjectData>();
             if (objectData.id == 0 && gameStart > 4)
@@ -128,7 +128,6 @@ public class Player : MonoBehaviour
 
             if (objectData.id == 7 && Item.sheet == true) // 피아노, 악보 O 
             {
-                Debug.Log("teeeeeest@@@@@@@@");
                 objectData.condition = 1;
                 pianoScript.piano();
                 pianoScript.checkindex = 1;
@@ -234,24 +233,29 @@ public class Player : MonoBehaviour
             {
                 objectData.condition = 1;
             }
-            else if (objectData.id == 28 && Item.canEnding) //Map2 모든 아이템이 있을 때
+            else if (objectData.id == 28 &&Item.isOil&&Item.isWheel&&Item.isCarKey2) //Map2 모든 아이템이 있을 때
             {
+                Debug.Log("엔딩");
                 return;
             }
-            else if (objectData.id == 28 || Item.isOil==false||Item.isWheel==false||Item.isCarKey2 == false) //Map2 아이템이 하나라도 부족할 때
+            else if (objectData.id == 28) //Map2 아이템이 하나라도 부족할 때
             {
+                Debug.Log("test1111");
+                if (Item.isOil==false||Item.isWheel==false||Item.isCarKey2 == false)
+                {
+                    Debug.Log("아이템 부족");
+                }
                 return;
             }
-            else if (objectData.id == 29)
+            if (objectData.id == 29)
             {
-                Debug.Log("testOIL");
                 Item.isOil = true;
                 return;
             }
             else if (objectData.id == 30)
             {
                 Item.isWheel = true;
-                
+                return;
             }
             else if (objectData.id == 31)
             {
