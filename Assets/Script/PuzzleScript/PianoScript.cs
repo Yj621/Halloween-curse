@@ -21,9 +21,14 @@ public class PianoScript : MonoBehaviour
     public AudioClip[] pianoclip;
     public int checkindex = 0;
 
+    public Text myText;
+    public GameObject imagePanel;
+    public GameMangaer gameManager;
+
     //이미지 변수 및 오디오 포맷
     void Start()
     {
+        
         pianoarr = new List<int>();
         imgpiano.SetActive(false);
         imgpiano2.SetActive(false);
@@ -33,7 +38,7 @@ public class PianoScript : MonoBehaviour
 
         audioplayer = GetComponent<AudioSource>();
     }
-
+    
     //피아노 상호작용시 작동하는 스크립트
     public void piano()
     {
@@ -112,7 +117,7 @@ public class PianoScript : MonoBehaviour
                 {
                     break;
                 }
-                else 
+                else
                 {
                     pianoanswercount++;
                 }
@@ -124,6 +129,11 @@ public class PianoScript : MonoBehaviour
             }
             pianoarr.Clear();
             Debug.Log("good");
+
+            imagePanel.SetActive(true);
+            myText.text = "피아노에서 가위가 떨어졌다.";
+            gameManager.isAction = true;
+
             Item.isScissors = true;
             imgScissors.SetActive(true);
             imgpiano.SetActive(false);

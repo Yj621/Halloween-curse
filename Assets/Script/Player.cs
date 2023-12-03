@@ -47,6 +47,12 @@ public class Player : MonoBehaviour
     //이동
     void Update()
     {
+        if (!gameManager.isAction && rigid.constraints == RigidbodyConstraints2D.FreezeAll)
+        {
+            rigid.constraints = RigidbodyConstraints2D.None;
+            rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
+            //rigid.constraints = ~RigidbodyConstraints2D.FreezePositionX | ~RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        }
 
         if (!gameManager.isAction)
         {
@@ -110,11 +116,12 @@ public class Player : MonoBehaviour
             }
         }
 
-
         // 스캔 오브젝트
         if (Input.GetButtonUp("Jump") && scanObj != null)
         {
-            Debug.Log(scanObj.name) ;
+            rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+
+            Debug.Log("스캔 오브젝트" + scanObj.name);
 
             ObjectData objectData = scanObj.GetComponent<ObjectData>();
             if (objectData.id == 0 && gameStart > 4)
@@ -126,11 +133,16 @@ public class Player : MonoBehaviour
                 gameStart += 1;
             }
 
-            if (objectData.id == 7 && Item.sheet == true) // 피아노, 악보 O 
+            if (objectData.id == 7 && Item.sheet && !Item.isScissors) // 피아노, 악보 O 
             {
                 objectData.condition = 1;
                 pianoScript.piano();
                 pianoScript.checkindex = 1;
+            }
+            
+            if (objectData.id == 7 && Item.sheet && Item.isScissors) // 가위 얻은 후
+            {
+                objectData.condition = 2;
             }
             else if (objectData.id == 5) //악보
             {
@@ -142,15 +154,14 @@ public class Player : MonoBehaviour
             {
                 lockScript.LockActive();
             }
-
-            else if (objectData.id == 10 && Item.isScissors == true) // 서랍, 가위 O
+            else if (objectData.id == 10 && Item.isScissors && !Item.isBattery) // 서랍, 가위 O
             {
                 objectData.condition = 1;
                 bedDrawerScript.BedDrawer();
             }
-            else if (objectData.id == 10 ) // 서랍, 가위 O
+            else if (objectData.id == 10 && Item.isBattery) // 서랍, 가위 O
             {
-                return;
+                objectData.condition = 2;
             }
             else if (objectData.id == 11 && Item.isKey == true) // 문, 열쇠가 있을때 대화 생성 X
             {
@@ -196,14 +207,14 @@ public class Player : MonoBehaviour
             }
             else if (objectData.id == 24) //삽 상호작용
             {
-                Item.isShovel = true; 
+                Item.isShovel = true;
             }
-            
+
             else if (objectData.id == 27 && Item.isShovel) //삽이 있으면서 땅 팔때 
             {
                 Item.isCarKey = true;
             }
-            
+
             else if (objectData.id == 21 && Item.isCarKey) //빨간/초록차 상호작용
             {
                 objectData.condition = 1;
@@ -225,7 +236,7 @@ public class Player : MonoBehaviour
                 objectData.condition = candys;
                 Debug.Log("candys" + candys);
             }
-            else if(objectData.id == 26 && !Item.isRod) //상점 주인
+            else if (objectData.id == 26 && !Item.isRod) //상점 주인
             {
                 Item.isRod = true;
             }
@@ -233,34 +244,25 @@ public class Player : MonoBehaviour
             {
                 objectData.condition = 1;
             }
-            else if (objectData.id == 28 &&Item.isOil&&Item.isWheel&&Item.isCarKey2) //Map2 모든 아이템이 있을 때
+
+            else if (objectData.id == 28) //아이템 모두 모았을 때
             {
-                Debug.Log("엔딩");
-                return;
-            }
-            else if (objectData.id == 28) //Map2 아이템이 하나라도 부족할 때
-            {
-                Debug.Log("test1111");
-                if (Item.isOil==false||Item.isWheel==false||Item.isCarKey2 == false)
+                if (Item.isOil && Item.isWheel && Item.isCarKey2)
                 {
-                    Debug.Log("아이템 부족");
+                    objectData.condition = 1;
                 }
-                return;
             }
             if (objectData.id == 29)
             {
                 Item.isOil = true;
-                return;
             }
             else if (objectData.id == 30)
             {
                 Item.isWheel = true;
-                return;
             }
             else if (objectData.id == 31)
             {
                 Item.isCarKey2 = true;
-                return;
             }
             gameManager.Action(scanObj);
 

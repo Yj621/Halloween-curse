@@ -4864,7 +4864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2107ed0b6f0ceb42a650eb37c948462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 28
+  id: 32
   condition: 0
 --- !u!61 &797411040
 BoxCollider2D:
@@ -5070,6 +5070,9 @@ MonoBehaviour:
   shovel: {fileID: 0}
   sheet: {fileID: 183192465}
   xMark: {fileID: 0}
+  wheel: {fileID: 0}
+  carKey2: {fileID: 0}
+  oil: {fileID: 0}
 --- !u!4 &829764732
 Transform:
   m_ObjectHideFlags: 0
@@ -6322,6 +6325,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 556b27ad52021814cb3c939363cdb208, type: 3}
   - {fileID: 8300000, guid: d98fb98c227f4c043a5b6234b8226196, type: 3}
   checkindex: 0
+  myText: {fileID: 619793902}
+  imagePanel: {fileID: 1778733903}
+  gameManager: {fileID: 829764731}
 --- !u!1 &1122738810
 GameObject:
   m_ObjectHideFlags: 0
