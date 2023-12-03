@@ -50,7 +50,6 @@ public class Player : MonoBehaviour
         
         if (!gameManager.isAction && rigid.constraints == RigidbodyConstraints2D.FreezeAll)
         {
-            Debug.Log("위");
             rigid.constraints = RigidbodyConstraints2D.None;
             rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
             //rigid.constraints = ~RigidbodyConstraints2D.FreezePositionX | ~RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
@@ -117,11 +116,10 @@ public class Player : MonoBehaviour
                 gameStart += 1;
             }
         }
-
+   
         // 스캔 오브젝트
         if (Input.GetButtonUp("Jump") && scanObj != null)
         {
-            Debug.Log("아래");
             rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             
             Debug.Log("스캔 오브젝트" + scanObj.name) ;
@@ -153,14 +151,14 @@ public class Player : MonoBehaviour
                 lockScript.LockActive();
             }
 
-            else if (objectData.id == 10 && Item.isScissors == true) // 서랍, 가위 O
+            else if (objectData.id == 10 && Item.isScissors && !Item.isBattery) // 서랍, 가위 O
             {
                 objectData.condition = 1;
                 bedDrawerScript.BedDrawer();
             }
-            else if (objectData.id == 10 ) // 서랍, 가위 O
+            else if (objectData.id == 10 && Item.isBattery) // 서랍, 가위 O
             {
-                return;
+                objectData.condition = 2;
             }
             else if (objectData.id == 11 && Item.isKey == true) // 문, 열쇠가 있을때 대화 생성 X
             {

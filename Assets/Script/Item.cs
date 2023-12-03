@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
     public static bool isCandy1 = false;
     public static bool isCandy2 = false;
     public static bool isShovel = false;
-    public static bool isScissors = false;
+    public static bool isScissors = true;
     public static bool isBattery = false;
     public static bool isOil = false;
     public static bool isWheel = false;

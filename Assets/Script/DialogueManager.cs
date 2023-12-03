@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(9, new string[] { "쇼파 밑에는 먼지만 가득하다." }); //쇼파
         dialogueData.Add(10, new string[] { "무언가로 뜯어서 열어야 한다." }); //서랍
         dialogueData.Add(1010, new string[] { "가위로 테이프를 잘랐다." }); //서랍, 가위 O
+        dialogueData.Add(2010, new string[] { "서랍은 비어있다." }); //서랍, 가위 O
         dialogueData.Add(11, new string[] { "열쇠가 있어야 탈출할 수 있을 것 같다." }); //문
         dialogueData.Add(12, new string[] { "멈춰있다." }); //시계
         dialogueData.Add(13, new string[] { "작동하지 않는다." }); //가르레인지

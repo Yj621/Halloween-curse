@@ -5070,6 +5070,9 @@ MonoBehaviour:
   shovel: {fileID: 0}
   sheet: {fileID: 183192465}
   xMark: {fileID: 0}
+  wheel: {fileID: 0}
+  carKey2: {fileID: 0}
+  oil: {fileID: 0}
 --- !u!4 &829764732
 Transform:
   m_ObjectHideFlags: 0
