@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public GameObject sheetUI;
     public GameObject map2;
     public int gameStart = 0; //게임 시작시 출력할 대화 길이 
+    public int gameStart2 = 0;
     private bool fishing = false;
     private int fish = 0;
     Vector3 dirVec;
@@ -122,6 +123,14 @@ public class Player : MonoBehaviour
                 gameStart += 1;
             }
         }
+        if (gameStart2 == 0 && scanObj != null)
+        {
+            if (scanObj.name == "StartDialogue2")
+            {
+                gameManager.Action(scanObj);
+                gameStart2 += 1;
+            }
+        }
 
         // 스캔 오브젝트
         if (Input.GetButtonUp("Jump") && scanObj != null)
@@ -138,6 +147,14 @@ public class Player : MonoBehaviour
             if (objectData.id == 0)
             {
                 gameStart += 1;
+            }
+            if (objectData.id == 100 && gameStart2 > 2)
+            {
+                return;
+            }
+            if (objectData.id == 100)
+            {
+                gameStart2 += 1;
             }
 
             if (objectData.id == 7 && Item.sheet && !Item.isScissors) // 피아노, 악보 O 
