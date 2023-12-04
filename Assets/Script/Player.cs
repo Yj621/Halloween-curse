@@ -29,7 +29,8 @@ public class Player : MonoBehaviour
     TVScript tvScript;
     BedDrawerScript bedDrawerScript;
     Lake theLake;
-
+    private bool fnote = true;
+    private bool fsheet = true;
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -152,9 +153,14 @@ public class Player : MonoBehaviour
             }
             else if (objectData.id == 5) //악보
             {
-                Item.sheet = true;
-                sheetUI.SetActive(true);
-                pianoScript.SheetActive();
+                if (fsheet)
+                {
+                    Item.sheet = true;
+                    sheetUI.SetActive(true);
+                    pianoScript.SheetActive();
+                    fsheet = false;
+                }
+                
             }
             else if (objectData.id == 6) //선반
             {
@@ -181,7 +187,11 @@ public class Player : MonoBehaviour
             }
             else if (objectData.id == 14) //쪽지 상호작용
             {
-                noteUI.SetActive(true);
+                if (fnote)
+                {
+                    noteUI.SetActive(true);
+                    fnote = false;
+                }
             }
 
             else if (objectData.id == 15 && Item.isCandy2) //호수에서 낚시대 들고 상호작용 사탕을 얻은 후
