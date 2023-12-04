@@ -229,6 +229,7 @@ public class Player : MonoBehaviour
 
             else if (objectData.id == 27 && Item.isShovel) //삽이 있으면서 땅 팔때 
             {
+                objectData.condition = 0;
                 Item.isCarKey = true;
             }
 
