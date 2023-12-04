@@ -64,6 +64,7 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(29, new string[] { "자동차 연료를 얻었다." }); //연료통
         dialogueData.Add(30, new string[] { "자동차 바퀴를 얻었다." }); //바퀴
         dialogueData.Add(31, new string[] { "자동차 키를 얻었다." }); //차 키
+        dialogueData.Add(100, new string[] { "미로가 나타났다.", "유령들을 필해 미로를 탈출해야 할 것 같다." }); //차 키
     }
     public string GetDialogue(int id, int dialogueIndex)
     {
