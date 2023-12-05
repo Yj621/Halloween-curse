@@ -44,6 +44,7 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(1018, new string[] { "병을 낚았다." }); //호수
         dialogueData.Add(1019, new string[] { "양말을 낚았다." }); //호수
         dialogueData.Add(1020, new string[] { "사탕을 얻었다!" }); //호수
+        dialogueData.Add(1115, new string[] { "못생긴 물고기를 낚았다." }); //호수
         dialogueData.Add(21, new string[] { "차문이 잠겨있다", "열쇠가 필요하다" }); //빨간 차 
         dialogueData.Add(1021, new string[] { "이 차에 맞지 않은 열쇠다" }); //빨간 차 차키 O
         dialogueData.Add(22, new string[] { "차문이 잠겨있다", "열쇠가 필요하다" }); //초록 차

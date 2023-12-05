@@ -31,7 +31,7 @@ public class Lake : MonoBehaviour
         {
             lakeState.Fish3();
             Debug.Log("Fish3");
-            return 2;
+            return 100;
         }        
         else if (Random.Range(0f, 1f) <= 0.2f)
         {

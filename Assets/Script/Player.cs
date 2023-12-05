@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     Lake theLake;
     private bool fnote = true;
     private bool fsheet = true;
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -50,7 +51,7 @@ public class Player : MonoBehaviour
     //이동
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf)
         {
             NoteClose();
 
@@ -112,7 +113,6 @@ public class Player : MonoBehaviour
             {
                 dirVec = Vector3.right;
             }
-
             //스페이스바 눌렀을때 오브젝트 이름 가져와서 
         }
         if (gameStart == 0 && scanObj != null)
@@ -136,7 +136,6 @@ public class Player : MonoBehaviour
         if (Input.GetButtonUp("Jump") && scanObj != null)
         {
             rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-
             Debug.Log("스캔 오브젝트" + scanObj.name);
 
             ObjectData objectData = scanObj.GetComponent<ObjectData>();
@@ -303,13 +302,15 @@ public class Player : MonoBehaviour
 
         }
 
+        
     }
 
     void FixedUpdate()
     {
+
         Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
         rigid.velocity = moveVec * speed;
-
+        
         //레이
         Debug.DrawRay(rigid.position, dirVec * 0.5f, new Color(0, 1, 0));
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dirVec, 0.5f, LayerMask.GetMask("Object"));
@@ -324,7 +325,6 @@ public class Player : MonoBehaviour
             scanObj = null;
         }
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "SecondStairs")
