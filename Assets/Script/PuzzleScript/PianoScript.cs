@@ -24,6 +24,7 @@ public class PianoScript : MonoBehaviour
     public Text myText;
     public GameObject imagePanel;
     public GameMangaer gameManager;
+    SoundManager soundManager;
 
     //이미지 변수 및 오디오 포맷
     void Start()
@@ -37,6 +38,7 @@ public class PianoScript : MonoBehaviour
         imgpiano3.SetActive(false);
 
         audioplayer = GetComponent<AudioSource>();
+        soundManager = FindObjectOfType<SoundManager>();
     }
     
     //피아노 상호작용시 작동하는 스크립트
@@ -135,6 +137,7 @@ public class PianoScript : MonoBehaviour
             gameManager.isAction = true;
 
             Item.isScissors = true;
+            soundManager.PlayItemGetSound();
             imgScissors.SetActive(true);
             imgpiano.SetActive(false);
             imgpiano2.SetActive(false);

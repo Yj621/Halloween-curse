@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     TVScript tvScript;
     BedDrawerScript bedDrawerScript;
     Lake theLake;
+    SoundManager soundManager;
     private bool fnote = true;
     private bool fsheet = true;
 
@@ -47,6 +48,10 @@ public class Player : MonoBehaviour
         theLake = FindObjectOfType<Lake>();
         noteUI.SetActive(false);
         sheetUI.SetActive(false);
+    }
+    void Start()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
     }
     //이동
     void Update()
@@ -172,6 +177,7 @@ public class Player : MonoBehaviour
                 if (fsheet)
                 {
                     Item.sheet = true;
+                    soundManager.PlayItemGetSound();
                     sheetUI.SetActive(true);
                     pianoScript.SheetActive();
                     fsheet = false;
@@ -240,13 +246,19 @@ public class Player : MonoBehaviour
             }
             else if (objectData.id == 24) //삽 상호작용
             {
-                Item.isShovel = true;
+                if (!Item.isShovel) // Item.isShovel이 false인 경우에만 실행
+                {
+                    Item.isShovel = true;
+                    soundManager.PlayItemGetSound();
+                }
             }
 
             else if (objectData.id == 27 && Item.isShovel) //삽이 있으면서 땅 팔때 
             {
                 objectData.condition = 0;
                 Item.isCarKey = true;
+                soundManager.PlayItemGetSound();
+                soundManager.PlayShovelSound();
             }
 
             else if (objectData.id == 21 && Item.isCarKey) //빨간/초록차 상호작용
@@ -260,6 +272,7 @@ public class Player : MonoBehaviour
             else if (objectData.id == 23 && Item.isCarKey) //하얀차 + 차키 있을때
             {
                 Item.isCandy1 = true;
+                soundManager.PlayItemGetSound();
                 objectData.condition = 1;
             }
             else if (objectData.id == 25) //석상
@@ -273,6 +286,7 @@ public class Player : MonoBehaviour
             else if (objectData.id == 26 && !Item.isRod) //상점 주인
             {
                 Item.isRod = true;
+                soundManager.PlayItemGetSound();
             }
             else if (objectData.id == 26 && Item.isRod && gameManager.dialogueIndex == 0) //상점 주인 낚시대 O // gameManager.dialogueIndex == 0 -> 상점주인과 대화 끝날 때까지 기다리기
             {
@@ -289,14 +303,17 @@ public class Player : MonoBehaviour
             if (objectData.id == 29)
             {
                 Item.isOil = true;
+                soundManager.PlayItemGetSound();
             }
             else if (objectData.id == 30)
             {
                 Item.isWheel = true;
+                soundManager.PlayItemGetSound();
             }
             else if (objectData.id == 31)
             {
                 Item.isCarKey2 = true;
+                soundManager.PlayItemGetSound();
             }
             gameManager.Action(scanObj);
 
