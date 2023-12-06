@@ -22,10 +22,12 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(4, new string[] { "나의 모습이 비친다" }); //거울
         dialogueData.Add(5, new string[] { "악보를 얻었다!" }); //악보
         dialogueData.Add(6, new string[] { "비밀번호를 입력해야할 것 같다." }); //선반
-        dialogueData.Add(1006, new string[] { "비밀번호를 입력해야할 것 같다." }); //선반 비밀번호 누른 후
+        dialogueData.Add(1006, new string[] { null, null, null });
+        dialogueData.Add(50, new string[] { null, null, null });
+
         dialogueData.Add(7, new string[] { "악보가 있으면 연주 할 수 있을텐데..." }); //피아노
         dialogueData.Add(1007, new string[] { "아까 얻은 악보로 뭔가 할 수 있을 것 같다." }); //피아노, 악보 O
-        dialogueData.Add(2007, new string[] { }); //피아노
+        dialogueData.Add(2007, new string[] { null, null, null}); //피아노
         dialogueData.Add(8, new string[] { "아무것도 없는 것 같다." }); //침대
         dialogueData.Add(9, new string[] { "쇼파 밑에는 먼지만 가득하다." }); //쇼파
         dialogueData.Add(10, new string[] { "무언가로 뜯어서 열어야 한다." }); //서랍
@@ -51,6 +53,7 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(1022, new string[] { "이 차에 맞지 않은 열쇠다" }); //초록 차 차키 O
         dialogueData.Add(23, new string[] { "차문이 잠겨있다", "열쇠가 필요하다" }); //흰색 차
         dialogueData.Add(1023, new string[] { "사탕을 얻었다!" }); //흰색 차 차기 O
+        dialogueData.Add(2023, new string[] { "더이상 차안에서 가져갈만한게 없다" }); //흰색 차 차기 O
         dialogueData.Add(24, new string[] { "삽 얻었다", "땅을 팔 수 있을 것 같다." }); //삽
         dialogueData.Add(25, new string[] { "Trick or Treat~ 사탕 주면 안잡아먹지" }); //석상
         dialogueData.Add(1025, new string[] { "우리는 둘인데 사탕은 하나야?!??!" }); //석상
@@ -59,6 +62,9 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(1026, new string[] { "내가 준 낚시대로 낚시라도 하는게 어때" }); //낚시대 얻은 후
         dialogueData.Add(1027, new string[] { "삽이 있어야 할 것 같다." }); //공사장 마크
         dialogueData.Add(27, new string[] { "자동차 키를 얻었다." }); //공사장 마크 삽 O
+        dialogueData.Add(33, new string[] { "누군가의 피다." }); //피
+        dialogueData.Add(34, new string[] { "하이~" }); //해골
+        dialogueData.Add(35, new string[] { "붉은 잎을 가진 나무지만 단풍나무는 아닌것 같다." }); //나무
         //map2
         dialogueData.Add(28, new string[] { "자동차에 연료와 바퀴와 키가 없다." }); //차동차
         dialogueData.Add(1028, new string[] { "탈출" }); //차동차

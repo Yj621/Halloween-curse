@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     SoundManager soundManager;
     private bool fnote = true;
     private bool fsheet = true;
+    public bool unlock = false;
 
     void Awake()
     {
@@ -184,10 +185,15 @@ public class Player : MonoBehaviour
                 }
                 
             }
-            else if (objectData.id == 6) //선반
+            else if (objectData.id == 6 && !unlock) //선반
             {
                 lockScript.LockActiveTrue();
             }
+            else if (objectData.id == 6 && unlock) 
+            {
+                objectData.condition = 1;
+            }
+           
             else if (objectData.id == 10 && Item.isScissors && !Item.isBattery) // 서랍, 가위 O
             {
                 objectData.condition = 1;
@@ -269,11 +275,15 @@ public class Player : MonoBehaviour
             {
                 objectData.condition = 1;
             }
-            else if (objectData.id == 23 && Item.isCarKey) //하얀차 + 차키 있을때
+            else if (objectData.id == 23 && Item.isCarKey && !Item.isCandy1) //하얀차 + 차키 있을때
             {
                 Item.isCandy1 = true;
                 soundManager.PlayItemGetSound();
                 objectData.condition = 1;
+            }
+            else if (objectData.id == 23 && Item.isCarKey && Item.isCandy1) //하얀차 + 차키 있을때
+            {
+                objectData.condition = 2;
             }
             else if (objectData.id == 25) //석상
             {

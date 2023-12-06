@@ -13,6 +13,11 @@ public class LockScript : MonoBehaviour
     public GameObject drawerUI;
     public GameObject lockUI;
 
+    public Text myText;
+    public GameObject imagePanel;
+    public GameMangaer gameManager;
+    public Player player;
+
     public bool isPassWordCorrect = false;
 
     // 버튼의 원래 스프라이트 이미지 배열
@@ -112,6 +117,11 @@ public class LockScript : MonoBehaviour
             drawerUI.SetActive(true);
             LockActiveFalse();
             Debug.Log("맞췄습니다.");
+            player.unlock = true;
+
+            imagePanel.SetActive(true);
+            myText.text = "비밀번호를 맞췄다.";
+            gameManager.isAction = true;
 
             // pressedButtons 리스트를 초기화합니다.
             pressedButtons.Clear();
