@@ -12,7 +12,6 @@ public class BedDrawerScript : MonoBehaviour
     void Start()
     {
         bedDrawerUI.SetActive(false);
-        batteryUI.SetActive(false);
         soundManager = FindObjectOfType<SoundManager>();
     }
     void Awake()
@@ -40,6 +39,7 @@ public class BedDrawerScript : MonoBehaviour
         soundManager.PlayItemGetSound();
         bedDrawerUI.SetActive(false);
     }
+
     public void ChangeSprite()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
