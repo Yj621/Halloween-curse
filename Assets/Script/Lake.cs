@@ -5,10 +5,12 @@ using UnityEngine;
 public class Lake : MonoBehaviour
 {
     LakeState lakeState;
+    SoundManager soundManager;
 
     void Start() 
     {
         lakeState = FindObjectOfType<LakeState>();    
+        soundManager = FindObjectOfType<SoundManager>();
     }
     void Update()
     {
@@ -48,6 +50,7 @@ public class Lake : MonoBehaviour
         else if (Random.Range(0f, 1f) <= 0.3f)
         {
             Item.isCandy2 = true;
+            soundManager.PlayItemGetSound();
             Debug.Log("Candy");
             return 5;
         }

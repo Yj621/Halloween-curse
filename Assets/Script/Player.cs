@@ -259,13 +259,17 @@ public class Player : MonoBehaviour
                 }
             }
 
-            else if (objectData.id == 27 && Item.isShovel) //삽이 있으면서 땅 팔때 
+            else if (objectData.id == 27 && Item.isShovel) // 삽이 있으면서 땅을 팔 때
             {
-                objectData.condition = 0;
-                Item.isCarKey = true;
-                soundManager.PlayItemGetSound();
-                soundManager.PlayShovelSound();
+                if (!Item.isCarKey) // Item.isCarKey가 false인 경우에만 실행
+                {
+                    objectData.condition = 0;
+                    soundManager.PlayShovelSound();
+                    Item.isCarKey = true;
+                    soundManager.PlayItemGetSound();
+                }
             }
+
 
             else if (objectData.id == 21 && Item.isCarKey) //빨간/초록차 상호작용
             {
