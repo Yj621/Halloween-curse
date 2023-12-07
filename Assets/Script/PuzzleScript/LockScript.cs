@@ -13,6 +13,11 @@ public class LockScript : MonoBehaviour
     public GameObject drawerUI;
     public GameObject lockUI;
 
+    public Text myText;
+    public GameObject imagePanel;
+    public GameMangaer gameManager;
+    public Player player;
+
     public bool isPassWordCorrect = false;
 
     // 버튼의 원래 스프라이트 이미지 배열
@@ -21,8 +26,11 @@ public class LockScript : MonoBehaviour
     // 버튼의 눌린 스프라이트 이미지 배열
     public Sprite pressedSprite;
 
+    SoundManager soundManager;
+
     void Start()
     {
+        soundManager = FindObjectOfType<SoundManager>();
         drawerUI.SetActive(false);
         lockUI.SetActive(false);
         key.SetActive(false);
@@ -44,7 +52,6 @@ public class LockScript : MonoBehaviour
 
         // Check 버튼에 클릭 이벤트 추가
         checkButton.onClick.AddListener(() => CheckButtonClicked());
-        checkButton.interactable = false; // 초기에 Check 버튼 비활성화
     }
 
     void Update()
@@ -91,13 +98,17 @@ public class LockScript : MonoBehaviour
     void CheckButtonClicked()
     {
         // 정답 버튼을 눌렀는지 확인
-        bool isCorrect = true;
-        for (int i = 0; i < correctButtons.Length; i++)
+        bool isCorrect = pressedButtons.Count == correctButtons.Length;
+
+        if (isCorrect)
         {
-            if (!pressedButtons.Contains(correctButtons[i]))
+            for (int i = 0; i < correctButtons.Length; i++)
             {
-                isCorrect = false;
-                break;
+                if (pressedButtons[i] != correctButtons[i])
+                {
+                    isCorrect = false;
+                    break;
+                }
             }
         }
 
@@ -106,12 +117,36 @@ public class LockScript : MonoBehaviour
             drawerUI.SetActive(true);
             LockActiveFalse();
             Debug.Log("맞췄습니다.");
+            player.unlock = true;
+
+            imagePanel.SetActive(true);
+            myText.text = "비밀번호를 맞췄다.";
+            gameManager.isAction = true;
+
+            // pressedButtons 리스트를 초기화합니다.
+            pressedButtons.Clear();
+
+            // 버튼 스프라이트를 원래 상태로 재설정합니다.
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].image.sprite = originalSprites[i];
+            }
         }
         else
         {
             Debug.Log("틀렸습니다.");
+
+            // pressedButtons 리스트를 초기화합니다.
+            pressedButtons.Clear();
+
+            // 버튼 스프라이트를 원래 상태로 재설정합니다.
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].image.sprite = originalSprites[i];
+            }
         }
     }
+
     public void LockActiveTrue()
     {
         lockUI.SetActive(true);
@@ -125,6 +160,8 @@ public class LockScript : MonoBehaviour
     {
         key.SetActive(true);
         Item.isKey = true;
+        soundManager.PlayItemGetSound();
+
         drawerUI.SetActive(false);
         gameObject.SetActive(false);
     }

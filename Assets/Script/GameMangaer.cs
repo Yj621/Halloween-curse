@@ -26,7 +26,6 @@ public class GameMangaer : MonoBehaviour
 
         this.interactionObject = interactionObject;
         ObjectData objectData = interactionObject.GetComponent<ObjectData>();
-        Debug.Log("oD id" + objectData.id);
         Interaction(objectData.id, objectData.condition);
         talkPanel.SetActive(isAction);
     }
@@ -48,7 +47,6 @@ public class GameMangaer : MonoBehaviour
         //대화가 끝나면 isAction = false 
         if (dialogue == null)
         {
-
             isAction = false;
             Debug.Log("액션 false");
             dialogueIndex = 0;

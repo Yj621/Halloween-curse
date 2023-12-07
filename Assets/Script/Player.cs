@@ -30,8 +30,11 @@ public class Player : MonoBehaviour
     TVScript tvScript;
     BedDrawerScript bedDrawerScript;
     Lake theLake;
+    SoundManager soundManager;
     private bool fnote = true;
     private bool fsheet = true;
+    public bool unlock = false;
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -47,10 +50,14 @@ public class Player : MonoBehaviour
         noteUI.SetActive(false);
         sheetUI.SetActive(false);
     }
+    void Start()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
     //이동
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf)
         {
             NoteClose();
 
@@ -112,7 +119,6 @@ public class Player : MonoBehaviour
             {
                 dirVec = Vector3.right;
             }
-
             //스페이스바 눌렀을때 오브젝트 이름 가져와서 
         }
         if (gameStart == 0 && scanObj != null)
@@ -136,7 +142,6 @@ public class Player : MonoBehaviour
         if (Input.GetButtonUp("Jump") && scanObj != null)
         {
             rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-
             Debug.Log("스캔 오브젝트" + scanObj.name);
 
             ObjectData objectData = scanObj.GetComponent<ObjectData>();
@@ -173,16 +178,22 @@ public class Player : MonoBehaviour
                 if (fsheet)
                 {
                     Item.sheet = true;
+                    soundManager.PlayItemGetSound();
                     sheetUI.SetActive(true);
                     pianoScript.SheetActive();
                     fsheet = false;
                 }
                 
             }
-            else if (objectData.id == 6) //선반
+            else if (objectData.id == 6 && !unlock) //선반
             {
                 lockScript.LockActiveTrue();
             }
+            else if (objectData.id == 6 && unlock) 
+            {
+                objectData.condition = 1;
+            }
+           
             else if (objectData.id == 10 && Item.isScissors && !Item.isBattery) // 서랍, 가위 O
             {
                 objectData.condition = 1;
@@ -241,13 +252,19 @@ public class Player : MonoBehaviour
             }
             else if (objectData.id == 24) //삽 상호작용
             {
-                Item.isShovel = true;
+                if (!Item.isShovel) // Item.isShovel이 false인 경우에만 실행
+                {
+                    Item.isShovel = true;
+                    soundManager.PlayItemGetSound();
+                }
             }
 
             else if (objectData.id == 27 && Item.isShovel) //삽이 있으면서 땅 팔때 
             {
                 objectData.condition = 0;
                 Item.isCarKey = true;
+                soundManager.PlayItemGetSound();
+                soundManager.PlayShovelSound();
             }
 
             else if (objectData.id == 21 && Item.isCarKey) //빨간/초록차 상호작용
@@ -258,10 +275,15 @@ public class Player : MonoBehaviour
             {
                 objectData.condition = 1;
             }
-            else if (objectData.id == 23 && Item.isCarKey) //하얀차 + 차키 있을때
+            else if (objectData.id == 23 && Item.isCarKey && !Item.isCandy1) //하얀차 + 차키 있을때
             {
                 Item.isCandy1 = true;
+                soundManager.PlayItemGetSound();
                 objectData.condition = 1;
+            }
+            else if (objectData.id == 23 && Item.isCarKey && Item.isCandy1) //하얀차 + 차키 있을때
+            {
+                objectData.condition = 2;
             }
             else if (objectData.id == 25) //석상
             {
@@ -274,6 +296,7 @@ public class Player : MonoBehaviour
             else if (objectData.id == 26 && !Item.isRod) //상점 주인
             {
                 Item.isRod = true;
+                soundManager.PlayItemGetSound();
             }
             else if (objectData.id == 26 && Item.isRod && gameManager.dialogueIndex == 0) //상점 주인 낚시대 O // gameManager.dialogueIndex == 0 -> 상점주인과 대화 끝날 때까지 기다리기
             {
@@ -290,26 +313,31 @@ public class Player : MonoBehaviour
             if (objectData.id == 29)
             {
                 Item.isOil = true;
+                soundManager.PlayItemGetSound();
             }
             else if (objectData.id == 30)
             {
                 Item.isWheel = true;
+                soundManager.PlayItemGetSound();
             }
             else if (objectData.id == 31)
             {
                 Item.isCarKey2 = true;
+                soundManager.PlayItemGetSound();
             }
             gameManager.Action(scanObj);
 
         }
 
+        
     }
 
     void FixedUpdate()
     {
+
         Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
         rigid.velocity = moveVec * speed;
-
+        
         //레이
         Debug.DrawRay(rigid.position, dirVec * 0.5f, new Color(0, 1, 0));
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dirVec, 0.5f, LayerMask.GetMask("Object"));
@@ -324,7 +352,6 @@ public class Player : MonoBehaviour
             scanObj = null;
         }
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "SecondStairs")
