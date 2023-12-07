@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2e8ffc6a537fd420db3e330cfc961ff2
+guid: 6d05cc558c0024c2db0a1b8ca677b855
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: help_0
+      name: piano help_0
       rect:
         serializedVersion: 2
-        x: 287
-        y: 285
-        width: 562
-        height: 562
+        x: 515
+        y: 95
+        width: 891
+        height: 890
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2ff2f325397948f689c4c1b11f094b7
-      internalID: -669145515
+      spriteID: c50f66e7e68224815a6051c050d47cd1
+      internalID: -1993445898
       vertices: []
       indices: 
       edges: []
@@ -154,7 +154,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      help_0: -669145515
+      piano help_0: -1993445898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

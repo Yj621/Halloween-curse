@@ -14,7 +14,9 @@ public class PianoScript : MonoBehaviour
     public List<int> pianoarr;    
     public bool play = false;
     public bool sheetOn = false;
+    bool pianoManualOn = false;
     public GameObject imgScissors;
+    public GameObject pianoManual;
 
     //오디오 관련 변수 선언
     public AudioSource audioplayer;
@@ -29,13 +31,13 @@ public class PianoScript : MonoBehaviour
     //이미지 변수 및 오디오 포맷
     void Start()
     {
-        
         pianoarr = new List<int>();
         imgpiano.SetActive(false);
         imgpiano2.SetActive(false);
         imgScissors.SetActive(false);
         sheet.SetActive(false);
         imgpiano3.SetActive(false);
+        pianoManual.SetActive(false);
 
         audioplayer = GetComponent<AudioSource>();
         soundManager = FindObjectOfType<SoundManager>();
@@ -152,7 +154,16 @@ public class PianoScript : MonoBehaviour
         sheet.SetActive(true);
         sheetOn = true;
     }
-    
+    public void PianoManual()
+    {
+        pianoManual.SetActive(true);
+        pianoManualOn = true;
+    }
+    public void PianoManualClose()
+    {
+        pianoManual.SetActive(false);
+        pianoManualOn = false;
+    }
     void Update()
     {
         /*if (Input.GetKeyDown(KeyCode.F2) && Item.sheet)
@@ -167,7 +178,11 @@ public class PianoScript : MonoBehaviour
         {
             piano();
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && pianoManualOn)
+        {
+            pianoManual.SetActive(false);
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) && !pianoManualOn)
         {
             sheet.SetActive(false);
             sheetOn = false;
