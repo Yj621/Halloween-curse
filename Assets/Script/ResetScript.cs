@@ -17,6 +17,7 @@ public class ResetScript : MonoBehaviour
         {
             Debug.Log("F10");
             Item.isBattery = false;
+            
         }
     }
 }

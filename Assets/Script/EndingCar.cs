@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndingCar : MonoBehaviour
 {
@@ -15,14 +16,14 @@ public class EndingCar : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        /*if (Input.GetKeyDown(KeyCode.Q))
         {
             isEnding = true;
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
             isEnding = false;
-        }
+        }*/
 
         if (isEnding)
         {
@@ -30,6 +31,11 @@ public class EndingCar : MonoBehaviour
             Debug.Log("heello");
             Vector3 targetPosition = new Vector3(transform.position.x, 16.0f, 0f);
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            
+            Invoke("endingScene", 3f);
         }
+    }
+    void endingScene(){
+        SceneManager.LoadScene("end");
     }
 }
