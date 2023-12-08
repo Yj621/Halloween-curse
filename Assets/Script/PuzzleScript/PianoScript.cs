@@ -117,6 +117,7 @@ public class PianoScript : MonoBehaviour
         {
             for (int i = 0; i < pianoarr.Count; i++)
             {
+                Debug.Log(pianoarr[i]);
                 if (pianoarr[i] != pianoanswer[i])
                 {
                     break;
@@ -130,8 +131,22 @@ public class PianoScript : MonoBehaviour
             {
                 Item.piece = true;
                 imgpiano.SetActive(false);
+
+
+                imagePanel.SetActive(true);
+                myText.text = "피아노에서 가위가 떨어졌다.";
+                gameManager.isAction = true;
+
+                Item.isScissors = true;
+                soundManager.PlayItemGetSound();
+                imgScissors.SetActive(true);
+                imgpiano.SetActive(false);
+                imgpiano2.SetActive(false);
+                imgpiano3.SetActive(false);
+                checkindex = 0;
             }
             pianoarr.Clear();
+            /*pianoarr.Clear();
             Debug.Log("good");
 
             imagePanel.SetActive(true);
@@ -145,7 +160,7 @@ public class PianoScript : MonoBehaviour
             imgpiano2.SetActive(false);
             imgpiano3.SetActive(false);
             checkindex = 0;
-            
+            */
         }
     }
 

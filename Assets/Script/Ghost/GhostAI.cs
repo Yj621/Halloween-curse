@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GhostAI : MonoBehaviour
 {
@@ -51,6 +52,10 @@ public class GhostAI : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("유령과 충돌했습니다!");
+            SceneManager.LoadScene("Map2");
+            Item.isOil = false;
+            Item.isWheel = false;
+            Item.isCarKey2 = false;
             
         }
         
