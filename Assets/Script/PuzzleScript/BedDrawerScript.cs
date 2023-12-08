@@ -24,6 +24,8 @@ public class BedDrawerScript : MonoBehaviour
         if (Item.isBattery)
         {
             batteryUI.SetActive(true);
+        }else{
+            batteryUI.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
             bedDrawerUI.SetActive(false);

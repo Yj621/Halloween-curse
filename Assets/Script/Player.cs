@@ -373,6 +373,7 @@ public class Player : MonoBehaviour
             Debug.Log("Map1");
             sceneManage.Map1();
             Item.isKey = false;
+            Item.isBattery = false;
         }
 
         //맵 2 입장 조건(나중에 수정)
