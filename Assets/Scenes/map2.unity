@@ -7916,8 +7916,8 @@ Transform:
   m_GameObject: {fileID: 145556772}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.24, y: 5.03, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.12, z: 1}
+  m_LocalPosition: {x: 1.25, y: 6.37, z: 0}
+  m_LocalScale: {x: 0.79740334, y: 0.6054517, z: 3.2073176}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7951,21 +7951,21 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.09228015, y: 0.28880337}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.6, y: 8.36}
+    oldSize: {x: 3.36, y: 2.16}
     newSize: {x: 10.6, y: 8.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.6, y: 8.36}
+  m_Size: {x: 2.7673793, y: 1.4355154}
   m_EdgeRadius: 0
 --- !u!212 &145556775
 SpriteRenderer:
@@ -8008,7 +8008,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 338597e75bba5074eaf218e1f45ab351, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9249de3a54d9ee84aa958f9616ba03db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -8482,7 +8482,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.3, y: 3, z: -10}
+  m_LocalPosition: {x: 1.28, y: 11.32, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8502,6 +8502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraSpeed: 5
   player: {fileID: 2076044687}
+  mainCamera: {fileID: 519420028}
   minX: -3.8
   maxX: 4.3
   minY: -4.3
@@ -27440,13 +27441,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1305485329}
   - component: {fileID: 1305485328}
+  - component: {fileID: 1305485331}
+  - component: {fileID: 1305485330}
   m_Layer: 0
   m_Name: car side (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1305485328
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27508,12 +27511,71 @@ Transform:
   m_GameObject: {fileID: 1305485327}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.199, y: 6.34, z: 0}
+  m_LocalPosition: {x: 1.12, y: 6.34, z: 0}
   m_LocalScale: {x: 0.6656342, y: 0.5990768, z: 0.5990768}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1305485330
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305485327}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.09720147, y: -0.0154284835}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.36, y: 2.16}
+    newSize: {x: 3.36, y: 2.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.665704, y: 1.7999991}
+  m_EdgeRadius: 0
+--- !u!114 &1305485331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305485327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2107ed0b6f0ceb42a650eb37c948462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 28
+  condition: 0
 --- !u!1 &1326470088
 GameObject:
   m_ObjectHideFlags: 0
@@ -27615,9 +27677,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1331112016}
+  - component: {fileID: 1331112017}
   - component: {fileID: 1331112015}
   m_Layer: 0
-  m_Name: escape car
+  m_Name: EndingCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27684,12 +27747,26 @@ Transform:
   m_GameObject: {fileID: 1331112014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 12.49, z: 0}
+  m_LocalPosition: {x: 1.282, y: 7.76, z: 0}
   m_LocalScale: {x: 2.130748, y: 2.130748, z: 2.130748}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1331112017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331112014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5879d6877f2755a408f7a42e836245d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  mainCamera: {fileID: 519420031}
 --- !u!1 &1375533177
 GameObject:
   m_ObjectHideFlags: 0

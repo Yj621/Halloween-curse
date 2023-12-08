@@ -308,6 +308,7 @@ public class Player : MonoBehaviour
                 if (Item.isOil && Item.isWheel && Item.isCarKey2)
                 {
                     objectData.condition = 1;
+                    EndingCar.isEnding = true;
                 }
             }
             if (objectData.id == 29)

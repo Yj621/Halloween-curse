@@ -15043,6 +15043,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 183192465}
     - target: {fileID: 7315512376630832607, guid: 230832c89d824e64794c79caa69a7334, type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315512376630832607, guid: 230832c89d824e64794c79caa69a7334, type: 3}
       propertyPath: noteUI
       value: 
       objectReference: {fileID: 1052032092}

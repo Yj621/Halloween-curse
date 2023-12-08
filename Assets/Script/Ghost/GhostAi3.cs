@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GhostAI3 : MonoBehaviour
 {
@@ -101,7 +102,10 @@ public class GhostAI3 : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("충돌!");
-            
+            SceneManager.LoadScene("Map2");
+            Item.isOil = false;
+            Item.isWheel = false;
+            Item.isCarKey2 = false;
         }
     }
 }
