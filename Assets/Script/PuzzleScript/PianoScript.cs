@@ -9,7 +9,7 @@ public class PianoScript : MonoBehaviour
     public GameObject sheet;
     //변수 선언
     public GameObject imgpiano;
-    public GameObject imgpiano2;
+    // public GameObject imgpiano2;
     public GameObject imgpiano3;
     public List<int> pianoarr;    
     public bool play = false;
@@ -33,7 +33,7 @@ public class PianoScript : MonoBehaviour
     {
         pianoarr = new List<int>();
         imgpiano.SetActive(false);
-        imgpiano2.SetActive(false);
+        // imgpiano2.SetActive(false);
         imgScissors.SetActive(false);
         sheet.SetActive(false);
         imgpiano3.SetActive(false);
@@ -47,7 +47,7 @@ public class PianoScript : MonoBehaviour
     public void piano()
     {
         imgpiano.SetActive(true);
-        imgpiano2.SetActive(true);
+      // imgpiano2.SetActive(true);
         imgpiano3.SetActive(true);
 
         int[] pianoanswer = {3,2,1,2,3,3,3};
@@ -105,7 +105,7 @@ public class PianoScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 imgpiano.SetActive(false);
-                imgpiano2.SetActive(false);
+          //      imgpiano2.SetActive(false);
                 play = false;
             }
             if (Input.GetKeyDown(KeyCode.R))
@@ -141,7 +141,7 @@ public class PianoScript : MonoBehaviour
                 soundManager.PlayItemGetSound();
                 imgScissors.SetActive(true);
                 imgpiano.SetActive(false);
-                imgpiano2.SetActive(false);
+                // imgpiano2.SetActive(false);
                 imgpiano3.SetActive(false);
                 checkindex = 0;
             }
@@ -204,6 +204,7 @@ public class PianoScript : MonoBehaviour
             play = false;
             checkindex = 0;
             imgpiano3.SetActive(false);
+            Player.panelOn = false;
         }
     }
 }

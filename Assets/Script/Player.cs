@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     private bool fnote = true;
     private bool fsheet = true;
     public bool unlock = false;
+    public static bool panelOn;
 
     void Awake()
     {
@@ -62,14 +63,14 @@ public class Player : MonoBehaviour
             NoteClose();
 
         }
-        if (!gameManager.isAction && rigid.constraints == RigidbodyConstraints2D.FreezeAll)
+        if (!gameManager.isAction && rigid.constraints == RigidbodyConstraints2D.FreezeAll || panelOn)
         {
             rigid.constraints = RigidbodyConstraints2D.None;
             rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
             //rigid.constraints = ~RigidbodyConstraints2D.FreezePositionX | ~RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
 
-        if (!gameManager.isAction)
+        if (!gameManager.isAction || panelOn)
         {
             h = Input.GetAxisRaw("Horizontal");
             v = Input.GetAxisRaw("Vertical");
@@ -167,6 +168,7 @@ public class Player : MonoBehaviour
                 objectData.condition = 1;
                 pianoScript.piano();
                 pianoScript.checkindex = 1;
+                panelOn = true;
             }
             
             if (objectData.id == 7 && Item.sheet && Item.isScissors) // 가위 얻은 후
@@ -182,6 +184,7 @@ public class Player : MonoBehaviour
                     sheetUI.SetActive(true);
                     pianoScript.SheetActive();
                     fsheet = false;
+                    panelOn = true;
                 }
                 
             }
@@ -200,6 +203,7 @@ public class Player : MonoBehaviour
                 objectData.condition = 1;
                 bedDrawerScript.BedDrawer();
                 bedDrawerScript.ChangeSprite();
+                panelOn = true;
             }
             else if (objectData.id == 10 && Item.isBattery) // 서랍, 가위 O
             {
@@ -213,6 +217,7 @@ public class Player : MonoBehaviour
             {
                 tvScript.opentv = true;
                 objectData.condition = 1;
+                panelOn = true;
             }
             else if (objectData.id == 14) //쪽지 상호작용
             {
@@ -220,6 +225,7 @@ public class Player : MonoBehaviour
                 {
                     noteUI.SetActive(true);
                     fnote = false;
+                    panelOn = true;
                 }
             }
 
@@ -411,5 +417,6 @@ public class Player : MonoBehaviour
     public void NoteClose()
     {
         noteUI.SetActive(false);
+        panelOn = false;
     }
 }

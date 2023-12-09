@@ -34,6 +34,7 @@ public class BedDrawerScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
             bedDrawerUI.SetActive(false);
+            Player.panelOn = false;
     }
 
     public void BedDrawer()

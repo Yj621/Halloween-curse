@@ -25,6 +25,7 @@ public class TVScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             imgTV.SetActive(false);
+            Player.panelOn = false;
         }
         
     }

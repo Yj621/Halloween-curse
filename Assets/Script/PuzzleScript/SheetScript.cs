@@ -23,6 +23,7 @@ public class SheetScript : MonoBehaviour
         {
             imgsheet.SetActive(false);
             play = false;
+            Player.panelOn = false;
         }
     }
 
