@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     private bool fsheet = true;
     public bool unlock = false;
     public static bool panelOn;
+    public GameObject nullObject;
 
     void Awake()
     {
@@ -69,7 +70,12 @@ public class Player : MonoBehaviour
             rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
             //rigid.constraints = ~RigidbodyConstraints2D.FreezePositionX | ~RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
         }
-
+        if (gameManager.isAction && scanObj == null)
+        {
+            gameManager.Action(nullObject);
+            Debug.Log("NULLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+            return;
+        }
         if (!gameManager.isAction || panelOn)
         {
             h = Input.GetAxisRaw("Horizontal");
@@ -351,6 +357,10 @@ public class Player : MonoBehaviour
     {
 
         Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
+        if (gameManager.isAction)
+        {
+            moveVec = Vector2.zero;
+        }
         rigid.velocity = moveVec * speed;
         
         //레이
@@ -360,7 +370,7 @@ public class Player : MonoBehaviour
         if (rayHit.collider != null)
         {
             scanObj = rayHit.collider.gameObject;
-            //Debug.Log(scanObj.name);
+            Debug.Log(scanObj.name);
         }
         else
         {
