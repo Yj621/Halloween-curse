@@ -47,7 +47,7 @@ public class Lake : MonoBehaviour
             Debug.Log("Sock");
             return 4;
         }
-        else if (Random.Range(0f, 1f) <= 0.3f)
+        else if (Random.Range(0f, 1f) <= 0.5f) //현재 사탕 뽑을 확률 20% 
         {
             Item.isCandy2 = true;
             soundManager.PlayItemGetSound();

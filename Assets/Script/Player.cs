@@ -196,6 +196,7 @@ public class Player : MonoBehaviour
            
             else if (objectData.id == 10 && Item.isScissors && !Item.isBattery) // 서랍, 가위 O
             {
+                Debug.Log("dddddddddddddddddddddddddd");
                 objectData.condition = 1;
                 bedDrawerScript.BedDrawer();
                 bedDrawerScript.ChangeSprite();
@@ -211,7 +212,7 @@ public class Player : MonoBehaviour
             else if (objectData.id == 3 && Item.isBattery == true) // TV, 건전지가 있을때 대화 생성 X
             {
                 tvScript.opentv = true;
-                return;
+                objectData.condition = 1;
             }
             else if (objectData.id == 14) //쪽지 상호작용
             {
@@ -295,7 +296,10 @@ public class Player : MonoBehaviour
                 if (Item.isCandy1) candys++;
                 if (Item.isCandy2) candys++;
                 objectData.condition = candys;
-                Debug.Log("candys" + candys);
+                if (candys == 2)
+                {
+                    scanObj.GetComponent<BoxCollider2D>().enabled = false;
+                }
             }
             else if (objectData.id == 26 && !Item.isRod) //상점 주인
             {

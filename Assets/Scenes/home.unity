@@ -3580,6 +3580,9 @@ MonoBehaviour:
   bedDrawerUI: {fileID: 1396242514}
   batteryUI: {fileID: 1639261881}
   orignalImg: {fileID: 1601283117}
+  myText: {fileID: 619793902}
+  imagePanel: {fileID: 1778733903}
+  gameManager: {fileID: 829764731}
 --- !u!1 &523771892
 GameObject:
   m_ObjectHideFlags: 0

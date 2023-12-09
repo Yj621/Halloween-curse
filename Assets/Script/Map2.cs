@@ -16,7 +16,7 @@ public class Map2 : MonoBehaviour
         if(Item.isCandy1 && Item.isCandy2)
         {
             boxCollider.enabled = true;
-            Debug.Log("pass");
+            //Debug.Log("pass");
         }
     }
 }

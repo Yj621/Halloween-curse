@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
         //dialogueData.Add(1, new string[] { "테스트", "다이어로그", "입니다." }); // id, 대화 내용
         dialogueData.Add(2, new string[] { "쓰레기가 가득차있다." }); //쓰레기통
         dialogueData.Add(3, new string[] { "작동하지 않는다. 건전지가 없나?" }); //TV
+        dialogueData.Add(1003, new string[] { "배터리를 끼웠다." }); //TV
         dialogueData.Add(4, new string[] { "나의 모습이 비친다" }); //거울
         dialogueData.Add(5, new string[] { "악보를 얻었다!" }); //악보
         dialogueData.Add(6, new string[] { "비밀번호를 입력해야할 것 같다." }); //선반
@@ -55,8 +56,8 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(1023, new string[] { "사탕을 얻었다!" }); //흰색 차 차기 O
         dialogueData.Add(2023, new string[] { "더이상 차안에서 가져갈만한게 없다" }); //흰색 차 차기 O
         dialogueData.Add(24, new string[] { "삽 얻었다", "땅을 팔 수 있을 것 같다." }); //삽
-        dialogueData.Add(25, new string[] { "Trick or Treat~ 사탕 주면 안잡아먹지" }); //석상
-        dialogueData.Add(1025, new string[] { "우리는 둘인데 사탕은 하나야?!??!" }); //석상
+        dialogueData.Add(25, new string[] { "마을에서 나가고 싶은거야?", "갑자기 달콤한게 먹고싶네" }); //석상
+        dialogueData.Add(1025, new string[] { "이곳에서 나가려면 사탕하나로는 부족해" }); //석상
         dialogueData.Add(2025, new string[] { "지나가게 해줄게 고마워~" }); //석상
         dialogueData.Add(26, new string[] { "아직도 사람이 남아있다니", "심심했는데 고마워", "이건 너에게 선물로 주지", "너에게 필요할 거야", "낚시대를 얻었다." }); //상점 주인
         dialogueData.Add(1026, new string[] { "내가 준 낚시대로 낚시라도 하는게 어때" }); //낚시대 얻은 후
