@@ -7,7 +7,7 @@ public class End : MonoBehaviour
 {
     public float displayImageDuration = 1f;
     public CanvasGroup ending;
-    public float fadeDuration = 1f;
+    public float fadeDuration = 3f;
     float m_Timer;
 
     void Start()

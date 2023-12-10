@@ -15,10 +15,10 @@ public class DialogueManager : MonoBehaviour
     }
     void GenerateData()
     {
-        dialogueData.Add(0, new string[] { "눈을 떠보니 처음 보는 장소이다.", "창밖에 소란스럽다.", "창밖을 보니 유령들이 돌아 다니고있다.", "빨리 이곳을 탈출해야할 것 같다." }); // 게임 시작
+        dialogueData.Add(0, new string[] { "...", "오늘은 10월 31일", "할로윈이잖아?!", "근데..", "밖이 왜 이리 시끄럽지?", "마을사람들이.." ,"다 유령으로..?!" ,"빨리 이곳을 탈출해야해..!" }); // 게임 시작
         //dialogueData.Add(1, new string[] { "테스트", "다이어로그", "입니다." }); // id, 대화 내용
         dialogueData.Add(2, new string[] { "쓰레기가 가득차있다." }); //쓰레기통
-        dialogueData.Add(3, new string[] { "작동하지 않는다. 건전지가 없나?" }); //TV
+        dialogueData.Add(3, new string[] { "흠, 뭔가 있으면 켜질거 같기도.." }); //TV
         dialogueData.Add(1003, new string[] { "배터리를 끼웠다." }); //TV
         dialogueData.Add(4, new string[] { "나의 모습이 비친다" }); //거울
         dialogueData.Add(5, new string[] { "악보를 얻었다!" }); //악보
@@ -41,7 +41,7 @@ public class DialogueManager : MonoBehaviour
         //맵2
         dialogueData.Add(14, new string[] { "상점 전단지이다.", "상점으로 가면 무언갈 얻을 수 있을것 같다." }); //쪽지
         dialogueData.Add(15, new string[] { "큰 호수이다.", "낚시대가 있으면 무언갈 낚을 수 있을 것같다." }); //호수
-        dialogueData.Add(1015, new string[] { "큰 호수이다.", "하지만 호수 안은 텅 비어있다." }); //호수
+        dialogueData.Add(1015, new string[] { "호수 안은 텅 비어있다." }); //호수
         dialogueData.Add(1016, new string[] { "귀여운 물고기를 낚았다." }); //호수
         dialogueData.Add(1017, new string[] { "무서운 물고기를 낚았다." }); //호수
         dialogueData.Add(1018, new string[] { "병을 낚았다." }); //호수
@@ -54,12 +54,12 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(1022, new string[] { "이 차에 맞지 않은 열쇠다" }); //초록 차 차키 O
         dialogueData.Add(23, new string[] { "차문이 잠겨있다", "열쇠가 필요하다" }); //흰색 차
         dialogueData.Add(1023, new string[] { "사탕을 얻었다!" }); //흰색 차 차기 O
-        dialogueData.Add(2023, new string[] { "더이상 차안에서 가져갈만한게 없다" }); //흰색 차 차기 O
+        dialogueData.Add(2023, new string[] { "더 이상 차 안에서 가져갈만한게 없다" }); //흰색 차 차기 O
         dialogueData.Add(24, new string[] { "삽 얻었다", "땅을 팔 수 있을 것 같다." }); //삽
-        dialogueData.Add(25, new string[] { "마을에서 나가고 싶은거야?", "갑자기 달콤한게 먹고싶네" }); //석상
-        dialogueData.Add(1025, new string[] { "이곳에서 나가려면 사탕하나로는 부족해" }); //석상
-        dialogueData.Add(2025, new string[] { "지나가게 해줄게 고마워~" }); //석상
-        dialogueData.Add(26, new string[] { "아직도 사람이 남아있다니", "심심했는데 고마워", "이건 너에게 선물로 주지", "너에게 필요할 거야", "낚시대를 얻었다." }); //상점 주인
+        dialogueData.Add(25, new string[] { "마을에서 나가고 싶은거야?", "맨입으로는 안 되지.", "Trick or treat! 오늘 무슨날인지 알지?" }); //석상
+        dialogueData.Add(1025, new string[] { "이곳에서 나가려면 사탕 하나로는 부족해!" }); //석상
+        dialogueData.Add(2025, new string[] { "오!", "두 개를 구해왔네", "지나가게 해줄게 ~" }); //석상
+        dialogueData.Add(26, new string[] { "아직도 사람이 남아있다니", "갑자기 이게 뭔 난리람.", "이건 너에게 선물로 주지", "필요할 거야", "[낚시대를 얻었다.]" }); //상점 주인
         dialogueData.Add(1026, new string[] { "내가 준 낚시대로 낚시라도 하는게 어때" }); //낚시대 얻은 후
         dialogueData.Add(1027, new string[] { "삽이 있어야 할 것 같다." }); //공사장 마크
         dialogueData.Add(27, new string[] { "자동차 키를 얻었다." }); //공사장 마크 삽 O
@@ -72,7 +72,7 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(29, new string[] { "자동차 연료를 얻었다." }); //연료통
         dialogueData.Add(30, new string[] { "자동차 바퀴를 얻었다." }); //바퀴
         dialogueData.Add(31, new string[] { "자동차 키를 얻었다." }); //차 키
-        dialogueData.Add(100, new string[] { "미로가 나타났다.", "유령들을 필해 미로를 탈출해야 할 것 같다." }); //차 키
+        dialogueData.Add(100, new string[] { "미로가 나타났다.", "유령들을 피해 미로를 탈출해야 할 것 같다." }); //차 키
     }
     public string GetDialogue(int id, int dialogueIndex)
     {
