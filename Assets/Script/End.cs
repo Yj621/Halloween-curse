@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class End : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class End : MonoBehaviour
 
         if (m_Timer > fadeDuration + displayImageDuration)
         {
-            Application.Quit ();
+            SceneManager.LoadScene(0);
         }
     }
 }
