@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class End : MonoBehaviour
 {
-    public float displayImageDuration = 1f;
+    public float displayImageDuration = 5f;
     public CanvasGroup ending;
-    public float fadeDuration = 3f;
+    public float fadeDuration = 5f;
     float m_Timer;
 
     void Start()
