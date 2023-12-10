@@ -152,7 +152,7 @@ public class Player : MonoBehaviour
             Debug.Log("스캔 오브젝트" + scanObj.name);
 
             ObjectData objectData = scanObj.GetComponent<ObjectData>();
-            if (objectData.id == 0 && gameStart > 4)
+            if (objectData.id == 0 && gameStart > 8)
             {
                 return;
             }

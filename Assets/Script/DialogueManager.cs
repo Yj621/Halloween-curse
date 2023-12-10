@@ -58,7 +58,7 @@ public class DialogueManager : MonoBehaviour
         dialogueData.Add(24, new string[] { "삽 얻었다", "땅을 팔 수 있을 것 같다." }); //삽
         dialogueData.Add(25, new string[] { "마을에서 나가고 싶은거야?", "맨입으로는 안 되지.", "Trick or treat! 오늘 무슨날인지 알지?" }); //석상
         dialogueData.Add(1025, new string[] { "이곳에서 나가려면 사탕 하나로는 부족해!" }); //석상
-        dialogueData.Add(2025, new string[] { "오!", "두 개를 구해왔네", "지나가게 해줄게 ~" }); //석상
+        dialogueData.Add(2025, new string[] { "오! 두 개를 구해왔네, 지나가게 해줄게 ~" }); //석상
         dialogueData.Add(26, new string[] { "아직도 사람이 남아있다니", "갑자기 이게 뭔 난리람.", "이건 너에게 선물로 주지", "필요할 거야", "[낚시대를 얻었다.]" }); //상점 주인
         dialogueData.Add(1026, new string[] { "내가 준 낚시대로 낚시라도 하는게 어때" }); //낚시대 얻은 후
         dialogueData.Add(1027, new string[] { "삽이 있어야 할 것 같다." }); //공사장 마크
