@@ -27,7 +27,7 @@ public class End : MonoBehaviour
         
         ending.alpha = m_Timer / fadeDuration;
 
-        if (m_Timer > fadeDuration + displayImageDuration)
+        if (m_Timer > fadeDuration + displayImageDuration + 7f)
         {
             SceneManager.LoadScene(0);
         }
