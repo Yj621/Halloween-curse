@@ -44,10 +44,19 @@
 ![슬라이드6.PNG](https://github.com/Yj621/Halloween-curse/blob/newmain/img/img_05.png)
 
 ![슬라이드7.PNG](https://github.com/Yj621/Halloween-curse/blob/newmain/img/img_06.png)
+![02](https://github.com/Yj621/Kp-23-1/assets/87031282/78abd4ad-24d1-4807-9968-88193a5e35c9)
+![03](https://github.com/Yj621/Kp-23-1/assets/87031282/ba156ec6-e89d-4940-b3f4-b37c0df24243)
+
 
 ![슬라이드8.PNG](https://github.com/Yj621/Halloween-curse/blob/newmain/img/img_07.png)
 
+![01](https://github.com/Yj621/Kp-23-1/assets/87031282/fc97162e-9c56-4229-87b1-1badfb77546e)
+
+
 ![슬라이드9.PNG](https://github.com/Yj621/Halloween-curse/blob/newmain/img/img_08.png)
+
+![04](https://github.com/Yj621/Kp-23-1/assets/87031282/ee6eadba-622f-4d86-ba9a-9126d5c09621)
+
 
 ![슬라이드10.PNG](https://github.com/Yj621/Halloween-curse/blob/newmain/img/img_09.png)
 
