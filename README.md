@@ -14,8 +14,6 @@
 23.11.09 ~ 23.12.10
 
 ## **🧑 팀 구성원 및 역할**
----
-
 | 이름 | 정윤지 | 백진인 | 이강후 | 최형안 |
 | :---: | :---: | :---: | :---: | :---: |
 | 역할1 | 플레이어 및 상호작용 | UI 및 맵 디자인 | 전반적인 퍼즐 | 조명 효과 |
@@ -23,8 +21,6 @@
 | GitHub |[@Yj621](https://github.com/Yj621)|[@Bjinin](https://github.com/Bjinin)| [@LeeKangHoo](https://github.com/LeeKangHoo) |  [@Zero-M-creator](https://github.com/Zero-M-creator) |
 
 ## 🛠️ 개발 환경
-
----
 <div align="center">
 
 ### **언어 및 게임 엔진**
