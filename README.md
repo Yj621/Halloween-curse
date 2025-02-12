@@ -20,33 +20,37 @@
 | :---: | :---: | :---: | :---: | :---: |
 | 역할1 | 플레이어 및 상호작용 | UI 및 맵 디자인 | 전반적인 퍼즐 | 조명 효과 |
 | 역할2 |  자물쇠 퍼즐 | 전반적인 디자인 | 유령 시스템 | 대화 시스 |
-| 코드 구현 |  |  |  |  |
 | GitHub |[@Yj621](https://github.com/Yj621)|[@Bjinin](https://github.com/Bjinin)| [@LeeKangHoo](https://github.com/LeeKangHoo) |  [@Zero-M-creator](https://github.com/Zero-M-creator) |
 
 ## 🛠️ 개발 환경
 
 ---
+<div align="center">
 
-**언어 및 게임 엔진**
+### **언어 및 게임 엔진**
 
-https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white
+</div>
 
-https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white
+<br/>
+<p align="center">
+  <img src="https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white">
+    <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white">
+  
+</p>
 
-**협업 툴**
+<div align="center">
 
-https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white
+### **협업 툴**
 
-https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white
+</div>
 
-https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
-
-## ⏩ 게임 실행 방법
-
----
-
-1. [게임 다운로드 링크]( ) 다운로드
-2. 압축 해제 후, .exe 실행
+<p align="center">
+  <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white">
+  
+  <img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white">
+  
+  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+</p>
 
 
 ## 🗣️ 느낀점
