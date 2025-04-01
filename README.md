@@ -121,13 +121,13 @@ Halloween curse
 - 맵 순서
   
 맵1
-| 시작 | 아이템 습득 | 피아노 연주 미니게임 | 자물쇠 |
+| 시작 | 아이템 습득 | 피아노 연주 미니게임 | 자물쇠 |
 | :---: | :---: | :---: | :---: |
 | ![image](https://github.com/user-attachments/assets/733e1d4e-ec9b-4f1a-9183-fa771df11f8a) | ![image](https://github.com/user-attachments/assets/64daa131-9658-42dc-a2b4-5046ee822a77) | ![image](https://github.com/user-attachments/assets/9b9eeb0a-77a5-4c05-ade5-17cf5955477a) | ![image](https://github.com/user-attachments/assets/3a5dfe08-5e44-493f-8acd-a0f46979c030)
 | 스토리 독백 대화 | 책상 위의 악보 상호작용 | 악보를 가진채 피아노와 상호작용 | 자물쇠 클릭 상호작용 |
 
 맵2
-| 아이템1 습득 | 아이템2 습득 | 자동차에서 아이템3 습득 | 호수에서 낚시로 아이템4 습득|
+| 아이템1 습득 | 아이템2 습득 | 자동차에서 아이템3 습득 | 호수에서 아이템4 습득|
 | :---: | :---: | :---: | :---: |
 | ![image](https://github.com/user-attachments/assets/4c2440d0-eae6-4700-ac68-fe0d7452f974) | ![image](https://github.com/user-attachments/assets/2ba62729-f024-464b-86b1-45f27148f085)| ![image](https://github.com/user-attachments/assets/856d5fe2-e924-4a8e-8e72-6061b264fdef)|![image](https://github.com/user-attachments/assets/353a591f-b392-4d6e-91f5-4705a7a10008)|
 
